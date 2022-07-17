@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Phasmo-Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="main.js"></script>
+        <style>
+            #helloWorld {
+                background-color: blue;
+            }
+            #triState {
+                background-color: rgb(76, 76, 138);
+            }
+        </style>
+    </head>
+    <body>
+        <header></header>
+        <section id="options">
+            <input id='dots' class='triState'
+            type='text' name="DOTS" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x2753;'
+            onclick='tristate_Marks(this)' />
+            <label for="dots">DOTS</label>
+
+            <input id='emf-5' class='triState'
+            type='text' name="EMF 5" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x2753;'
+            onclick='tristate_Marks(this)' />
+            <label for="emf-5">EMF 5</label>
+
+            <input id='fingerprints' class='triState'
+            type='text' name="Empruntes" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x2753;'
+            onclick='tristate_Marks(this)' />
+            <label for="fingerprints">Empruntes</label>
+
+            <input id='freezing-temperature' class='triState'
+            type='text' name="Température glaciale" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x2753;'
+            onclick='tristate_Marks(this)' />
+            <label for="freezing-temperature">Température glaciale</label>
+
+            <input id='ghost-orbs' class='triState'
+            type='text' name="Orbe fantômatique" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x2753;'
+            onclick='tristate_Marks(this)' />
+            <label for="ghost-orbs">Orbe fantômatique</label>
+
+            <input id='ghost-writing' class='triState'
+            type='text' name="Écriture fantômatique" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x2753;'
+            onclick='tristate_Marks(this)' />
+            <label for="ghost-writing">Écriture fantômatique</label>
+
+            <input id='spirit-box' class='triState'
+            type='text' name="Spirit box" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x2753;'
+            onclick='tristate_Marks(this)' />
+            <label for="spirit-box">Spirit box</label>
+
+        </section>
+    </body>
+</html>
