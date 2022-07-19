@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>Phasmo-Calculator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="main.js"></script>
+        <script defer src="main.js"></script>
         <style>
             #helloWorld {
                 background-color: blue;
@@ -58,6 +58,12 @@
             readonly='true' size='1' value='&#x2753;'
             onclick='tristate_Marks(this)' />
             <label for="spirit-box">Spirit box</label>
+
+            <input id='nightmare'
+            type='text' name="Cauchemar" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x2753;'
+            onclick='' />
+            <label for="nightmare">Cauchemar</label>
 
         </section>
     </body>
