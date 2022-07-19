@@ -544,28 +544,15 @@ function computeNightmare()
         let strongEvid = ghostData.strongEvidence;
         if(visibility && (strongEvid !== undefined)) // This ghost have a strong evidence
         {
-            if(hiddenEvidences.length >= 1) // There's more than one hidden evidence
+            console.log(`${ghostName}: ${strongEvid}`);
+            if(actualEvidences.length >= 2 && !actualEvidences.includes(strongEvid))
             {
-                if(ghostName === 'The Mimic')
-                {
-                    if(actualEvidences.length >= 2 && !actualEvidences.includes(strongEvid) && hiddenEvidences.includes(strongEvid))
-                    {
-                        visibility = false;
-                    }
-                }
-                else
-                {
-                    if(hiddenEvidences.includes(strongEvid))
-                    {
-                        visibility = false;
-                    }
-                }
+                visibility = false;
             }
         }
-        if(visibility && hiddenEvidences.length > 1 && actualEvidences.length > 0 && ghostName !== 'The Mimic')
+        if(visibility && hiddenEvidences.length > 1 && ghostName !== 'The Mimic')
         {
             let combineHidden = combinationArrayNRNO(hiddenEvidences, 2);
-            console.log(`CombineHidden: '${combineHidden}'`);
             for(let childCombine of combineHidden)
             {
                 let nbr = 0;
@@ -585,57 +572,6 @@ function computeNightmare()
         }
         ghostElement.style.visibility = visibility ? 'visible' : 'collapse';
         ghostElement.style.overflow = visibility ? 'visible' : 'hidden';
-        /*
-        let strongEvid = ghostData.strongEvidence;
-        // There's no other ghost with 3 actual evidences in nightmare
-        if(actualEvidences.length >= 3 && visibility)
-        {
-            visibility = ghostName === 'The Mimic';
-        }
-        // Let's test if it contains a strong evidence at least since there's at least 2 proof..
-        if(strongEvid !== undefined && actualEvidences.length > 1)
-        {
-            visibility &= actualEvidences.includes(strongEvid);
-        }
-        if(hiddenEvidences.length === 1)
-        {
-            if(strongEvid !== undefined && strongEvid === hiddenEvidences[0]) // if he have a strong evidence equal to the evidence hidden
-            {
-                visibility = false; // Aboard the mission
-                break;
-            }
-        }
-        if(actualEvidences.length < 3 && hiddenEvidences.length >= 2)
-        {
-            let combineHidden = combinationArrayNRNO(hiddenEvidences, 2);
-            let isStrongEvidence = false;
-            for(let evidences of combineHidden)
-            {
-                let nbrIncluded = 0;
-                for(let evidence of evidences)
-                {
-                    if(ghostData.evidences.includes(evidence))
-                    {
-                        nbrIncluded++;
-                        if(strongEvid !== undefined && strongEvid === evidence) // if he have a strong evidence equal to the evidence hidden
-                        {
-                            visibility = false; // Aboard the mission
-                            isStrongEvidence = true;
-                            break;
-                        }
-                    }
-                }
-                if(isStrongEvidence)
-                {
-                    break;
-                }
-                if(actualEvidences > 1 && nbrIncluded >= 2)
-                {
-                    visibility = false;
-                    break;
-                }
-            }
-        }*/
     }
 }
 function isNightmare(v)
