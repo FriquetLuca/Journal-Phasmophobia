@@ -20,51 +20,58 @@
             <input id='dots' class='triState'
             type='text' name="DOTS" style='border: none;' onfocus='this.blur()'
             readonly='true' size='1' value='&#x2753;'
-            onclick='tristate_Marks(this)' />
+            onclick='evidenceMark(this)' />
             <label for="dots">DOTS</label>
 
             <input id='emf-5' class='triState'
             type='text' name="EMF 5" style='border: none;' onfocus='this.blur()'
             readonly='true' size='1' value='&#x2753;'
-            onclick='tristate_Marks(this)' />
+            onclick='evidenceMark(this)' />
             <label for="emf-5">EMF 5</label>
 
             <input id='fingerprints' class='triState'
             type='text' name="Empruntes" style='border: none;' onfocus='this.blur()'
             readonly='true' size='1' value='&#x2753;'
-            onclick='tristate_Marks(this)' />
+            onclick='evidenceMark(this)' />
             <label for="fingerprints">Empruntes</label>
 
             <input id='freezing-temperature' class='triState'
             type='text' name="Température glaciale" style='border: none;' onfocus='this.blur()'
             readonly='true' size='1' value='&#x2753;'
-            onclick='tristate_Marks(this)' />
+            onclick='evidenceMark(this)' />
             <label for="freezing-temperature">Température glaciale</label>
 
             <input id='ghost-orbs' class='triState'
             type='text' name="Orbe fantômatique" style='border: none;' onfocus='this.blur()'
             readonly='true' size='1' value='&#x2753;'
-            onclick='tristate_Marks(this)' />
+            onclick='evidenceMark(this)' />
             <label for="ghost-orbs">Orbe fantômatique</label>
 
             <input id='ghost-writing' class='triState'
             type='text' name="Écriture fantômatique" style='border: none;' onfocus='this.blur()'
             readonly='true' size='1' value='&#x2753;'
-            onclick='tristate_Marks(this)' />
+            onclick='evidenceMark(this)' />
             <label for="ghost-writing">Écriture fantômatique</label>
 
             <input id='spirit-box' class='triState'
             type='text' name="Spirit box" style='border: none;' onfocus='this.blur()'
             readonly='true' size='1' value='&#x2753;'
-            onclick='tristate_Marks(this)' />
+            onclick='evidenceMark(this)' />
             <label for="spirit-box">Spirit box</label>
 
             <input id='nightmare'
             type='text' name="Cauchemar" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x2753;'
-            onclick='' />
+            readonly='true' size='1' value='&#x274c;'
+            onclick='modeMark(this)' />
             <label for="nightmare">Cauchemar</label>
 
+            <table id='ghost-result'>
+                <thead>
+                    <tr>
+                        <td colspan="5">List Of Potential Ghosts</td>
+                    </tr>
+                </thead>
+            </table>
         </section>
     </body>
 </html>

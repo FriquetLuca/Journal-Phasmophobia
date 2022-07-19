@@ -1,5 +1,16 @@
 'use strict';
 
+const ghostList = [
+    'Banshee', 'Demon', 'Deogen', 'Goryo', 'Hantu', 'Jinn', 'Mare',
+    'Moroi', 'Myling', 'Obake', 'Oni','Onryo', 'Phantom', 'Poltergeist',
+    'Raiju', 'Shade', 'Spirit', 'Thaye', 'The Mimic', 'The Twins', 'Wraith',
+    'Yokai', 'Yurei'
+];
+const checkboxEmotes = [
+    '\u2753', // Neutral
+    '\u2705', // True
+    '\u274C' // False
+];
 const ghostsDB = {
     'Banshee': {
         evidences: [
@@ -278,7 +289,16 @@ class trilean {
         return new trilean('Unknown');
     }
 }
-let IDS = {
+const evidenceList = [
+    'dots',
+    'emf-5',
+    'fingerprints',
+    'freezing-temperature',
+    'ghost-orbs',
+    'ghost-writing',
+    'spirit-box'
+];
+const IDS = {
     'dots': {
         check: trilean.newTrilean(),
         name: 'D.O.T.S Projector',
@@ -314,39 +334,203 @@ let IDS = {
         isEvidence: true
     },
     'nightmare': {
-        value: false,
+        value: '\u274C',
         isMode: true
     }
 };
-function ghostCheck(control)
+function listHTML(elements, ...liClass)
 {
-    let evidence = IDS[control.id];
-    if(evidence.isMode) // It's nightmare mode toggle
-    {
 
-    }
-    else // Anything else
+    let newUL = document.createElement('ul');
+    for(let e of elements)
     {
-        if(evidence.value) // Value is only use on nightmare, so it's fine to test nightmare mode here
+        let li = document.createElement('li');
+        li.innerText = e;
+        for(let l of liClass)
         {
+            li.classList.add(l);
+        }
+        newUL.appendChild(li);
+    }
+    return newUL;
+}
+function paragraphHTML(element)
+{
+    let par = document.createElement('p');
+    par.innerHTML = element;
+    return par;
+}
+function columnHTML(...toAppend)
+{
+    let column = document.createElement('td');
+    for(let child of toAppend)
+    {
+        column.appendChild(child);
+    }
+    return column;
+}
+function createGhostList()
+{
+    for(let evidenceName of evidenceList)
+    {
+        let evidVals = document.getElementById(evidenceName);
+        evidVals.value = '\u2753';
+    }
+    let nightmare = document.getElementById('nightmare');
+    nightmare.value = '\u274C';
+    let ghostTable = document.getElementById('ghost-result');
+    for(let ghostName of ghostList)
+    {
+        let ghostElement = document.getElementById(ghostName);
+        if(ghostElement == undefined || ghostElement == null) // Doesn't exist, let's create it
+        {
+            let ghost = ghostsDB[ghostName]; // Get the ghost from it's name
 
+            let line = document.createElement('tr');
+            line.classList.add('ghost-table-element');
+
+                let ghostNameCol = columnHTML(paragraphHTML(ghostName));
+                    ghostNameCol.classList.add('ghost-name');
+            line.appendChild(ghostNameCol);
+
+                let ghostEvidences = columnHTML(listHTML(ghost.evidences, 'ghost-evidences-item'));
+                    ghostEvidences.classList.add('ghost-evidences');
+            line.appendChild(ghostEvidences);
+
+                let ghostStrenght = columnHTML(paragraphHTML(ghost.strenght));
+                    ghostStrenght.classList.add('ghost-strenght');
+            line.appendChild(ghostStrenght);
+
+                let ghostWeakn = columnHTML(paragraphHTML(ghost.weakness));
+                    ghostWeakn.classList.add('ghost-weakness');
+            line.appendChild(ghostWeakn);
+                    
+                let ghostDesc = columnHTML(paragraphHTML(ghost.description));
+                    ghostDesc.classList.add('ghost-description');
+            line.appendChild(ghostDesc);
+
+            line.id = ghostName;
+            ghostTable.appendChild(line);
+        }
+    }
+}
+function computeNormal()
+{
+    //'\u2753', // Neutral
+    //'\u2705', // True
+    //'\u274C' // False
+
+    // Visible / Hidden / ...
+    // ghost-table-element
+
+    let allGhosts = [...ghostList];
+    let actualEvidences = [];
+    let hiddenEvidences = [];
+    for(let evidenceName of evidenceList)
+    {
+        let elemEvidence = document.getElementById(evidenceName);
+        switch(elemEvidence.value.charAt(0))
+        {
+            case '\u2705': // True
+            actualEvidences.push(IDS[evidenceName].name);
+                break;
+            case '\u274C': // False
+            hiddenEvidences.push(IDS[evidenceName].name);
+                break;
+        }
+    }
+    for(let ghostName of allGhosts)
+    {
+        let ghostData = ghostsDB[ghostName];
+        let ghostElement = document.getElementById(ghostName);
+        let visibility = true;
+        console.log(`Ghost: ${ghostName}`);
+        for(let evidence of actualEvidences)
+        {
+            if(!ghostData.evidences.includes(evidence))
+            {
+                console.log(`Actual evidence: ${evidence}, remove: ${ghostName}`);
+                visibility = false;
+                break;
+            }
+        }
+        for(let evidence of hiddenEvidences)
+        {
+            if(ghostData.evidences.includes(evidence))
+            {
+                console.log(`Hidden evidence: ${evidence}, remove: ${ghostName}`);
+                visibility = false;
+                break;
+            }
+        }
+        if(visibility)
+        {
+            console.log('Visible');
+            ghostElement.style = 'visibility: visible; overflow: visible;';
         }
         else
         {
-            if(evidence.isEvidence)
-            {
-                // It's one of the 7 evidences, do something
-            }
-            else
-            {
-                // It's not one of the 7 evidences, do something else
-            }
+            console.log('Hidden');
+            ghostElement.style = 'visibility: hidden; overflow: collapse;';
         }
-        
+        console.log(ghostElement);
     }
 }
-function tristate(control, value1, value2, value3) {
+function computeNightmare()
+{
+    console.log('NIGHTMARE BITCHES');
+}
+function isNightmare(v)
+{
+    return v.charAt(0) == checkboxEmotes[1];
+}
+function ghostCheck(control)
+{
+    let evidence = IDS[`${control.id}`];
+    if(evidence.isMode) // It's nightmare mode toggle
+    {
+        // Assign new value to evidence
+        evidence.value = control.value;
+        if(isNightmare(evidence.value)) // Nightmare mode
+        {
+            computeNightmare();
+        }
+        else // Not nightmare mode
+        {
+            computeNormal();
+        }
+    }
+    else
+    {
+        if(isNightmare(IDS[`nightmare`].value)) // Is nightmare mode
+        {
+            computeNightmare();
+        }
+        else // Not nightmare mode
+        {
+            computeNormal();
+        }
+    }
+}
+
+// Multi-state
+function dualstate(control, value1, value2)
+{
     switch (control.value.charAt(0)) {
+        case value1:
+            control.value = value2;
+            break;
+        case value2:
+            control.value = value1;
+            break;
+        default:
+            throw new Error('Unexpected checkbox value');
+    }
+}
+function tristate(control, value1, value2, value3)
+{
+    switch (control.value.charAt(0))
+    {
         case value1:
             control.value = value2;
             break;
@@ -359,29 +543,17 @@ function tristate(control, value1, value2, value3) {
         default:
             throw new Error('Unexpected checkbox value');
     }
+}
+function evidenceMark(control)
+{
+    tristate(control, checkboxEmotes[0], checkboxEmotes[1], checkboxEmotes[2]);
     ghostCheck(control);
 }
-function tristate_Marks(control) {
-    tristate(control,'\u2753', '\u2705', '\u274C');
+function modeMark(control)
+{
+    dualstate(control, checkboxEmotes[1], checkboxEmotes[2]);
+    ghostCheck(control);
 }
-/*
-function tristate_Circles(control) {
-    tristate(control,'\u25EF', '\u25CE', '\u25C9');
+window.onload = () => {
+    createGhostList();
 }
-function tristate_Ballot(control) {
-    tristate(control,'\u2610', '\u2611', '\u2612');
-}
-function tristate_Check(control) {
-    tristate(control,'\u25A1', '\u2754', '\u2714');
-}*/
-
-window.onload = addElements;
-
-function addElements () {
-    let nghtmr = document.getElementById('nightmare');
-    nghtmr.onclick = () => {
-        ghostCheck(nghtmr);
-    };
-    console.log(nghtmr.name);
-}
-
