@@ -316,7 +316,7 @@ const IDS = {
     },
     'freezing-temperature': {
         check: trilean.newTrilean(),
-        name: 'Freezing Temperature'
+        name: 'Freezing Temperatures'
     },
     'ghost-orbs': {
         check: trilean.newTrilean(),
@@ -379,6 +379,7 @@ function createGhostList()
     let nightmare = document.getElementById('nightmare');
     nightmare.value = '\u274C';
     let ghostTable = document.getElementById('ghost-result');
+    let ind = 0;
     for(let ghostName of ghostList)
     {
         let ghostElement = document.getElementById(ghostName);
@@ -388,6 +389,7 @@ function createGhostList()
 
             let line = document.createElement('tr');
             line.classList.add('ghost-table-element');
+            line.classList.add(`ghost-table-parity-${(ind++ % 2) + 1}`);
 
                 let ghostNameCol = columnHTML(paragraphHTML(ghostName));
                     ghostNameCol.classList.add('ghost-name');
@@ -422,8 +424,6 @@ function computeNormal()
 
     // Visible / Hidden / ...
     // ghost-table-element
-
-    let allGhosts = [...ghostList];
     let actualEvidences = [];
     let hiddenEvidences = [];
     for(let evidenceName of evidenceList)
@@ -431,25 +431,24 @@ function computeNormal()
         let elemEvidence = document.getElementById(evidenceName);
         switch(elemEvidence.value.charAt(0))
         {
-            case '\u2705': // True
+            case checkboxEmotes[1]: // True
             actualEvidences.push(IDS[evidenceName].name);
                 break;
-            case '\u274C': // False
+            case checkboxEmotes[2]: // False
+            console.log('? :D');
             hiddenEvidences.push(IDS[evidenceName].name);
                 break;
         }
     }
-    for(let ghostName of allGhosts)
+    for(let ghostName of ghostList)
     {
         let ghostData = ghostsDB[ghostName];
         let ghostElement = document.getElementById(ghostName);
         let visibility = true;
-        console.log(`Ghost: ${ghostName}`);
         for(let evidence of actualEvidences)
         {
             if(!ghostData.evidences.includes(evidence))
             {
-                console.log(`Actual evidence: ${evidence}, remove: ${ghostName}`);
                 visibility = false;
                 break;
             }
@@ -458,22 +457,14 @@ function computeNormal()
         {
             if(ghostData.evidences.includes(evidence))
             {
-                console.log(`Hidden evidence: ${evidence}, remove: ${ghostName}`);
                 visibility = false;
                 break;
             }
         }
-        if(visibility)
-        {
-            console.log('Visible');
-            ghostElement.style = 'visibility: visible; overflow: visible;';
-        }
-        else
-        {
-            console.log('Hidden');
-            ghostElement.style = 'visibility: hidden; overflow: collapse;';
-        }
-        console.log(ghostElement);
+        ghostElement.style.visibility = visibility ? 'visible' : 'collapse';
+        ghostElement.style.overflow = visibility ? 'visible' : 'hidden';
+        
+        
     }
 }
 function computeNightmare()
