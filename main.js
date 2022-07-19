@@ -542,14 +542,13 @@ function computeNightmare()
         // There's more than one evidence for some reason..
         // Let's test the strong evidence.
         let strongEvid = ghostData.strongEvidence;
-        if(strongEvid !== undefined) // This ghost have a strong evidence
+        if(visibility && (strongEvid !== undefined)) // This ghost have a strong evidence
         {
-            console.log(strongEvid);
-            if(hiddenEvidences.length >= 1) // There's one more hidden evidence
+            if(hiddenEvidences.length >= 1) // There's more than one hidden evidence
             {
                 if(ghostName === 'The Mimic')
                 {
-                    if(hiddenEvidences.length > 1 && hiddenEvidences.includes(strongEvid))
+                    if(actualEvidences.length >= 2 && !actualEvidences.includes(strongEvid) && hiddenEvidences.includes(strongEvid))
                     {
                         visibility = false;
                     }
@@ -560,6 +559,27 @@ function computeNightmare()
                     {
                         visibility = false;
                     }
+                }
+            }
+        }
+        if(visibility && hiddenEvidences.length > 1 && actualEvidences.length > 0 && ghostName !== 'The Mimic')
+        {
+            let combineHidden = combinationArrayNRNO(hiddenEvidences, 2);
+            console.log(`CombineHidden: '${combineHidden}'`);
+            for(let childCombine of combineHidden)
+            {
+                let nbr = 0;
+                for(let child of childCombine)
+                {
+                    if(ghostData.evidences.includes(child))
+                    {
+                        nbr++;
+                    }
+                }
+                if(nbr == 2)
+                {
+                    visibility = false;
+                    break;
                 }
             }
         }
