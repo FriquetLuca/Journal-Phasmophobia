@@ -14,7 +14,7 @@ const checkboxEmotes = [
 const ghostsDB = {
     'Banshee': {
         evidences: [
-            'D.O.T.S Projector',
+            'D.O.T.S. Projector',
             'Fingerprints',
             'Ghost Orb'
         ],
@@ -45,11 +45,11 @@ const ghostsDB = {
     },
     'Goryo': {
         evidences: [
-            'D.O.T.S Projector',
+            'D.O.T.S. Projector',
             'EMF Level 5',
             'Fingerprints'
         ],
-        strongEvidence: 'D.O.T.S Projector',
+        strongEvidence: 'D.O.T.S. Projector',
         strenght: "Can only be seen interacting with D.O.T.S. through a camera when nobody is nearby.",
         weakness: "Tends to wander away less from its ghost room.",
         description: "„When a Goryo passes through a DOTS projector, using a video camera is the only way to see it.”"
@@ -119,7 +119,7 @@ const ghostsDB = {
     },
     'Oni': {
         evidences: [
-            'D.O.T.S Projector',
+            'D.O.T.S. Projector',
             'EMF Level 5',
             'Freezing Temperatures'
         ],
@@ -139,7 +139,7 @@ const ghostsDB = {
     },
     'Phantom': {
         evidences: [
-            'D.O.T.S Projector',
+            'D.O.T.S. Projector',
             'Fingerprints',
             'Spirit Box'
         ],
@@ -199,7 +199,7 @@ const ghostsDB = {
     },
     'Thaye': {
         evidences: [
-            'D.O.T.S Projector',
+            'D.O.T.S. Projector',
             'Ghost Orb',
             'Ghost Writing'
         ],
@@ -231,7 +231,7 @@ const ghostsDB = {
     },
     'Wraith': {
         evidences: [
-            'D.O.T.S Projector',
+            'D.O.T.S. Projector',
             'EMF Level 5',
             'Spirit Box'
         ],
@@ -241,7 +241,7 @@ const ghostsDB = {
     },
     'Yokai': {
         evidences: [
-            'D.O.T.S Projector',
+            'D.O.T.S. Projector',
             'Ghost Orb',
             'Spirit Box'
         ],
@@ -251,7 +251,7 @@ const ghostsDB = {
     },
     'Yurei': {
         evidences: [
-            'D.O.T.S Projector',
+            'D.O.T.S. Projector',
             'Freezing Temperatures',
             'Ghost Orb'
         ],
@@ -301,7 +301,7 @@ const evidenceList = [
 const IDS = {
     'dots': {
         check: trilean.newTrilean(),
-        name: 'D.O.T.S Projector',
+        name: 'D.O.T.S. Projector',
         isEvidence: true
     },
     'emf-5': {
@@ -480,7 +480,6 @@ function computeNormal()
             actualEvidences.push(IDS[evidenceName].name);
                 break;
             case checkboxEmotes[2]: // False
-            console.log('? :D');
             hiddenEvidences.push(IDS[evidenceName].name);
                 break;
         }
@@ -511,7 +510,8 @@ function computeNormal()
     }
 }
 function computeNightmare()
-{let actualEvidences = [];
+{
+    let actualEvidences = [];
     let hiddenEvidences = [];
     for(let evidenceName of evidenceList)
     {
@@ -539,10 +539,56 @@ function computeNightmare()
                 break;
             }
         }
-        if(hiddenEvidences.length > 1)
+        // There's more than one evidence for some reason..
+        // Let's test the strong evidence.
+        let strongEvid = ghostData.strongEvidence;
+        if(strongEvid !== undefined) // This ghost have a strong evidence
+        {
+            console.log(strongEvid);
+            if(hiddenEvidences.length >= 1) // There's one more hidden evidence
+            {
+                if(ghostName === 'The Mimic')
+                {
+                    if(hiddenEvidences.length > 1 && hiddenEvidences.includes(strongEvid))
+                    {
+                        visibility = false;
+                    }
+                }
+                else
+                {
+                    if(hiddenEvidences.includes(strongEvid))
+                    {
+                        visibility = false;
+                    }
+                }
+            }
+        }
+        ghostElement.style.visibility = visibility ? 'visible' : 'collapse';
+        ghostElement.style.overflow = visibility ? 'visible' : 'hidden';
+        /*
+        let strongEvid = ghostData.strongEvidence;
+        // There's no other ghost with 3 actual evidences in nightmare
+        if(actualEvidences.length >= 3 && visibility)
+        {
+            visibility = ghostName === 'The Mimic';
+        }
+        // Let's test if it contains a strong evidence at least since there's at least 2 proof..
+        if(strongEvid !== undefined && actualEvidences.length > 1)
+        {
+            visibility &= actualEvidences.includes(strongEvid);
+        }
+        if(hiddenEvidences.length === 1)
+        {
+            if(strongEvid !== undefined && strongEvid === hiddenEvidences[0]) // if he have a strong evidence equal to the evidence hidden
+            {
+                visibility = false; // Aboard the mission
+                break;
+            }
+        }
+        if(actualEvidences.length < 3 && hiddenEvidences.length >= 2)
         {
             let combineHidden = combinationArrayNRNO(hiddenEvidences, 2);
-            console.log(combineHidden);
+            let isStrongEvidence = false;
             for(let evidences of combineHidden)
             {
                 let nbrIncluded = 0;
@@ -551,17 +597,25 @@ function computeNightmare()
                     if(ghostData.evidences.includes(evidence))
                     {
                         nbrIncluded++;
+                        if(strongEvid !== undefined && strongEvid === evidence) // if he have a strong evidence equal to the evidence hidden
+                        {
+                            visibility = false; // Aboard the mission
+                            isStrongEvidence = true;
+                            break;
+                        }
                     }
                 }
-                if(ghostName !== 'The Mimic' && nbrIncluded >= 2)
+                if(isStrongEvidence)
+                {
+                    break;
+                }
+                if(actualEvidences > 1 && nbrIncluded >= 2)
                 {
                     visibility = false;
                     break;
                 }
             }
-        }
-        ghostElement.style.visibility = visibility ? 'visible' : 'collapse';
-        ghostElement.style.overflow = visibility ? 'visible' : 'hidden';
+        }*/
     }
 }
 function isNightmare(v)
