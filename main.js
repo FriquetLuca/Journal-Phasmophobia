@@ -284,35 +284,6 @@ const ghostsDB = {
         description: "„A Yurei is a ghost that has returned to the physical world, usually for the purpose of revenge or hatred.”"
     }
 };
-class trilean {
-    constructor(val = 'Unknown')
-    {
-        this.val = val;
-    }
-    toggleState()
-    {
-        switch(this.val)
-        {
-            case 'Unknown':
-                this.val = 'Check';
-                break;
-            case 'Check':
-                this.val = 'Uncheck';
-                break;
-            case 'Uncheck':
-                this.val = 'Unknown';
-                break;
-        }
-    }
-    get value()
-    {
-        return this.val;
-    }
-    static newTrilean()
-    {
-        return new trilean('Unknown');
-    }
-}
 const evidenceList = [
     'dots',
     'emf-5',
@@ -322,38 +293,41 @@ const evidenceList = [
     'ghost-writing',
     'spirit-box'
 ];
+const ICONS = {
+    'D.O.T.S. Projector': 'dots-projector.webp',
+    'EMF Level 5': 'emf-reader.webp',
+    'Fingerprints':'fingerprints.webp',
+    'Freezing Temperatures': 'thermometer.webp',
+    'Ghost Orb': 'ghost-orb.webp',
+    'Ghost Writing': 'ghost-writing.webp',
+    'Spirit Box': 'spirit-box.webp'
+}
 const IDS = {
     'dots': {
-        check: trilean.newTrilean(),
         name: 'D.O.T.S. Projector',
         isEvidence: true
     },
     'emf-5': {
-        check: trilean.newTrilean(),
         name: 'EMF Level 5',
         isEvidence: true
     },
     'fingerprints': {
-        check: trilean.newTrilean(),
         name: 'Fingerprints',
         isEvidence: true
     },
     'freezing-temperature': {
-        check: trilean.newTrilean(),
-        name: 'Freezing Temperatures'
+        name: 'Freezing Temperatures',
+        isEvidence: true
     },
     'ghost-orbs': {
-        check: trilean.newTrilean(),
         name: 'Ghost Orb',
         isEvidence: true
     },
     'ghost-writing': {
-        check: trilean.newTrilean(),
         name: 'Ghost Writing',
         isEvidence: true
     },
     'spirit-box': {
-        check: trilean.newTrilean(),
         name: 'Spirit Box',
         isEvidence: true
     },
@@ -459,7 +433,8 @@ function translateEvidence(elements)
     let result = [];
     for(let element of elements)
     {
-        result.push(translate[element]);
+        let src = `assets/icons/${ICONS[element]}`;
+        result.push(`<div class="evidence-content"><img src="${src}" alt="${element}" class="evidence-content-icon"></div><p>${translate[element]}</p>`);
     }
     return result;
 }
@@ -470,7 +445,7 @@ function listHTML(elements, ...liClass)
     for(let e of elements)
     {
         let li = document.createElement('li');
-        li.innerText = e;
+        li.innerHTML = e;
         for(let l of liClass)
         {
             li.classList.add(l);

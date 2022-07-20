@@ -28,6 +28,13 @@ ul, li {
   text-align: left;
 }
 
+.evidence-content > img {
+  width: 10px;
+  height: 10px;
+  left: 0px;
+  right: 0px;
+}
+
 .options {
   margin: 0;
   padding: 0;
@@ -41,6 +48,10 @@ ul, li {
 .ghost-result, .ghost-table-element {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
+.ghost-evidence-item {
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=style.css.map */
