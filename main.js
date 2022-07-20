@@ -13,6 +13,7 @@ const checkboxEmotes = [
 ];
 const ghostsDB = {
     'Banshee': {
+        name: 'Banshee',
         evidences: [
             'D.O.T.S. Projector',
             'Fingerprints',
@@ -23,6 +24,7 @@ const ghostsDB = {
         description: "„The singing siren, known for attracting its victims through song. It has been known to single out its prey before making a killing blow.”"
     },
     'Demon': {
+        name: 'Démon',
         evidences: [
             'Fingerprints',
             'Freezing Temperatures',
@@ -33,6 +35,7 @@ const ghostsDB = {
         description: "„A Demon is one of the worst ghosts you can encounter. It has been known to attack without reason.”"
     },
     'Deogen': {
+        name: 'Deogen',
         evidences: [
             'D.O.T.S. Projector',
             'Ghost Writing',
@@ -44,6 +47,7 @@ const ghostsDB = {
         description: "„Sometimes surrounded by an endless fog, Deogen have been eluding ghost hunters for years. These ghosts have been reported to find even the most hidden prey, before stalking them into exhaustion.”"
     },
     'Goryo': {
+        name: 'Goryo',
         evidences: [
             'D.O.T.S. Projector',
             'EMF Level 5',
@@ -55,6 +59,7 @@ const ghostsDB = {
         description: "„When a Goryo passes through a DOTS projector, using a video camera is the only way to see it.”"
     },
     'Hantu': {
+        name: 'Hantu',
         evidences: [
             'Fingerprints',
             'Freezing Temperatures',
@@ -66,6 +71,7 @@ const ghostsDB = {
         description: "„A Hantu is a rare ghost that thrives in the coldest climates. The cold seems to make them more aggressive and empowered.”"
     },
     'Jinn': {
+        name: 'Djinn',
         evidences: [
             'EMF Level 5',
             'Fingerprints',
@@ -76,6 +82,7 @@ const ghostsDB = {
         description: "„A Jinn is a territorial ghost that will attack when threatened. It has also been known to travel at significant speed.”"
     },
     'Mare': {
+        name: 'Cauchemar',
         evidences: [
             'Ghost Orb',
             'Ghost Writing',
@@ -86,6 +93,7 @@ const ghostsDB = {
         description: "„A Mare is the source of all nightmares, making it most powerful in the dark.”"
     },
     'Moroi': {
+        name: 'Moroï',
         evidences: [
             'Freezing Temperatures',
             'Ghost Writing',
@@ -97,6 +105,7 @@ const ghostsDB = {
         description: "„Moroi have risen from the grave to drain energy from the living. They have been known to place curses on their victims, curable only by antidotes or moving very far away.”"
     },
     'Myling': {
+        name: 'Myling',
         evidences: [
             'EMF Level 5',
             'Fingerprints',
@@ -107,6 +116,7 @@ const ghostsDB = {
         description: "„A Myling is a very vocal and active ghost. They are rumoured to be quiet when hunting their prey.”"
     },
     'Obake': {
+        name: 'Obake',
         evidences: [
             'EMF Level 5',
             'Fingerprints',
@@ -118,6 +128,7 @@ const ghostsDB = {
         description: "„Obake are terrifying shape-shifters, capable of taking on many forms. They have been seen taking on humanoid shapes to attract their prey.”"
     },
     'Oni': {
+        name: 'Oni',
         evidences: [
             'D.O.T.S. Projector',
             'EMF Level 5',
@@ -128,6 +139,7 @@ const ghostsDB = {
         description: "„Onis love to scare their victims as much as possible before attacking. They are often seen in their physical form, guarding their place of death.”"
     },
     'Onryo': {
+        name: 'Onryo',
         evidences: [
             'Freezing Temperatures',
             'Ghost Orb',
@@ -138,6 +150,7 @@ const ghostsDB = {
         description: "„The Onryo is often referred to as \"The Wrathful Spirit.\" It steals souls from dying victims' bodies to seek revenge. This ghost has been known to fear any form of fire, and will do anything to be far from it.”"
     },
     'Phantom': {
+        name: 'Fantôme',
         evidences: [
             'D.O.T.S. Projector',
             'Fingerprints',
@@ -148,6 +161,7 @@ const ghostsDB = {
         description: "„A Phantom is a ghost that can possess the living, inducing fear into those around it. They are most commonly summoned from Ouija Boards.”"
     },
     'Poltergeist': {
+        name: 'Poltergeist',
         evidences: [
             'Fingerprints',
             'Ghost Writing',
@@ -158,6 +172,7 @@ const ghostsDB = {
         description: "„One of the most famous ghosts, the Poltergeist. Known to manipulate objects around it to spread fear into its victims.”"
     },
     'Raiju': {
+        name: 'Raiju',
         evidences: [
             'D.O.T.S. Projector',
             'EMF Level 5',
@@ -168,6 +183,7 @@ const ghostsDB = {
         description: "„A Raiju is a demon that thrives on electrical current. While generally calm, they can become agitated when overwhelmed with power.”"
     },
     'Revenant': {
+        name: 'Revenant',
         evidences: [
             'Freezing Temperatures',
             'Ghost Orb',
@@ -178,6 +194,7 @@ const ghostsDB = {
         description: "„A Revenant is a violent ghost that will attack indiscriminately. Their speed can be deceiving, as they are slow while dormant; however, as soon as they hunt they can move incredibly fast.”"
     },
     'Shade': {
+        name: 'Ombre',
         evidences: [
             'EMF Level 5',
             'Freezing Temperatures',
@@ -188,6 +205,7 @@ const ghostsDB = {
         description: "„A Shade is known to be very shy. There is evidence to suggest that a Shade will stop all paranormal activity if there are multiple people nearby.”"
     },
     'Spirit': {
+        name: 'Esprit',
         evidences: [
             'EMF Level 5',
             'Ghost Writing',
@@ -198,6 +216,7 @@ const ghostsDB = {
         description: "„Spirits are very common ghosts. They are very powerful, but passive, only attacking when they need to. They defend their place of death to the utmost degree, killing anyone that is caught overstaying their welcome.”"
     },
     'Thaye': {
+        name: 'Thayé',
         evidences: [
             'D.O.T.S. Projector',
             'Ghost Orb',
@@ -208,6 +227,7 @@ const ghostsDB = {
         description: "„Thaye have been known to rapidly age over time, even in the afterlife. From what we've learned, they seem to deteriorate faster while within the presence of the living.”"
     },
     'The Mimic': {
+        name: 'Le Mimic',
         evidences: [
             'Fingerprints',
             'Freezing Temperatures',
@@ -220,6 +240,7 @@ const ghostsDB = {
         description: "„The Mimic is an elusive, mysterious, copycat ghost that mirrors traits and behaviours from others, including other ghost types.”"
     },
     'The Twins': {
+        name: 'Les Jumeaux',
         evidences: [
             'EMF Level 5',
             'Freezing Temperatures',
@@ -230,6 +251,7 @@ const ghostsDB = {
         description: "„These ghosts have been reported to mimic each other's actions. They alternate their attacks to confuse their prey.”"
     },
     'Wraith': {
+        name: 'Esprit',
         evidences: [
             'D.O.T.S. Projector',
             'EMF Level 5',
@@ -240,6 +262,7 @@ const ghostsDB = {
         description: "„Wraiths are one of the most dangerous ghosts you will find. It is also the only known ghost that has the ability of flight and has sometimes been known to travel through walls.”"
     },
     'Yokai': {
+        name: 'Yokai',
         evidences: [
             'D.O.T.S. Projector',
             'Ghost Orb',
@@ -250,6 +273,7 @@ const ghostsDB = {
         description: "„Yokai are common ghosts that are attracted to human voices. They can usually be found haunting family homes.”"
     },
     'Yurei': {
+        name: 'Yurei',
         evidences: [
             'D.O.T.S. Projector',
             'Freezing Temperatures',
@@ -334,9 +358,50 @@ const IDS = {
         isEvidence: true
     },
     'nightmare': {
-        value: '\u274C',
+        value: checkboxEmotes[2],
+        isMode: true
+    },
+    'footsteps': {
+        value: checkboxEmotes[0],
+        isMode: true
+    },
+    'turn-off-breaker': {
+        value: checkboxEmotes[2],
+        isMode: true
+    },
+    'turn-on-light': {
+        value: checkboxEmotes[2],
+        isMode: true
+    },
+    'air-breath': {
+        value: checkboxEmotes[2],
+        isMode: true
+    },
+    'hunt-fast': {
+        value: checkboxEmotes[2],
+        isMode: true
+    },
+    'hunt-slow': {
+        value: checkboxEmotes[2],
+        isMode: true
+    },
+    'parabolic-scream': {
+        value: checkboxEmotes[2],
+        isMode: true
+    },
+    'heavy-breath': {
+        value: checkboxEmotes[2],
         isMode: true
     }
+};
+const translate = {
+    'D.O.T.S. Projector': 'Projecteur D.O.T.S.',
+    'Fingerprints': 'Empruntes',
+    'EMF Level 5': 'EMF Niveau 5',
+    'Freezing Temperatures': 'Température glaciale',
+    'Ghost Writing': 'Écriture fantômatique',
+    'Spirit Box': 'Spirit Box',
+    'Ghost Orb': 'Orbe fantômatique'
 };
 /***
 * Return an array of ordered combination without repetition of n objets (a string array) classified in k groups.
@@ -389,6 +454,15 @@ function combinationArrayDepthNRNO(objects, index, offset, k, depth = 0, content
     }
     return result; // Return the result
 }
+function translateEvidence(elements)
+{
+    let result = [];
+    for(let element of elements)
+    {
+        result.push(translate[element]);
+    }
+    return result;
+}
 function listHTML(elements, ...liClass)
 {
 
@@ -413,7 +487,7 @@ function paragraphHTML(element)
 }
 function columnHTML(...toAppend)
 {
-    let column = document.createElement('td');
+    let column = document.createElement('th');
     for(let child of toAppend)
     {
         column.appendChild(child);
@@ -442,13 +516,11 @@ function createGhostList()
             line.classList.add('ghost-table-element');
             line.classList.add(`ghost-table-parity-${(ind++ % 2) + 1}`);
 
-                let ghostNameCol = columnHTML(paragraphHTML(ghostName));
+                let ghostEvidences = listHTML(translateEvidence(ghost.evidences), 'ghost-evidences-item');
+                    ghostEvidences.classList.add('ghost-evidences');
+                let ghostNameCol = columnHTML(paragraphHTML(`${ghost.name}<br><em>(${ghostName})</em>`), ghostEvidences);
                     ghostNameCol.classList.add('ghost-name');
             line.appendChild(ghostNameCol);
-
-                let ghostEvidences = columnHTML(listHTML(ghost.evidences, 'ghost-evidences-item'));
-                    ghostEvidences.classList.add('ghost-evidences');
-            line.appendChild(ghostEvidences);
 
                 let ghostStrenght = columnHTML(paragraphHTML(ghost.strenght));
                     ghostStrenght.classList.add('ghost-strenght');
@@ -464,6 +536,91 @@ function createGhostList()
 
             line.id = ghostName;
             ghostTable.appendChild(line);
+        }
+    }
+}
+function computeSpecialAbilities()
+{
+    let footsteps = document.getElementById('footsteps');
+    if(footsteps.value === checkboxEmotes[1])
+    {
+        let wraith = document.getElementById('Wraith');
+        wraith.style.visibility = 'collapse';
+        wraith.style.overflow = 'hidden';
+    }
+    else if(footsteps.value === checkboxEmotes[2])
+    {
+        for(let ghostName of ghostList)
+        {
+            if(ghostName !== 'Wraith')
+            {
+                let ghost = document.getElementById(ghostName);
+                ghost.style.visibility = 'collapse';
+                ghost.style.overflow = 'hidden';
+            }
+        }
+    }
+    let toffBrkr = document.getElementById('turn-off-breaker');
+    if(toffBrkr.value === checkboxEmotes[1])
+    {
+        let jinn = document.getElementById('Jinn');
+        jinn.style.visibility = 'collapse';
+        jinn.style.overflow = 'hidden';
+    }
+    let tonLight = document.getElementById('turn-on-light');
+    if(tonLight.value === checkboxEmotes[1])
+    {
+        let mare = document.getElementById('Mare');
+        mare.style.visibility = 'collapse';
+        mare.style.overflow = 'hidden';
+    }
+    let airBreath = document.getElementById('air-breath');
+    if(airBreath.value === checkboxEmotes[1])
+    {
+        let mare = document.getElementById('Oni');
+        mare.style.visibility = 'collapse';
+        mare.style.overflow = 'hidden';
+    }
+    let huntFast = document.getElementById('hunt-fast');
+    if(huntFast.value === checkboxEmotes[1])
+    {
+        
+    }
+    let huntSlow = document.getElementById('hunt-slow');
+    if(huntSlow.value === checkboxEmotes[1])
+    {
+        
+    }
+    let paraScream = document.getElementById('parabolic-scream');
+    if(paraScream.value === checkboxEmotes[1])
+    {
+        let banshee = document.getElementById('Banshee');
+        banshee.style.visibility = 'visible';
+        banshee.style.overflow = 'visible';
+        for(let ghostName of ghostList)
+        {
+            if(ghostName !== 'Banshee')
+            {
+                let ghost = document.getElementById(ghostName);
+                ghost.style.visibility = 'collapse';
+                ghost.style.overflow = 'hidden';
+            }
+        }
+    }
+    let heavyBreath = document.getElementById('heavy-breath');
+    if(heavyBreath.value === checkboxEmotes[1])
+    {
+        let deogen = document.getElementById('Deogen');
+        deogen.style.visibility = 'visible';
+        deogen.style.overflow = 'visible';
+        for(let ghostName of ghostList)
+        {
+            if(ghostName !== 'Deogen')
+            {
+                let ghost = document.getElementById(ghostName);
+                ghost.style.visibility = 'collapse';
+                ghost.style.overflow = 'hidden';
+            }
         }
     }
 }
@@ -508,6 +665,7 @@ function computeNormal()
         ghostElement.style.visibility = visibility ? 'visible' : 'collapse';
         ghostElement.style.overflow = visibility ? 'visible' : 'hidden';
     }
+    computeSpecialAbilities();
 }
 function computeNightmare()
 {
@@ -544,7 +702,6 @@ function computeNightmare()
         let strongEvid = ghostData.strongEvidence;
         if(visibility && (strongEvid !== undefined)) // This ghost have a strong evidence
         {
-            console.log(`${ghostName}: ${strongEvid}`);
             if(actualEvidences.length >= 2 && !actualEvidences.includes(strongEvid))
             {
                 visibility = false;
@@ -573,6 +730,7 @@ function computeNightmare()
         ghostElement.style.visibility = visibility ? 'visible' : 'collapse';
         ghostElement.style.overflow = visibility ? 'visible' : 'hidden';
     }
+    computeSpecialAbilities();
 }
 function isNightmare(v)
 {
@@ -581,17 +739,31 @@ function isNightmare(v)
 function ghostCheck(control)
 {
     let evidence = IDS[`${control.id}`];
-    if(evidence.isMode) // It's nightmare mode toggle
+    if(evidence.isMode) // It's mod mode toggle
     {
         // Assign new value to evidence
         evidence.value = control.value;
-        if(isNightmare(evidence.value)) // Nightmare mode
+        if(control.id === 'nightmare') // nightmare
         {
-            computeNightmare();
+            if(isNightmare(evidence.value)) // Nightmare mode
+            {
+                computeNightmare();
+            }
+            else // Not nightmare mode
+            {
+                computeNormal();
+            }
         }
-        else // Not nightmare mode
+        else
         {
-            computeNormal();
+            if(isNightmare(IDS[`nightmare`].value)) // Is nightmare mode
+            {
+                computeNightmare();
+            }
+            else // Not nightmare mode
+            {
+                computeNormal();
+            }
         }
     }
     else

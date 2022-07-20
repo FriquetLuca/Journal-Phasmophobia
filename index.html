@@ -21,13 +21,13 @@
             type='text' name="DOTS" style='border: none;' onfocus='this.blur()'
             readonly='true' size='1' value='&#x2753;'
             onclick='evidenceMark(this)' />
-            <label for="dots">DOTS</label>
+            <label for="dots">Projecteur D.O.T.S.</label>
 
             <input id='emf-5' class='triState'
             type='text' name="EMF 5" style='border: none;' onfocus='this.blur()'
             readonly='true' size='1' value='&#x2753;'
             onclick='evidenceMark(this)' />
-            <label for="emf-5">EMF 5</label>
+            <label for="emf-5">EMF Niveau 5</label>
 
             <input id='fingerprints' class='triState'
             type='text' name="Empruntes" style='border: none;' onfocus='this.blur()'
@@ -65,10 +65,64 @@
             onclick='modeMark(this)' />
             <label for="nightmare">Cauchemar</label>
 
+            <input id='footsteps' class='triState'
+            type='text' name="Trace de pas UV" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x2753;'
+            onclick='evidenceMark(this)' />
+            <label for="footsteps">Trace de pas UV</label>
+
+            <input id='turn-off-breaker' class='triState'
+            type='text' name="Coupe le courant" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x274c;'
+            onclick='modeMark(this)' />
+            <label for="turn-off-breaker">Coupe le courant</label>
+
+            <input id='turn-on-light' class='triState'
+            type='text' name="Allume la lumière" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x274c;'
+            onclick='modeMark(this)' />
+            <label for="turn-on-light">Allume la lumière</label>
+
+            <input id='air-breath' class='triState'
+            type='text' name="Événement « boule d'air »" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x274c;'
+            onclick='modeMark(this)' />
+            <label for="air-breath">Événement « boule d'air »</label>
+
+            <input id='hunt-fast' class='triState'
+            type='text' name="Rapide en chasse (Pas en vue)" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x274c;'
+            onclick='modeMark(this)' />
+            <label for="hunt-fast">Rapide en chasse (Pas en vue)</label>
+
+            <input id='hunt-slow' class='triState'
+            type='text' name="Lent en chasse (Pas en vue)" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x274c;'
+            onclick='modeMark(this)' />
+            <label for="hunt-slow">Lent en chasse (Pas en vue)</label>
+
+            <input id='parabolic-scream' class='triState'
+            type='text' name="Cris étouffé (Microphone parabolique)" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x274c;'
+            onclick='modeMark(this)' />
+            <label for="parabolic-scream">Microphone parabolique (Cris)</label>
+
+            <input id='heavy-breath' class='triState'
+            type='text' name="Respiration lourde (Spirit Box)" style='border: none;' onfocus='this.blur()'
+            readonly='true' size='1' value='&#x274c;'
+            onclick='modeMark(this)' />
+            <label for="heavy-breath">Respiration lourde (Spirit Box)</label>
+
             <table id='ghost-result'>
                 <thead>
-                    <tr>
-                        <td colspan="5">List Of Potential Ghosts</td>
+                    <tr class="ghost-table-element ghost-table-parity-1">
+                        <th colspan="5"><h1>Liste des fantômes potentiels :</h1></th>
+                    </tr>
+                    <tr class="ghost-table-element ghost-table-parity-2">
+                        <th><h2>Nom</h2></th>
+                        <th class="ghost-strenght"><h2>Force</h2></th>
+                        <th class="ghost-weakness"><h2>Faiblesse</h2></th>
+                        <th><h2>Description</h2></th>
                     </tr>
                 </thead>
             </table>

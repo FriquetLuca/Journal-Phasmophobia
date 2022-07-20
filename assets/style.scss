@@ -1,0 +1,46 @@
+@font-face
+{
+    font-family: "CMU Serif";
+    src: url(cmunrm.ttf);
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+body
+{
+    font-family: "CMU Serif";
+}
+th, td
+{
+    font-size: large;
+    font-weight: 100;
+    text-align: center;
+    p{
+        font-size: large;
+        font-weight: 100;
+        text-align: center;
+    }
+}
+ul, li {
+    text-align: left;
+}
+.options {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.ghost {
+    &-strenght, &-weakness {
+        max-width: 250px;
+    }
+    &-result, &-table-element {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+}
