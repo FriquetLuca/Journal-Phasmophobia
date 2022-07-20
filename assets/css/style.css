@@ -28,7 +28,7 @@ ul, li {
   text-align: left;
 }
 
-.evidence-content > img {
+.evidence-content-icon {
   width: 10px;
   height: 10px;
   left: 0px;
@@ -54,4 +54,4 @@ ul, li {
 .ghost-evidence-item {
   margin: 0;
   padding: 0;
-}/*# sourceMappingURL=style.css.map */
+}
