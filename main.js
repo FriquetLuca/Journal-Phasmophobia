@@ -190,7 +190,9 @@ const ghostsDB = {
         strenght: "Attaque plus souvent dans le noir.",
         weakness: "Allumer la lumière réduit les chances qu'il attaque.",
         description: "Le Cauchemar est la source de tous les cauchemars, le rendant plus puissant dans la pénombre.",
-        ability: ``,
+        ability: `
+        <p>Rien à signaler.</p>
+        `,
         behaviour: `
         <p>Si on allume une lampe près de lui, il a une chance de l'éteindre immédiatement.</p>
         <p>Il n'allume jamais de lampe. Si il décide d'erré, il choisira plus souvent des pièces qui ne sont pas éclairées.</p>
