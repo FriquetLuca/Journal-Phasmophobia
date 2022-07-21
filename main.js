@@ -885,21 +885,6 @@ const behaviourList = [
     'heavy-breath'
 ];
 
-const soundBehaviour = [
-    {
-        id: 'behaviour-air-breath',
-        sound: 'sound-air-breath'
-    },
-    {
-        id: 'behaviour-heavy-breath',
-        sound: 'deogen-breath'
-    },
-    {
-        id: 'behaviour-parabolic-scream',
-        sound: 'banshee-scream'
-    }
-];
-
 /***
 * Return an array of ordered combination without repetition of n objets (a string array) classified in k groups.
 */
@@ -951,6 +936,32 @@ function combinationArrayDepthNRNO(objects, index, offset, k, depth = 0, content
     }
     return result; // Return the result
 }
+/***
+ * Get an element by id, test the value of this element from a chosen function and if it's true, then execute a function without parameters.
+ */
+function elementValueIsThen(id, test, execute)
+{
+    let elemID = document.getElementById(id);
+    if(test(elemID.value))
+    {
+        execute();
+    }
+}
+/***
+ * Find the first element of elements, test it, if it's true then we can assign a chosen value to the boolValue we passed there then from a function getBool that have have the current element as a parameter. It return the new value of boolValue.
+ */
+function forFirstOfArrayTestValue(elements, boolValue, test, getBool)
+{
+    for(let element of elements)
+    {
+        if(test(element))
+        {
+            boolValue = getBool(element);
+            break;
+        }
+    }
+    return boolValue;
+}
 function retrieveEvidences()
 {
     let actualEvidences = [];
@@ -971,6 +982,22 @@ function retrieveEvidences()
     }
     return [actualEvidences, hiddenEvidences];
 }
+function hideGhost(ghostData)
+{
+    let ghost = document.getElementsByClassName(ghostData.englishName);
+    collapseGhostVisibility(ghost, false);
+}
+function lookThroughGhosts(test, event)
+{
+    for(let ghostName of ghostList)
+    {
+        let ghostData = ghostsDB[ghostName];
+        if(test(ghostData))
+        {
+            event(ghostData);
+        }
+    }
+}
 function computeSanity()
 {
     let sanityCheck = document.getElementById('hunt-huntSanity');
@@ -979,114 +1006,49 @@ function computeSanity()
     {
         return;
     }
-    for(let ghostName of ghostList)
-    {
-        let ghostData = ghostsDB[ghostName];
-        if(ghostData.sanity < currentSanity)
-        {
-            let ghost = document.getElementsByClassName(ghostData.englishName);
-            collapseGhostVisibility(ghost, false);
-        }
-    }
+    lookThroughGhosts((ghostData) => { return ghostData.sanity < currentSanity; }, (ghostData) => { hideGhost(ghostData); });
 }
-function huntSpeed(id)
+function huntSpeed(id, test)
 {
     let huntSpeed = document.getElementById(id);
     let speed = huntSpeed.options[huntSpeed.selectedIndex].value;
     if(speed !== 'unknown')
     {
-        for(let ghostName of ghostList)
-        {
-            let ghostData = ghostsDB[ghostName];
-            if(!ghostData.speedMesure.includes(speed))
-            {
-                let ghost = document.getElementsByClassName(ghostData.englishName);
-                collapseGhostVisibility(ghost, false);
-            }
-        }
-    }
-}
-function huntSpeedChase(id)
-{
-    let huntSpeed = document.getElementById(id);
-    let speed = huntSpeed.options[huntSpeed.selectedIndex].value;
-    if(speed !== 'unknown')
-    {
-        for(let ghostName of ghostList)
-        {
-            let ghostData = ghostsDB[ghostName];
-            if(!ghostData.speedChase.includes(speed))
-            {
-                let ghost = document.getElementsByClassName(ghostData.englishName);
-                collapseGhostVisibility(ghost, false);
-            }
-        }
+        lookThroughGhosts(
+        (ghostData) => { // Test
+            return test(ghostData, speed);
+        },
+        (ghostData) => { // If it's true
+            hideGhost(ghostData);
+        });
     }
 }
 function computeSpecialAbilities()
 {
     computeSanity();
-    huntSpeed('hunt-noChaseSpeed');
-    huntSpeedChase('hunt-chaseSpeed');
+    huntSpeed('hunt-noChaseSpeed', (ghost, speed) => { return !ghost.speedMesure.includes(speed); });
+    huntSpeed('hunt-chaseSpeed', (ghost, speed) => { return !ghost.speedChase.includes(speed); });
     let footsteps = document.getElementById('footsteps');
     if(footsteps.value === checkboxEmotes[1])
     {
-        let wraith = document.getElementsByClassName('Wraith');
-        collapseGhostVisibility(wraith, false);
+        hideGhost('Wraith');
     }
     else if(footsteps.value === checkboxEmotes[2])
     {
-        for(let ghostName of ghostList)
-        {
-            let ghostData = ghostsDB[ghostName];
-            if(ghostData.englishName !== 'Wraith')
-            {
-                let ghost = document.getElementsByClassName(ghostData.englishName);
-                collapseGhostVisibility(ghost, false);
-            }
-        }
+        lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Wraith'; }, (ghostData) => { hideGhost(ghostData); });
     }
-    let tonBrkr = document.getElementById('turn-on-breaker');
-    if(tonBrkr.value === checkboxEmotes[1])
-    {
-        let jinn = document.getElementsByClassName('Hantu');
-        collapseGhostVisibility(jinn, false);
-    }
-    let toffBrkr = document.getElementById('turn-off-breaker');
-    if(toffBrkr.value === checkboxEmotes[1])
-    {
-        let jinn = document.getElementsByClassName('Jinn');
-        collapseGhostVisibility(jinn, false);
-    }
-    let tonLight = document.getElementById('turn-on-light');
-    if(tonLight.value === checkboxEmotes[1])
-    {
-        let mare = document.getElementsByClassName('Mare');
-        collapseGhostVisibility(mare, false);
-    }
-    let airBreath = document.getElementById('air-breath');
-    if(airBreath.value === checkboxEmotes[1])
-    {
-        let oni = document.getElementsByClassName('Oni');
-        collapseGhostVisibility(oni, false);
-    }
+    elementValueIsThen('turn-on-breaker', (e) => { return e === checkboxEmotes[1]; }, () => { hideGhost('Hantu'); });
+    elementValueIsThen('turn-off-breaker', (e) => { return e === checkboxEmotes[1]; }, () => { hideGhost('Jinn'); });
+    elementValueIsThen('turn-on-light', (e) => { return e === checkboxEmotes[1]; }, () => { hideGhost('Mare'); });
+    elementValueIsThen('air-breath', (e) => { return e === checkboxEmotes[1]; }, () => { hideGhost('Oni'); });
     let parabScream = document.getElementById('parabolic-scream');
     if(parabScream.value === checkboxEmotes[2])
     {
-        let banshee = document.getElementsByClassName('Banshee');
-        collapseGhostVisibility(banshee, false);
+        hideGhost('Banshee');
     }
     else if(parabScream.value === checkboxEmotes[1])
     {
-        for(let ghostName of ghostList)
-        {
-            let ghostData = ghostsDB[ghostName];
-            if(ghostData.englishName !== 'Banshee')
-            {
-                let ghost = document.getElementsByClassName(ghostData.englishName);
-                collapseGhostVisibility(ghost, false);
-            }
-        }
+        lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Banshee'; }, (ghostData) => { hideGhost(ghostData); });
     }
     let heavyBreath = document.getElementById('heavy-breath');
     if(heavyBreath.value === checkboxEmotes[2])
@@ -1096,15 +1058,7 @@ function computeSpecialAbilities()
     }
     else if(heavyBreath.value === checkboxEmotes[1])
     {
-        for(let ghostName of ghostList)
-        {
-            let ghostData = ghostsDB[ghostName];
-            if(ghostData.englishName !== 'Deogen')
-            {
-                let ghost = document.getElementsByClassName(ghostData.englishName);
-                collapseGhostVisibility(ghost, false);
-            }
-        }
+        lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Deogen'; }, (ghostData) => { hideGhost(ghostData); });
     }
 }
 function generateNormal()
@@ -1117,22 +1071,8 @@ function generateNormal()
         let ghostData = ghostsDB[ghostName];
         let ghostElements = document.getElementsByClassName(ghostData.englishName);
         let visibility = true;
-        for(let evidence of foundEvidences)
-        {
-            if(!ghostData.evidences.includes(evidence.englishName))
-            {
-                visibility = false;
-                break;
-            }
-        }
-        for(let evidence of notEvidences)
-        {
-            if(ghostData.evidences.includes(evidence.englishName))
-            {
-                visibility = false;
-                break;
-            }
-        }
+        visibility = forFirstOfArrayTestValue(foundEvidences, visibility, (evidence) => { return !ghostData.evidences.includes(evidence.englishName); }, (e) => { return false; });
+        visibility = forFirstOfArrayTestValue(notEvidences, visibility, (evidence) => { return ghostData.evidences.includes(evidence.englishName); }, (e) => { return false; });
         collapseGhostVisibility(ghostElements, visibility);
     }
     computeSpecialAbilities();
@@ -1166,23 +1106,13 @@ function generateNightmare()
         let ghostData = ghostsDB[ghostName];
         let ghostElements = document.getElementsByClassName(ghostData.englishName);
         let visibility = true;
-        for(let evidence of foundEvidences)
-        {
-            if(!ghostData.evidences.includes(evidence.englishName))
-            {
-                visibility = false;
-                break;
-            }
-        }
+        visibility = forFirstOfArrayTestValue(foundEvidences, visibility, (evidence) => { return !ghostData.evidences.includes(evidence.englishName); }, (e) => { return false; });
         // There's more than one evidence for some reason..
         // Let's test the strong evidence.
         let strongEvid = ghostData.strongEvidence;
-        if(visibility && (strongEvid !== undefined)) // This ghost have a strong evidence
+        if(visibility && (strongEvid !== undefined) && foundEvidences.length >= 2 && !evidenceIncludes(foundEvidences, strongEvid)) // This ghost have no strong evidence included after 2 evidences found
         {
-            if(foundEvidences.length >= 2 && !evidenceIncludes(foundEvidences, strongEvid))
-            {
-                visibility = false;
-            }
+            visibility = false;
         }
         if(visibility && hiddenEvidences.length > 1 && ghostName !== 'The Mimic')
         {
