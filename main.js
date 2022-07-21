@@ -850,6 +850,12 @@ const behaviourDB = {
         state: 'triState',
         value: checkboxEmotes[2]
     },
+    'turn-on-breaker': {
+        id: 'turn-on-breaker',
+        name: 'Allume le fusible',
+        state: 'triState',
+        value: checkboxEmotes[2]
+    },
     'turn-off-breaker': {
         id: 'turn-off-breaker',
         name: 'Coupe le fusible',
@@ -871,6 +877,7 @@ const behaviourDB = {
 };
 const behaviourList = [
     'turn-on-light',
+    'turn-on-breaker',
     'turn-off-breaker',
     'footsteps',
     'air-breath',
@@ -1038,6 +1045,12 @@ function computeSpecialAbilities()
                 collapseGhostVisibility(ghost, false);
             }
         }
+    }
+    let tonBrkr = document.getElementById('turn-on-breaker');
+    if(tonBrkr.value === checkboxEmotes[1])
+    {
+        let jinn = document.getElementsByClassName('Hantu');
+        collapseGhostVisibility(jinn, false);
     }
     let toffBrkr = document.getElementById('turn-off-breaker');
     if(toffBrkr.value === checkboxEmotes[1])
