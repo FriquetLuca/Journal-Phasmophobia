@@ -42,6 +42,11 @@ body, html {
 body {
     font-size: 18px;
     font-family: "CMU Serif";
+    background-color: $primary-bgColor;
+    color: $primary-color;
+}
+footer {
+    text-align: center;
 }
 header {
     text-align: center;
@@ -193,6 +198,9 @@ header {
 }
 .ghost-table-underline {
     text-align: center;
+}
+.sound-display {
+    border-radius: 25px;
 }
 #ghost-result, .ghost-table-underline, .ghost-table-row-underline {
     border-bottom: dashed $table-lineColor;

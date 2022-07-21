@@ -10,6 +10,12 @@ body, html {
 body {
   font-size: 18px;
   font-family: "CMU Serif";
+  background-color: #0d0d0d;
+  color: white;
+}
+
+footer {
+  text-align: center;
 }
 
 header {
@@ -202,6 +208,10 @@ header h1 {
 
 .ghost-table-underline {
   text-align: center;
+}
+
+.sound-display {
+  border-radius: 25px;
 }
 
 #ghost-result, .ghost-table-underline, .ghost-table-row-underline {
