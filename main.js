@@ -731,7 +731,7 @@ const ghostsDB = {
         description: "Un Yurei est une entitée qui est revenue dans le monde physique, généralement dans un but de vengeance ou de haine.",
         ability: `
         <p>Il peut utiliser son abilité qui réduit de 15% la santé mentale de tous les joueurs situés dans une portée de 7.5 mètres.</p>
-        <p>Lorsqu'il emploie son abilité, une porte aléatoire se fermera plus rapidement qu'avec les entités.</p>
+        <p>Lorsqu'il emploie son abilité, une porte choisie aléatoirement dans la pièce du Yurei se fermera rapidement avec un son distinct nettement retardé.</p>
         `,
         behaviour: `
         <p>Si on emploie de <strong class="italic">l'encent</strong> sur lui, en plus des effets de base, il ne quittera pas sa pièce durant 90s.</p>
