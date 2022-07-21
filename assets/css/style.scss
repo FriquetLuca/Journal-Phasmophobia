@@ -1,56 +1,199 @@
+$darkTheme: true !default;
+$lightTheme: false !default;
+
+
+$primary-bgColor: #e6e6e6 !default;
+$primary-color: #353535 !default;
+$table-lineColor: #e58fe1 !default;
+$force-color: #ca1010 !default;
+$weakness-color: #3d3ae4 !default;
+
+@if $darkTheme {
+    $primary-bgColor: darken($primary-bgColor, 85%);
+    $primary-color: lighten($primary-color, 85%);
+}
+
 @font-face
 {
     font-family: "CMU Serif";
-    src: url(cmunrm.ttf);
+    src: url(../fonts/cmunrm.ttf);
 }
+@mixin user-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+@mixin weightTransition {
+    margin-bottom: 5px;
+    font-weight: normal;
+    &:hover {
+        font-weight: bold;
+    }
+}
+
+
 body, html {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
 }
-body
-{
+body {
+    font-size: 18px;
     font-family: "CMU Serif";
 }
-th, td
-{
-    font-size: large;
-    font-weight: 100;
+header {
     text-align: center;
-    p{
-        font-size: large;
-        font-weight: 100;
+    padding-bottom: 10px;
+    background-color: $primary-bgColor;
+    color: $primary-color;
+    h1, h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    h1 {
+        font-size: 75px;
+    }
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: $primary-bgColor;
+    color: $primary-color;
+}
+#ghost-result {
+    width: 100%;
+    border-spacing: 5px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.selectionables {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    @media only screen and (min-width: 739px) {
+        flex-direction: row;
+    }
+}
+.mod {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 150px;
+}
+.evidences {
+    width: 280px;
+}
+.behaviours {
+    width: 310px;
+}
+.evidence {
+    width: 100%;
+    @include user-select;
+    &-title {
         text-align: center;
     }
-}
-ul, li {
-    text-align: left;
-}
-.evidence-content-icon {
-    width: 10px;
-    height: 10px;
-    left: 0px;
-    right: 0px;
-}
-.options {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-}
-.ghost {
-    &-strenght, &-weakness {
-        max-width: 250px;
-    }
-    &-result, &-table-element {
+    &-icon {
         margin: 0;
         padding: 0;
-        width: 100%;
-        height: 100%;
+        width: 20px;
+        height: 20px;
+        margin-bottom: -6px;
     }
-    &-evidence-item {
+    &-name {
+        @include user-select;
+        @include weightTransition;
+    }
+    &-triState {
+        width: 20px;
+        height: 20px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+.behaviour {
+    width: 100%;
+    @include user-select;
+    &-title {
+        text-align: center;
+    }
+    &-name {
+        @include weightTransition;
+    }
+    &-triState, &-dualState {
+        width: 20px;
+        height: 20px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+.mode {
+    width: 100%;
+    @include user-select;
+    &-title {
+        text-align: center;
+    }
+    &-name {
+        @include weightTransition;
+    }
+    &-dualState {
+        width: 20px;
+        height: 20px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.ghost-name {
+    max-width: 120px;
+    text-align: center;
+}
+.ghost-strenght {
+    max-width: 450px;
+    text-align: center;
+    color: $force-color;
+}
+.ghost-weakness {
+    max-width: 450px;
+    text-align: center;
+    color: $weakness-color;
+}
+.ghost-description {
+    h4 {
+        margin-top: 5px;
+        margin-bottom: 0px;
+        text-decoration: underline;
+    }
+    div {
         margin: 0;
         padding: 0;
     }
+    em p {
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+    em {
+        letter-spacing: 1px;
+    }
+    div > p {
+        font-size: 16px;
+        margin-top: 0px;
+        margin-bottom: 5px;
+    }
+}
+.ghost-evidence {
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+.ghost-table-underline {
+    text-align: center;
+}
+#ghost-result, .ghost-table-underline, .ghost-table-row-underline {
+    border-bottom: dashed $table-lineColor;
 }

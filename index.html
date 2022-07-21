@@ -2,123 +2,35 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>Phasmo-Calculator</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script defer src="main.js"></script>
+        <title>Phasmo-Calculator</title>
         <link rel="stylesheet" href="assets/css/style.css">
+        <script type="module" src="assets/database/triboxDB.js"></script>
+        <script type="module" src="assets/database/ghostDB.js"></script>
+        <script type="module" src="assets/database/evidenceDB.js"></script>
+        <script type="module" src="assets/database/behaviourDB.js"></script>
+        <script defer src="main.js"></script>
     </head>
     <body>
-        <header></header>
-        <section id="options">
-            <input id='dots' class='triState'
-            type='text' name="DOTS" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x2753;'
-            onclick='evidenceMark(this)' />
-            <label for="dots">Projecteur D.O.T.S.</label>
+        <audio id="sound-air-breath" preload="auto">
+            <source src="assets/audio/air-breath.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="deogen-breath" preload="auto">
+            <source src="assets/audio/deogen-breath.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="banshee-scream" preload="auto">
+            <source src="assets/audio/banshee-scream.mp3" type="audio/mpeg" />
+        </audio>
+        <header>
+            <h1>Phasmophobia</h1>
+            <h2>Journal</h2>
+        </header>
+        <main id="options">
+            
+        </main>
+        <footer>
 
-            <input id='emf-5' class='triState'
-            type='text' name="EMF 5" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x2753;'
-            onclick='evidenceMark(this)' />
-            <label for="emf-5">EMF Niveau 5</label>
-
-            <input id='fingerprints' class='triState'
-            type='text' name="Empruntes" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x2753;'
-            onclick='evidenceMark(this)' />
-            <label for="fingerprints">Empruntes</label>
-
-            <input id='freezing-temperature' class='triState'
-            type='text' name="Température glaciale" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x2753;'
-            onclick='evidenceMark(this)' />
-            <label for="freezing-temperature">Température glaciale</label>
-
-            <input id='ghost-orbs' class='triState'
-            type='text' name="Orbe fantômatique" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x2753;'
-            onclick='evidenceMark(this)' />
-            <label for="ghost-orbs">Orbe fantômatique</label>
-
-            <input id='ghost-writing' class='triState'
-            type='text' name="Écriture fantômatique" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x2753;'
-            onclick='evidenceMark(this)' />
-            <label for="ghost-writing">Écriture fantômatique</label>
-
-            <input id='spirit-box' class='triState'
-            type='text' name="Spirit box" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x2753;'
-            onclick='evidenceMark(this)' />
-            <label for="spirit-box">Spirit box</label>
-
-            <input id='nightmare'
-            type='text' name="Cauchemar" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x274c;'
-            onclick='modeMark(this)' />
-            <label for="nightmare">Cauchemar</label>
-
-            <input id='footsteps' class='triState'
-            type='text' name="Trace de pas UV" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x2753;'
-            onclick='evidenceMark(this)' />
-            <label for="footsteps">Trace de pas UV</label>
-
-            <input id='turn-off-breaker' class='triState'
-            type='text' name="Coupe le courant" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x274c;'
-            onclick='modeMark(this)' />
-            <label for="turn-off-breaker">Coupe le courant</label>
-
-            <input id='turn-on-light' class='triState'
-            type='text' name="Allume la lumière" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x274c;'
-            onclick='modeMark(this)' />
-            <label for="turn-on-light">Allume la lumière</label>
-
-            <input id='air-breath' class='triState'
-            type='text' name="Événement « boule d'air »" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x274c;'
-            onclick='modeMark(this)' />
-            <label for="air-breath">Événement « boule d'air »</label>
-
-            <input id='hunt-fast' class='triState'
-            type='text' name="Rapide en chasse (Pas en vue)" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x274c;'
-            onclick='modeMark(this)' />
-            <label for="hunt-fast">Rapide en chasse (Pas en vue)</label>
-
-            <input id='hunt-slow' class='triState'
-            type='text' name="Lent en chasse (Pas en vue)" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x274c;'
-            onclick='modeMark(this)' />
-            <label for="hunt-slow">Lent en chasse (Pas en vue)</label>
-
-            <input id='parabolic-scream' class='triState'
-            type='text' name="Cris étouffé (Microphone parabolique)" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x274c;'
-            onclick='modeMark(this)' />
-            <label for="parabolic-scream">Microphone parabolique (Cris)</label>
-
-            <input id='heavy-breath' class='triState'
-            type='text' name="Respiration lourde (Spirit Box)" style='border: none;' onfocus='this.blur()'
-            readonly='true' size='1' value='&#x274c;'
-            onclick='modeMark(this)' />
-            <label for="heavy-breath">Respiration lourde (Spirit Box)</label>
-
-            <table id='ghost-result'>
-                <thead>
-                    <tr class="ghost-table-element ghost-table-parity-1">
-                        <th colspan="5"><h1>Liste des fantômes potentiels :</h1></th>
-                    </tr>
-                    <tr class="ghost-table-element ghost-table-parity-2">
-                        <th><h2>Nom</h2></th>
-                        <th class="ghost-strenght"><h2>Force</h2></th>
-                        <th class="ghost-weakness"><h2>Faiblesse</h2></th>
-                        <th><h2>Description</h2></th>
-                    </tr>
-                </thead>
-            </table>
-        </section>
+        </footer>
     </body>
 </html>

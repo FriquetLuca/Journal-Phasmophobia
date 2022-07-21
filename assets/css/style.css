@@ -1,57 +1,209 @@
 @font-face {
   font-family: "CMU Serif";
-  src: url(cmunrm.ttf);
+  src: url(../fonts/cmunrm.ttf);
 }
 body, html {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
 }
 
 body {
+  font-size: 18px;
   font-family: "CMU Serif";
 }
 
-th, td {
-  font-size: large;
-  font-weight: 100;
+header {
   text-align: center;
+  padding-bottom: 10px;
+  background-color: #0d0d0d;
+  color: white;
 }
-th p, td p {
-  font-size: large;
-  font-weight: 100;
-  text-align: center;
+header h1, header h2 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
-
-ul, li {
-  text-align: left;
-}
-
-.evidence-content-icon {
-  width: 10px;
-  height: 10px;
-  left: 0px;
-  right: 0px;
+header h1 {
+  font-size: 75px;
 }
 
-.options {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
+#options {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: #0d0d0d;
+  color: white;
 }
 
-.ghost-strenght, .ghost-weakness {
-  max-width: 250px;
-}
-.ghost-result, .ghost-table-element {
-  margin: 0;
-  padding: 0;
+#ghost-result {
   width: 100%;
-  height: 100%;
+  border-spacing: 5px;
+  max-width: 1100px;
+  margin: auto;
 }
-.ghost-evidence-item {
+
+.italic {
+  font-style: italic;
+}
+
+.selectionables {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+@media only screen and (min-width: 739px) {
+  .selectionables {
+    flex-direction: row;
+  }
+}
+
+.mod {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 150px;
+}
+
+.evidences {
+  width: 280px;
+}
+
+.behaviours {
+  width: 310px;
+}
+
+.evidence {
+  width: 100%;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+.evidence-title {
+  text-align: center;
+}
+.evidence-icon {
   margin: 0;
   padding: 0;
+  width: 20px;
+  height: 20px;
+  margin-bottom: -6px;
+}
+.evidence-name {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+.evidence-name:hover {
+  font-weight: bold;
+}
+.evidence-triState {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.behaviour {
+  width: 100%;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+.behaviour-title {
+  text-align: center;
+}
+.behaviour-name {
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+.behaviour-name:hover {
+  font-weight: bold;
+}
+.behaviour-triState, .behaviour-dualState {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.mode {
+  width: 100%;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+.mode-title {
+  text-align: center;
+}
+.mode-name {
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+.mode-name:hover {
+  font-weight: bold;
+}
+.mode-dualState {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.ghost-name {
+  max-width: 120px;
+  text-align: center;
+}
+
+.ghost-strenght {
+  max-width: 450px;
+  text-align: center;
+  color: #ca1010;
+}
+
+.ghost-weakness {
+  max-width: 450px;
+  text-align: center;
+  color: #3d3ae4;
+}
+
+.ghost-description h4 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  text-decoration: underline;
+}
+.ghost-description div {
+  margin: 0;
+  padding: 0;
+}
+.ghost-description em p {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.ghost-description em {
+  letter-spacing: 1px;
+}
+.ghost-description div > p {
+  font-size: 16px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.ghost-evidence {
+  padding-top: 0px;
+  padding-bottom: 20px;
+}
+
+.ghost-table-underline {
+  text-align: center;
+}
+
+#ghost-result, .ghost-table-underline, .ghost-table-row-underline {
+  border-bottom: dashed #e58fe1;
 }
