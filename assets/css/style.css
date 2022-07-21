@@ -32,6 +32,18 @@ header h1 {
   font-size: 75px;
 }
 
+select {
+  border: 0 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 15px;
+  padding: 5px;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background-color: #6e6e6e;
+  color: white;
+}
+
 #options {
   display: flex;
   flex-direction: column;
@@ -136,6 +148,12 @@ header h1 {
   width: 20px;
   height: 20px;
   background-color: rgba(0, 0, 0, 0);
+}
+
+#behaviour-hunt label {
+  display: block;
+  white-space: nowrap;
+  text-align: right;
 }
 
 .mode {

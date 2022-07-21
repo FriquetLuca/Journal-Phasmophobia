@@ -33,7 +33,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Demon': {
         name: 'Démon',
@@ -60,7 +63,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 100
     },
     'Deogen': {
         name: 'Deogen',
@@ -84,14 +90,18 @@ const ghostsDB = {
         </audio>
         `,
         hunt: `
-        <p>Durant une chasse, sa vitesse est déterminée par la distance qui le sépare du joueur (2.5 à 6 mètres de distance). Au plus le joueur est loin, au plus il sera rapide. Sa vitesse varie ainsi entre 0.4 et 3 m/s.</p>
+        <p>Il ne peut démarrer une chasse que lorsque la santé mentale est en dessous de 40%.</p>
         <p>Lors du début d'une chasse, il ira vers le joueur le plus proche de lui. Il peut occasionnellement choisir un joueur au hasard.</p>
+        <p>Durant une chasse, sa vitesse est déterminée par la distance qui le sépare du joueur (2.5 à 6 mètres de distance). Au plus le joueur est loin, au plus il sera rapide. Sa vitesse varie ainsi entre 0.4 et 3 m/s.</p>
         <p>Il clignotte plus rapidement ; il est visible durant de plus long intervales et/ou il est invisible durant de plus court intervales.</p>
         `,
         speed: `
         <p><strong>Vitesse proche d'une victime :</strong> 0,4 m/s</p>
         <p><strong>Vitesse loin d'une victime :</strong> 3 m/s</p>
-        `
+        `,
+        speedMesure: [ 'fast', 'normal', 'slow' ],
+        speedChase: [ 'fast', 'normal', 'slow' ],
+        sanity: 40
     },
     'Goryo': {
         name: 'Goryo',
@@ -118,7 +128,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Hantu': {
         name: 'Hantu',
@@ -152,7 +165,10 @@ const ghostsDB = {
         <p><strong>entre 9 - 12°C :</strong> 2,1 m/s</p>
         <p><strong>entre 12 - 15°C :</strong> 1,75 m/s</p>
         <p><strong>supérieur à 15°C :</strong> 1,4 m/s</p>
-        `
+        `,
+        speedMesure: [ 'fast', 'normal', 'slow' ],
+        speedChase: [ 'fast', 'normal', 'slow' ],
+        sanity: 50
     },
     'Jinn': {
         name: 'Djinn',
@@ -177,7 +193,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s (instantané)</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Mare': {
         name: 'Cauchemar',
@@ -199,12 +218,15 @@ const ghostsDB = {
         <p>Il fait plus souvent des événements où il explose des ampoules.</p>
         `,
         hunt: `
-        <p>Si les lampes sont éteintes, il peut déchanger une chasse à partir de 60% de santé mentale. Dans le cas contraire, ce sera à partir de 40%.</p>
+        <p>Si les lampes sont éteintes, il peut déclancher une chasse à partir de 60% de santé mentale. Dans le cas contraire, ce sera à partir de 40%.</p>
         `,
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 60
     },
     'Moroi': {
         name: 'Moroï',
@@ -233,7 +255,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> entre 1,5 et 2,25 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 et 3,2 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal', 'fast' ],
+        speedChase: [ 'fast' ],
+        sanity: 50
     },
     'Myling': {
         name: 'Myling',
@@ -258,7 +283,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Obake': {
         name: 'Obake',
@@ -288,7 +316,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Oni': {
         name: 'Oni',
@@ -318,7 +349,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Onryo': {
         name: 'Onryo',
@@ -346,7 +380,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 100
     },
     'Phantom': {
         name: 'Fantôme',
@@ -374,7 +411,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Poltergeist': {
         name: 'Poltergeist',
@@ -400,7 +440,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Raiju': {
         name: 'Raiju',
@@ -431,7 +474,10 @@ const ghostsDB = {
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Près d'équipement électronique :</strong> 2,5 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal', 'fast' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Revenant': {
         name: 'Revenant',
@@ -456,7 +502,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,1 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 3 m/s</p>
-        `
+        `,
+        speedMesure: [ 'slow' ],
+        speedChase: [ 'fast' ],
+        sanity: 50
     },
     'Shade': {
         name: 'Ombre',
@@ -485,7 +534,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 35
     },
     'Spirit': {
         name: 'Esprit',
@@ -510,7 +562,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Thaye': {
         name: 'Thayé',
@@ -541,7 +596,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse quand il est jeune :</strong> 2,75 m/s</p>
         <p><strong>Vitesse quand il est vieux :</strong> 1 m/s</p>
-        `
+        `,
+        speedMesure: [ 'slow', 'normal', 'fast' ],
+        speedChase: [ 'slow', 'normal', 'fast' ],
+        sanity: 75
     },
     'The Mimic': {
         name: 'Le Mimic',
@@ -569,7 +627,10 @@ const ghostsDB = {
         <p>Varie suivant l'entité imitée.</p>`,
         speed: `
         <p><strong>Vitesse variable.</strong></p>
-        `
+        `,
+        speedMesure: [ 'slow', 'normal', 'fast' ],
+        speedChase: [ 'slow', 'normal', 'fast' ],
+        sanity: 100
     },
     'The Twins': {
         name: 'Les Jumeaux',
@@ -595,7 +656,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 (± 0,16) m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 (± 0,25) m/s</p>
-        `
+        `,
+        speedMesure: [ 'slow', 'normal' ],
+        speedChase: [ 'normal', 'fast' ],
+        sanity: 50
     },
     'Wraith': {
         name: 'Esprit',
@@ -620,7 +684,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     },
     'Yokai': {
         name: 'Yokai',
@@ -646,7 +713,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 80
     },
     'Yurei': {
         name: 'Yurei',
@@ -676,7 +746,10 @@ const ghostsDB = {
         speed: `
         <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
         <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-        `
+        `,
+        speedMesure: [ 'normal' ],
+        speedChase: [ 'normal' ],
+        sanity: 50
     }
 };
 const ghostList = [
@@ -891,8 +964,63 @@ function retrieveEvidences()
     }
     return [actualEvidences, hiddenEvidences];
 }
+function computeSanity()
+{
+    let sanityCheck = document.getElementById('hunt-huntSanity');
+    let currentSanity = sanityCheck.options[sanityCheck.selectedIndex].text;
+    if(currentSanity === '?')
+    {
+        return;
+    }
+    for(let ghostName of ghostList)
+    {
+        let ghostData = ghostsDB[ghostName];
+        if(ghostData.sanity < currentSanity)
+        {
+            let ghost = document.getElementsByClassName(ghostData.englishName);
+            collapseGhostVisibility(ghost, false);
+        }
+    }
+}
+function huntSpeed(id)
+{
+    let huntSpeed = document.getElementById(id);
+    let speed = huntSpeed.options[huntSpeed.selectedIndex].value;
+    if(speed !== 'unknown')
+    {
+        for(let ghostName of ghostList)
+        {
+            let ghostData = ghostsDB[ghostName];
+            if(!ghostData.speedMesure.includes(speed))
+            {
+                let ghost = document.getElementsByClassName(ghostData.englishName);
+                collapseGhostVisibility(ghost, false);
+            }
+        }
+    }
+}
+function huntSpeedChase(id)
+{
+    let huntSpeed = document.getElementById(id);
+    let speed = huntSpeed.options[huntSpeed.selectedIndex].value;
+    if(speed !== 'unknown')
+    {
+        for(let ghostName of ghostList)
+        {
+            let ghostData = ghostsDB[ghostName];
+            if(!ghostData.speedChase.includes(speed))
+            {
+                let ghost = document.getElementsByClassName(ghostData.englishName);
+                collapseGhostVisibility(ghost, false);
+            }
+        }
+    }
+}
 function computeSpecialAbilities()
 {
+    computeSanity();
+    huntSpeed('hunt-noChaseSpeed');
+    huntSpeedChase('hunt-chaseSpeed');
     let footsteps = document.getElementById('footsteps');
     if(footsteps.value === checkboxEmotes[1])
     {
@@ -1160,6 +1288,15 @@ function generateGhostHTML()
     }
     return result;
 }
+function generatePercentOption()
+{
+    let result = '<option value="?" selected>Inconnue</option>';
+    for(let i = 20; i >= 0; i--)
+    {
+        result = `${result}<option value="${i * 5}">${i * 5}</option>`;
+    }
+    return result;
+}
 function generateBoard()
 {
     let htmlContent = `
@@ -1175,6 +1312,40 @@ function generateBoard()
                 <h1 class="behaviour-title">Comportement</h1>
             </section>
             ${generateBehaviourHTML()}
+            <section class="behaviour">
+                <section id="behaviour-huntSanity" class="behaviour">
+                    <label class="behaviour-name" for="hunt-huntSanity">
+                        Santé mentale (1è chasse) :
+                        <select id="hunt-huntSanity" onChange="updateDatas()">
+                            ${generatePercentOption()}
+                        </select>
+                    </label>
+                </section>
+            </section>
+            <section class="behaviour">
+                <section id="behaviour-hunt" class="behaviour">
+                    Vitesse lors d'une chasse:<br>
+                    <label class="behaviour-name" for="hunt-noChaseSpeed">
+                        <em>Ne voit pas le joueur</em> :
+                        <select id="hunt-noChaseSpeed" onChange="updateDatas()">
+                            <option value="fast">Rapide</option>
+                            <option value="normal">Normale</option>
+                            <option value="slow">Lente</option>
+                            <option value="unknown" selected>Inconnue</option>
+                        </select>
+                    </label>
+                    <label class="behaviour-name" for="hunt-chaseSpeed">
+                        <em>Voit le joueur</em> :
+                        <select id="hunt-chaseSpeed" onChange="updateDatas()">
+                            <option value="fast">Rapide</option>
+                            <option value="normal">Normale</option>
+                            <option value="slow">Lente</option>
+                            <option value="unknown" selected>Inconnue</option>
+                        </select>
+                    </label>
+                </section>
+            </section>
+            
         </div>
         <div class="mod">
             <section class="mode">

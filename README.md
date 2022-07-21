@@ -8,6 +8,8 @@
     - [Évidence caractéristique](#évidence-caractéristique)
     - [Évidences du Mimic](#évidences-du-Mimic)
 - [Détails des entités](#détails-des-entités)
+- [Santé mentale](#santé-mentale)
+- [Vitesse des entités](#vitesse-des-entités)
 - [Test du Journal](#test-du-Journal)
 
 
@@ -37,6 +39,14 @@ Certaines des évidences caractéristiques de diverses entités sont prise en co
 
 Ce journal prends en considération l'orbe fantômatique du Mimic dans ses évidences ainsi que le fait que le Mimic peut posséder jusqu'à 4 évidences en mode classique et 3 évidences en mode cauchemar.
 
+## [Santé mentale](#santé-mentale)
+
+On peut faire une élimination de toutes les entités qui n'ont aucune chance de provoquer une chasse en dessous d'un certain seuil de la santé mentale, ce tris est bien plus rapide que la recherche manuel.
+
+## [Vitesse des entités](#vitesse-des-entités)
+
+Les entités ayant toutes des capacités diverses et variées, il est possible de pouvoir les déterminer à leur vitesse.
+Le journal offre un tri sur ces vitesses dépendant de si l'entité voit ou non les joueurs et les possibilités qui en découlent.
 
 ## [Détails des entités](#détails-des-entités)
 
