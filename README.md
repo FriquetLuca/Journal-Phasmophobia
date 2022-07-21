@@ -2,13 +2,13 @@
 
 ## Sommaire
 
-[Introduction](#markdown-header-Introduction)
-[Support du mode Cauchemar](#markdown-header-Support-du-mode-Cauchemar)
-[Évidences](#markdown-header-Évidences)
+- [Introduction](#markdown-header-Introduction)
+- [Support du mode Cauchemar](#markdown-header-Support-du-mode-Cauchemar)
+- [Évidences](#markdown-header-Évidences)
     - [Évidence caractéristique](#markdown-header-Évidence-caractéristique)
     - [Évidences du Mimic](#markdown-header-Évidences-du-Mimic)
-[Détails des entités](#markdown-header-Détails-des-entités)
-[Test du Journal](#markdown-header-Test-du-Journal)
+- [Détails des entités](#markdown-header-Détails-des-entités)
+- [Test du Journal](#markdown-header-Test-du-Journal)
 
 ## Introduction
 
