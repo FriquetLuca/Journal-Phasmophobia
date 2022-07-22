@@ -115,6 +115,9 @@ select {
         flex-direction: row;
         flex-wrap: wrap;
     }
+    @media only screen and (min-width: $desktopMinWidth) {
+        
+    }
 }
 .mod {
     display: flex;
@@ -124,11 +127,8 @@ select {
 }
 .evidences {
     width: 280px;
-    @media only screen and (min-width: $tabletMinWidth) and (max-width: $tabletMaxWidth) {
-
-    }
-    @media only screen and (min-width: $desktopMinWidth) {
-        
+    @media only screen and (min-width: $tabletMaxWidth) {
+        justify-content: center;
     }
 }
 .behaviours {
