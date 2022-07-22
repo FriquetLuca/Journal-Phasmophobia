@@ -57,7 +57,7 @@ const ghostsDB = {
         <p>La portée du <strong class="italic">crucifix</strong> est de 5 mètres pour lui (au lieu de 3 mètres pour les autres).</p>`,
         hunt: `
         <p>Il peut démarrer des chasses dès que la santé moyenne de l'équipe est en dessous de 70%.</p>
-        <p>Il peut enchaîner une chasse 20 secondes après en avoir fini une autre contrairement aux autres entités qui ne peuvent pas en dessous de 25 secondes.</p>
+        <p>Si il le désire, le Démon peut démarrer une chasse toutes les 20 secondes (contrairement aux autres entités peuvent démarrer une chasse toutes les 25 secondes).</p>
         <p>Si un <strong class="italic">encent</strong> est utilisé près de lui, il ne pourra pas démarrer une chasse pendant 60 secondes (au lieu de 90 secondes pour les autres entités).</p>
         `,
         speed: `
@@ -584,11 +584,11 @@ const ghostsDB = {
         <p>Chaque fois qu'il prends de l'âge :</p>
         <p>• La santé mentale minimum pour qu'il démarre une chasse diminue de 6%.</p>
         <p>• Sa vitesse se réduit de 0.175 m/s lors de la chasse.</p>
-        <p>• 15% de réduction sur les chances d'obtenir un événement.</p>
-        <p>• 15% de réduction sur les chances d'obtenir une interaction.</p>
+        <p>• 15% de réduction sur les chances d'obtenir un événement / une interaction.</p>
         `,
         behaviour: `
         <p>Au début de la partie, le Thayé a 200% de faire une interaction ou un événement paranormal.</p>
+        <p>Au fil du temps, l'âge donné par la planche Ouija augmentera.</p>
         `,
         hunt: `
         <p>Suite à son abilité, le Thayé n'accélère pas lors d'une chasse.</p>
