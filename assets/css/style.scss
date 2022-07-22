@@ -9,6 +9,11 @@ $table-lineColor: #e58fe1 !default;
 $force-color: #ca1010 !default;
 $weakness-color: #3d3ae4 !default;
 
+$desktopMinWidth: 740px;
+$tabletMaxWidth: ($desktopMinWidth - 1px);
+
+$tabletMinWidth: 610px;
+
 @if $darkTheme {
     $primary-bgColor: darken($primary-bgColor, 85%);
     $primary-dropColor: darken($primary-dropColor, 40%);
@@ -60,7 +65,13 @@ header {
         margin-bottom: 0;
     }
     h1 {
-        font-size: 75px;
+        font-size: 45px;
+        @media only screen and (min-width: $tabletMinWidth) and (max-width: $tabletMaxWidth) {
+            font-size: 60px;
+        }
+        @media only screen and (min-width: $desktopMinWidth) {
+            font-size: 75px;
+        }
     }
 }
 select {
@@ -96,10 +107,13 @@ select {
 .selectionables {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    align-items: stretch;
     margin: auto;
-    @media only screen and (min-width: 739px) {
+    // Tablet and higher
+    @media only screen and (min-width: $tabletMinWidth) {
         flex-direction: row;
+        flex-wrap: wrap;
     }
 }
 .mod {
@@ -110,6 +124,12 @@ select {
 }
 .evidences {
     width: 280px;
+    @media only screen and (min-width: $tabletMinWidth) and (max-width: $tabletMaxWidth) {
+
+    }
+    @media only screen and (min-width: $desktopMinWidth) {
+        
+    }
 }
 .behaviours {
     width: 310px;
@@ -157,6 +177,7 @@ select {
         display: block;
         white-space: nowrap;
         text-align: right;
+        margin-right: 5px;
     }
 }
 .mode {

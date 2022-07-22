@@ -29,7 +29,17 @@ header h1, header h2 {
   margin-bottom: 0;
 }
 header h1 {
-  font-size: 75px;
+  font-size: 45px;
+}
+@media only screen and (min-width: 610px) and (max-width: 739px) {
+  header h1 {
+    font-size: 60px;
+  }
+}
+@media only screen and (min-width: 740px) {
+  header h1 {
+    font-size: 75px;
+  }
 }
 
 select {
@@ -66,12 +76,14 @@ select {
 .selectionables {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
   margin: auto;
 }
-@media only screen and (min-width: 739px) {
+@media only screen and (min-width: 610px) {
   .selectionables {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
@@ -85,7 +97,6 @@ select {
 .evidences {
   width: 280px;
 }
-
 .behaviours {
   width: 310px;
 }
@@ -154,6 +165,7 @@ select {
   display: block;
   white-space: nowrap;
   text-align: right;
+  margin-right: 5px;
 }
 
 .mode {

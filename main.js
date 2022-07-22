@@ -906,7 +906,7 @@ function combinationArrayNRNO(objects, k)
            offset + 1, // Subgroup gain a start offset of 1
            k - 1, // Align k for depth check since array start at 0
            0, // No depth, it's the 1st subgroup
-           content // Give the object at the specific position in the array as a string or the position itself
+           content // Pass the container of objets itself for referencing
         );
         Array.prototype.push.apply(result, generated); // Combine result
     }
@@ -919,18 +919,18 @@ function combinationArrayDepthNRNO(objects, index, offset, k, depth = 0, content
 {
     if(depth >= k) // If our depth is grater or equal to k, then we have all we need
     {
-       return [content]; // We return the new string we made on the way.
+       return [content]; // We return the new array of objects made on the way.
     }
     let result = []; // Declare a result
     for(let i = index; i < offset; i++) // Loop through the possible values between index and offset - 1
     {
-       let copyContent = [...content, objects[i]];
+        let copyContent = [...content, objects[i]];
         let generated = combinationArrayDepthNRNO(objects,
            i + 1, // Go to the next index to get the start of the next element
            offset + 1, // Subgroup gain a start offset of 1
            k, // Just passing k along, it's already align if nothing goes wrong
            depth + 1, // Next depth of the stack
-           copyContent // Give the object at the specific position in the array as a string or the position itself
+           copyContent  // Pass the container of newly packed objets itself for referencing
         ); // Go into nested combinations
         Array.prototype.push.apply(result, generated); // Combine result
     }
@@ -981,6 +981,14 @@ function retrieveEvidences()
         }
     }
     return [actualEvidences, hiddenEvidences];
+}
+function collapseGhostVisibility(ghostElements, visibility)
+{
+    for(let ghostElement of ghostElements)
+    {
+        ghostElement.style.visibility = visibility ? 'visible' : 'collapse';
+        ghostElement.style.overflow = visibility ? 'visible' : 'hidden';
+    }
 }
 function hideGhost(ghostData)
 {
@@ -1041,6 +1049,17 @@ function computeSpecialAbilities()
     elementValueIsThen('heavy-breath', checkMoteOne, () => { lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Deogen'; }, (ghostData) => { hideGhost(ghostData); }); });
     elementValueIsThen('heavy-breath', checkMoteTwo, () => { hideGhost('Deogen'); });
 }
+function evidenceIncludes(foundEvidences, strongEvidence)
+{
+    for(let evidence of foundEvidences)
+    {
+        if(evidence.englishName === strongEvidence)
+        {
+            return true;
+        }
+    }
+    return false;
+}
 function generateNormal()
 {
     let e = retrieveEvidences();
@@ -1056,25 +1075,6 @@ function generateNormal()
         collapseGhostVisibility(ghostElements, visibility);
     }
     computeSpecialAbilities();
-}
-function collapseGhostVisibility(ghostElements, visibility)
-{
-    for(let ghostElement of ghostElements)
-    {
-        ghostElement.style.visibility = visibility ? 'visible' : 'collapse';
-        ghostElement.style.overflow = visibility ? 'visible' : 'hidden';
-    }
-}
-function evidenceIncludes(foundEvidences, strongEvidence)
-{
-    for(let evidence of foundEvidences)
-    {
-        if(evidence.englishName === strongEvidence)
-        {
-            return true;
-        }
-    }
-    return false;
 }
 function generateNightmare()
 {
