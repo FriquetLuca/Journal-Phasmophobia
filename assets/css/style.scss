@@ -107,22 +107,18 @@ select {
 .selectionables {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
     margin: auto;
     // Tablet and higher
     @media only screen and (min-width: $tabletMinWidth) {
         flex-direction: row;
         flex-wrap: wrap;
-    }
-    @media only screen and (min-width: $desktopMinWidth) {
-        
+        justify-content: center;
     }
 }
 .mod {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
     width: 150px;
 }
 .evidences {
