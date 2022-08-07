@@ -873,6 +873,18 @@ const behaviourDB = {
         name: 'Respiration lourde (Spirit Box)',
         state: 'triState',
         value: checkboxEmotes[2]
+    },
+    'door-delay': {
+        id: 'door-delay',
+        name: 'Délais sonore (Porte)',
+        state: 'triState',
+        value: checkboxEmotes[2]
+    },
+    'unique-fingerprint': {
+        id: 'unique-fingerprint',
+        name: 'Emprunte unique',
+        state: 'triState',
+        value: checkboxEmotes[2]
     }
 };
 const behaviourList = [
@@ -882,7 +894,9 @@ const behaviourList = [
     'footsteps',
     'air-breath',
     'parabolic-scream',
-    'heavy-breath'
+    'heavy-breath',
+    'door-delay',
+    'unique-fingerprint'
 ];
 
 /***
@@ -1039,14 +1053,16 @@ function computeSpecialAbilities()
     let checkMoteOne = (e) => { return e === checkboxEmotes[1]; };
     let checkMoteTwo = (e) => { return e === checkboxEmotes[2]; };
     elementValueIsThen('footsteps', checkMoteOne, () => { hideGhost('Wraith'); });
-    elementValueIsThen('footsteps', checkMoteTwo, () => { lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Wraith'; }, (ghostData) => { hideGhost(ghostData); }); });
+    elementValueIsThen('footsteps', checkMoteTwo, () => { lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Wraith' && ghostData.englishName !== 'The Mimic'; }, (ghostData) => { hideGhost(ghostData); }); });
     elementValueIsThen('turn-on-breaker', checkMoteOne, () => { hideGhost('Hantu'); });
     elementValueIsThen('turn-off-breaker', checkMoteOne, () => { hideGhost('Jinn'); });
     elementValueIsThen('turn-on-light', checkMoteOne, () => { hideGhost('Mare'); });
     elementValueIsThen('air-breath', checkMoteOne, () => { hideGhost('Oni'); });
-    elementValueIsThen('parabolic-scream', checkMoteOne, () => { lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Banshee'; }, (ghostData) => { hideGhost(ghostData); }); });
+    elementValueIsThen('parabolic-scream', checkMoteOne, () => { lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Banshee' && ghostData.englishName !== 'The Mimic'; }, (ghostData) => { hideGhost(ghostData); }); });
     elementValueIsThen('parabolic-scream', checkMoteTwo, () => { hideGhost('Banshee'); });
-    elementValueIsThen('heavy-breath', checkMoteOne, () => { lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Deogen'; }, (ghostData) => { hideGhost(ghostData); }); });
+    elementValueIsThen('door-delay', checkMoteOne, () => { lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Yurei' && ghostData.englishName !== 'The Mimic'; }, (ghostData) => { hideGhost(ghostData); }); });
+    elementValueIsThen('unique-fingerprint', checkMoteOne, () => { lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Obake' && ghostData.englishName !== 'The Mimic'; }, (ghostData) => { hideGhost(ghostData); }); });
+    elementValueIsThen('heavy-breath', checkMoteOne, () => { lookThroughGhosts((ghostData) => { return ghostData.englishName !== 'Deogen' && ghostData.englishName !== 'The Mimic'; }, (ghostData) => { hideGhost(ghostData); }); });
     elementValueIsThen('heavy-breath', checkMoteTwo, () => { hideGhost('Deogen'); });
 }
 function evidenceIncludes(foundEvidences, strongEvidence)

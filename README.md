@@ -1,4 +1,4 @@
-# Journal de Phasmophobia
+# [Journal de Phasmophobia](https://friquetluca.github.io/Journal-Phasmophobia/)
 
 ## Sommaire
 
@@ -56,4 +56,4 @@ Certains sons émis sont également repris et présenter de sorte à développer
 
 ## [Test du Journal](#test-du-Journal)
 
-Rendez-vous sur le [Journal de Phasmophobia](https://raw.githack.com/FriquetLuca/phasmo-calculator/master/index.html) pour tester et découvrir par vous-même ses limites.
+Rendez-vous sur le [Journal de Phasmophobia](https://friquetluca.github.io/Journal-Phasmophobia/) pour tester et découvrir par vous-même ses limites.
