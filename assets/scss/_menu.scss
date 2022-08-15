@@ -1,7 +1,3 @@
-header {
-    height: 40px;
-    background-color: #151515;
-}
 .option {
     &:hover {
         .options_option {
@@ -58,19 +54,40 @@ header {
         margin-left: 10px;
     }
 }
+header {
+    height: 52px;
+    background-color: #151515;
+    @media only screen and (min-width: 420px) and (max-width: 620px) {
+        height: 25px;
+    }
+    @media only screen and (min-width: 620px) {
+        height: 30px;
+    }
+}
 .menu {
     width: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     position: fixed;
     z-index: 2;
     background-color: #151515;
+    flex-wrap: wrap;
+    font-size: small;
+    @media only screen and (min-width: 420px) and (max-width: 620px) {
+        height: normal;
+    }
+    @media only screen and (min-width: 621px) {
+        font-size: x-large;
+    }
+    @media only screen and (min-width: 620px) {
+        flex-wrap: nowrap;
+    }
     &_btn {
         display: block;
         padding: 5px;
         padding-left: 15px;
         padding-right: 15px;
-        font-size: large;
         &:hover {
             background-color: #1f1f1f;
             .dropbtn {
@@ -103,5 +120,12 @@ header {
     }
 }
 .dropbtn {
+    font-size: small;
+    @media only screen and (min-width: 420px) and (max-width: 620px) {
+        height: normal;
+    }
+    @media only screen and (min-width: 621px) {
+        font-size: x-large;
+    }
     border: none;
 }

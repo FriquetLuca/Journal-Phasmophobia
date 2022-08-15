@@ -1977,7 +1977,7 @@ class DropdownMenu {
     {
         let container = document.createElement('div');
         container.classList.add('menu_btn', 'dropdown', 'noSelect');
-        let containerTitle = document.createElement('h1');
+        let containerTitle = document.createElement('p');
         containerTitle.classList.add('dropbtn');
         containerTitle.innerText = this.name;
         container.appendChild(containerTitle);
