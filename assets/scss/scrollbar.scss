@@ -1,0 +1,19 @@
+main::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    &-thumb {
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+    &-corner {
+        background-color: transparent;
+    }
+    &-thumb:vertical {
+        background-color: #ffffff;
+        border-width: 5px 4px;
+    }
+}
+* {
+    scrollbar-width: thin !important;
+}

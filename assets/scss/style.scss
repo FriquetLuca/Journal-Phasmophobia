@@ -1,0 +1,70 @@
+@font-face
+{
+    font-family: "CMU Serif";
+    src: url(../fonts/cmunrm.ttf);
+}
+
+.noSelect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+$desktopMinWidth: 740px;
+$tabletMaxWidth: ($desktopMinWidth - 1px);
+$tabletMinWidth: 610px;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    overflow: hidden;
+}
+body {
+    font-size: 14px;
+    @media only screen and (min-width: $tabletMinWidth) and (max-width: $tabletMaxWidth) {
+        font-size: 16px;
+    }
+    @media only screen and (min-width: $desktopMinWidth) {
+        font-size: 18px;
+    }
+    font-family: "CMU Serif";
+    background-color: #0d0d0d;
+    color: #e7e7e7;
+}
+@import "scrollbar";
+@import "menu";
+@import "ghost";
+main {
+    margin-top: 4px;
+    height: calc(100vh - 44px);
+    overflow-y: scroll;
+}
+main > h1, main > h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+main > h1 {
+    font-size: 45px;
+    @media only screen and (min-width: $tabletMinWidth) and (max-width: $tabletMaxWidth) {
+        font-size: 60px;
+    }
+    @media only screen and (min-width: $desktopMinWidth) {
+        font-size: 75px;
+    }
+}
+footer {
+    text-align: center;
+    font-size: 12px;
+    @media only screen and (min-width: $tabletMinWidth) and (max-width: $tabletMaxWidth) {
+        font-size: 14px;
+    }
+    @media only screen and (min-width: $desktopMinWidth) {
+        font-size: 18px;
+    }
+}

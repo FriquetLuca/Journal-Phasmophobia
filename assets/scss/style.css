@@ -1,0 +1,294 @@
+@font-face {
+  font-family: "CMU Serif";
+  src: url(../fonts/cmunrm.ttf);
+}
+.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow: hidden;
+}
+
+body {
+  font-size: 14px;
+  font-family: "CMU Serif";
+  background-color: #0d0d0d;
+  color: #e7e7e7;
+}
+@media only screen and (min-width: 610px) and (max-width: 739px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 740px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+main::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+}
+main::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+main::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+main::-webkit-scrollbar-thumb:vertical {
+  background-color: #ffffff;
+  border-width: 5px 4px;
+}
+
+* {
+  scrollbar-width: thin !important;
+}
+
+header {
+  height: 40px;
+  background-color: #151515;
+}
+
+.option:hover .options_option {
+  font-weight: bold;
+  color: #fff;
+}
+
+.option > .options, .hunt > .hunts {
+  border: none;
+  margin-left: 5px;
+  border-radius: 5px;
+  color: #e7e7e7;
+  background-color: #1f1f1f;
+  border: solid 1px #2a2a2a;
+}
+.option > .options:focus, .hunt > .hunts:focus {
+  outline: none;
+}
+
+.option_name {
+  padding: 5px;
+}
+
+.evidence, .behaviour, .option, .mode, .hunt {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #151515;
+}
+.evidence:hover, .behaviour:hover, .option:hover, .mode:hover, .hunt:hover {
+  background-color: #1f1f1f;
+}
+.evidence:hover .evidence_name, .evidence:hover .behaviour_name, .evidence:hover .option_name, .evidence:hover .mode_name, .evidence:hover .hunt_name, .behaviour:hover .evidence_name, .behaviour:hover .behaviour_name, .behaviour:hover .option_name, .behaviour:hover .mode_name, .behaviour:hover .hunt_name, .option:hover .evidence_name, .option:hover .behaviour_name, .option:hover .option_name, .option:hover .mode_name, .option:hover .hunt_name, .mode:hover .evidence_name, .mode:hover .behaviour_name, .mode:hover .option_name, .mode:hover .mode_name, .mode:hover .hunt_name, .hunt:hover .evidence_name, .hunt:hover .behaviour_name, .hunt:hover .option_name, .hunt:hover .mode_name, .hunt:hover .hunt_name {
+  color: #fff;
+  font-weight: bold;
+}
+.evidence_icon, .behaviour_icon, .option_icon, .mode_icon, .hunt_icon {
+  width: 20px;
+  height: 20px;
+}
+.evidence_triState, .behaviour_triState, .option_triState, .mode_triState, .hunt_triState {
+  margin-top: -3px;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.evidence_triState:focus, .behaviour_triState:focus, .option_triState:focus, .mode_triState:focus, .hunt_triState:focus {
+  outline: none;
+}
+.evidence label, .behaviour label, .option label, .mode label, .hunt label {
+  margin-left: 10px;
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 2;
+  background-color: #151515;
+}
+.menu_btn {
+  display: block;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: large;
+}
+.menu_btn:hover {
+  background-color: #1f1f1f;
+}
+.menu_btn:hover .dropbtn {
+  color: #fff;
+  font-weight: bold;
+}
+
+.dropdown {
+  display: inline-block;
+}
+.dropdown:hover .dropdown_content {
+  display: block;
+}
+.dropdown_content {
+  display: none;
+  position: absolute;
+  transform: translate(-15px, 4px);
+  min-width: 160px;
+  z-index: 1;
+}
+.dropdown_content p {
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown_content div, .dropdown_content select {
+  text-decoration: none;
+}
+
+.dropbtn {
+  border: none;
+}
+
+.ghosts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 5px;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+
+.ghost {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.ghost_name {
+  margin-top: 5px;
+}
+.ghost_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ghost_presentation {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 740px) {
+  .ghost_presentation {
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 20px;
+  }
+}
+.ghost_presentation_strenght_title, .ghost_presentation_strenght_description {
+  color: #ca1010;
+}
+.ghost_presentation_weakness_title, .ghost_presentation_weakness_description {
+  color: #3d3ae4;
+}
+.ghost_presentation_strenght, .ghost_presentation_weakness {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 740px) {
+  .ghost_presentation_strenght, .ghost_presentation_weakness {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+  }
+}
+.ghost_quote {
+  padding: 5px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.ghost_quote p {
+  margin-left: 45px;
+  margin-bottom: 10px;
+}
+.ghost_content {
+  display: none;
+  max-width: 1100px;
+}
+.ghost:hover .ghost_content {
+  display: block;
+}
+.ghost_content > section {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.ghost_content > section > div > p {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.ghost_speed {
+  margin-bottom: 10px;
+}
+
+main {
+  margin-top: 4px;
+  height: calc(100vh - 44px);
+  overflow-y: scroll;
+}
+
+main > h1, main > h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+main > h1 {
+  font-size: 45px;
+}
+@media only screen and (min-width: 610px) and (max-width: 739px) {
+  main > h1 {
+    font-size: 60px;
+  }
+}
+@media only screen and (min-width: 740px) {
+  main > h1 {
+    font-size: 75px;
+  }
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+}
+@media only screen and (min-width: 610px) and (max-width: 739px) {
+  footer {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 740px) {
+  footer {
+    font-size: 18px;
+  }
+}
