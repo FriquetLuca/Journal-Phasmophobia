@@ -569,8 +569,9 @@ let GHOST_DATABASE = {
         },
         behaviour: {
             'fr': `
-            <p>Il ne réagit aux <strong class="italic">D.O.T.S.</strong> que si aucun joueur n'est dans les environs et est uniquement visible à la caméra.</p>
             <p>Sa distance pour erré est généralement petite.</p>
+            <p>Il ne réagit aux <strong class="italic">D.O.T.S.</strong> que si aucun joueur n'est dans sa pièce et il est uniquement visible à la caméra.</p>
+            <p>Il est possible que le joueur puisse voir les <strong class="italic">D.O.T.S.</strong> si le Goryo interagit avec et si il est assez loin du joueur.</p>
             `,
             'en': ''
         },
@@ -634,6 +635,7 @@ let GHOST_DATABASE = {
             <p>Sa vitesse dépends de la température autour de lui. Lorsque le fusible est branché, il sera en conséquent plus lent parce que la maison sera chauffée.</p>
             <p>Il n'accélère pas si on le garde en ligne de vue.</p>
             <p>Lorsqu'il est visible, émet un souffle glacé lorsqu'il est dans une pièce avec une <strong class="italic">température</strong> inférieur ou égale à 3°C (Les joueurs décédés ne peuvent pas voir ce souffle).</p>
+            <p>Il est conseillé de ne pas le faire tourner trop longtemps autour de fourniture lorsque la pièce est chaude puisque la simple présence du Hantu suffit à faire baisser la température et donc lui augmente sa vitesse au fur et à mesure.</p>
             `,
             'en': ''
         },
@@ -810,7 +812,7 @@ let GHOST_DATABASE = {
         speed: {
             'fr': `
             <p><strong>Vitesse de base :</strong> entre 1,5 et 2,25 m/s</p>
-            <p><strong>Victime en ligne de vue :</strong> 2,5 et 3,2 m/s</p>
+            <p><strong>Victime en ligne de vue :</strong> 2,25 et 3,71 m/s</p>
             `,
             'en': ''
         },
@@ -857,6 +859,7 @@ let GHOST_DATABASE = {
         hunt: {
             'fr': `
             <p>Le son de ses pas ne s'entends que s'il se situe à une distance d'environs 9 mètres.</p>
+            <p>La distance audible des pas d'un Myling lors d'une chasse est par conséquent uniquement audible lorsqu'il interfère avec l'électronique.</p>
             `,
             'en': ''
         },
@@ -1022,6 +1025,7 @@ let GHOST_DATABASE = {
             <p>Il a une plus haute chance que les autres fantômes d'éteindre une bougie.</p>
             <p>Si une flamme est proche de lui, elle agit tel un <strong class="italic">crucifix</strong>, l'empéchant de chasser à une distance de 4 mètres.</p>
             <p>Si il tente de démarrer une chasse près de la flamme, la chasse échouera et il éteindra la <strong class="italic">bougie</strong> à la place.</p>
+            <p>Lorsqu'un crucifix posé sous une bougie allumée brûle sans que la bougie s'éteigne en premier, alors l'entité ne peut pas être un Onryo.</p>
             `,
             'en': ''
         },
