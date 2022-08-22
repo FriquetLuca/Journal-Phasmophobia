@@ -705,7 +705,7 @@ let GHOST_DATABASE = {
             'en': ''
         },
         speedMesure: [ 'normal' ],
-        speedChase: [ 'normal' ],
+        speedChase: [ 'fast' ],
         sanity: 50
     },
     'Mare': {
@@ -1212,7 +1212,7 @@ let GHOST_DATABASE = {
             'en': ''
         },
         speedMesure: [ 'normal', 'fast' ],
-        speedChase: [ 'normal' ],
+        speedChase: [ 'normal', 'fast' ],
         sanity: 50
     },
     'Revenant': {
