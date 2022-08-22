@@ -330,3 +330,9 @@ footer {
     font-size: 18px;
   }
 }
+
+.hunt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
