@@ -1485,7 +1485,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse variable.</strong></p>
+            <p><strong>Varie selon l'entité qu'il incarne.</strong></p>
             `,
             'en': ''
         },
