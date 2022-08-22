@@ -817,7 +817,7 @@ let GHOST_DATABASE = {
             'en': ''
         },
         speedMesure: [ 'normal', 'fast' ],
-        speedChase: [ 'fast' ],
+        speedChase: [ 'normal', 'fast' ],
         sanity: 50
     },
     'Myling': {
