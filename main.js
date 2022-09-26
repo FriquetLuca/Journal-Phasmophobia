@@ -2199,9 +2199,20 @@ class GhostRender {
     static writeArticles(ghosts, language)
     {
         const container = document.querySelector('.ghosts');
+        let ghosts_list = [];
         for(const g in ghosts)
         {
-            container.appendChild(this.writeArticle(ghosts[g], language));
+            ghosts_list.push({
+                id: g,
+                name: ghosts[g].name_text[language]
+            });
+        }
+        ghosts_list.sort(function (a, b) {
+            return a.name.localeCompare(b.name);
+        });
+        for(const g of ghosts_list)
+        {
+            container.appendChild(this.writeArticle(ghosts[g.id], language));
         }
     }
 }
