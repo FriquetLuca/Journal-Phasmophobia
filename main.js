@@ -1019,16 +1019,18 @@ let GHOST_DATABASE = {
             <p>Si une <strong class="italic">bougie</strong>, un <strong class="italic">briquet</strong> ou un feu de camp est éteint par ce dernier, on considère qu'il éteint une flamme.</p>
             <p>L'Onryo possède un compteur de flamme éteinte (qui ne vaut que pour celles qu'il éteint lui-même).</p>
             <p>Il peut éteindre deux flammes puis, lorsqu'il en éteindra une troisième, le compteur se réinitialisera et il aura une probabilité de 50% de démarrer une chasse.</p>
-            <p>En multijoueur, la probabilité qu'il démarre une chasse lorsqu'il éteint la troisième flamme est accue de 25% par joueur décédé (100% de chance d'une chasse avec deux joueurs décédés).</p>
+            <p>En multijoueur, la probabilité qu'il démarre une chasse lorsqu'il éteint la troisième flamme est accue de 25% par joueur décédé.</p>
             `,
             'en': ''
         },
         behaviour: {
             'fr': `
-            <p>Il a une plus haute chance que les autres fantômes d'éteindre une bougie.</p>
+            <p>Il a une plus haute chance que les autres fantômes d'éteindre une <strong class="italic">bougie</strong>.</p>
             <p>Si une flamme est proche de lui, elle agit tel un <strong class="italic">crucifix</strong>, l'empéchant de chasser à une distance de 4 mètres.</p>
-            <p>Si il tente de démarrer une chasse près de la flamme, la chasse échouera et il éteindra la <strong class="italic">bougie</strong> à la place.</p>
-            <p>Lorsqu'un crucifix posé sous une bougie allumée brûle sans que la bougie s'éteigne en premier, alors l'entité ne peut pas être un Onryo.</p>
+            <p>Plusieurs situations particulières peuvent avoir lieu en conséquence de son comportement et son abilité :</p>
+            <p>• Une <strong class="italic">bougie</strong> et un <strong class="italic">crucifix</strong> sont à portée de l'Oryo, et il éteint la <strong class="italic">bougie</strong>. Les 50% de chances réussissent mais suite à la présence du <strong class="italic">crucifix</strong>, la chasse n'a pas lieu.</p>
+            <p>• Deux <strong class="italic">bougies</strong> sont à portée de l'Onryo et il en éteint l'une d'entre elles. Les 50% de chances réussissent mais comme il y a une autre <strong class="italic">bougie</strong>, la chasse n'a pas lieu.</p>
+            <p>• Une <strong class="italic">bougie</strong> est à portée de l'Onryo et il tente de chasser naturellement. La <strong class="italic">bougie</strong> s'éteindra et la chasse n'aura pas lieu.</p>
             `,
             'en': ''
         },
