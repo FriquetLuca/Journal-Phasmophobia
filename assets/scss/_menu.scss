@@ -6,8 +6,9 @@
         }
     }
 }
-.option > .options, .hunt > .hunts {
+.option > .options, .hunt > .hunts, .mode > .modes {
     border: none;
+    padding: 2px;
     margin-left: 5px;
     border-radius: 5px;
     color: #e7e7e7;
@@ -20,12 +21,17 @@
 .option_name {
     padding: 5px;
 }
+.container_align_icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .evidence, .behaviour, .option, .mode, .hunt {
     width: 100%;
     padding: 5px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     background-color: #151515;
     &:hover {

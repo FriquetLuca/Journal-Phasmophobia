@@ -1016,7 +1016,10 @@ let GHOST_DATABASE = {
         },
         ability: {
             'fr': `
-            <p>Si une <strong class="italic">bougie</strong>, un <strong class="italic">briquet</strong> ou un feu de camp est éteint par ce dernier, il y a une probabilité qu'il démarre une chasse, peu importe la santé mentale. En multijoueur, cette chance est accrue si un joueur meurt, avec presque une garantie si au moins deux joueurs sont morts.</p>
+            <p>Si une <strong class="italic">bougie</strong>, un <strong class="italic">briquet</strong> ou un feu de camp est éteint par ce dernier, on considère qu'il éteint une flamme.</p>
+            <p>L'Onryo possède un compteur de flamme éteinte (qui ne vaut que pour celles qu'il éteint lui-même).</p>
+            <p>Il peut éteindre deux flammes puis, lorsqu'il en éteindra une troisième, le compteur se réinitialisera et il aura une probabilité de 50% de démarrer une chasse.</p>
+            <p>En multijoueur, la probabilité qu'il démarre une chasse lorsqu'il éteint la troisième flamme est accue de 25% par joueur décédé (100% de chance d'une chasse avec deux joueurs décédés).</p>
             `,
             'en': ''
         },
@@ -2066,6 +2069,20 @@ class MenuManager {
             label.setAttribute('for', element.name);
             label.innerText = element.text[language];
             label.value = element.name;
+            if(element.icon)
+            {
+                let icon = document.createElement('img');
+                icon.classList.add(`${elementName.subId}_icon`);
+                icon.setAttribute('src', `assets/icons/${element.icon}`);
+                icon.setAttribute('alt', element.text[language]);
+                let iconContainer = document.createElement('div');
+                iconContainer.classList.add('container_align_icon');
+                iconContainer.appendChild(icon);
+                iconContainer.appendChild(label);
+                div.appendChild(iconContainer);
+            } else {
+                div.appendChild(label);
+            }
             if(element.type !== 'button')
             {
                 input = document.createElement('p');
@@ -2078,18 +2095,8 @@ class MenuManager {
                 input.size = 1;
                 input.value = element.value;
                 input.innerText = element.value;
-    
                 div.appendChild(input);
             }
-            if(element.icon)
-            {
-                let icon = document.createElement('img');
-                icon.classList.add(`${elementName.subId}_icon`);
-                icon.setAttribute('src', `assets/icons/${element.icon}`);
-                icon.setAttribute('alt', element.text[language]);
-                div.appendChild(icon);
-            }
-            div.appendChild(label);
         }
         return div;
     }
