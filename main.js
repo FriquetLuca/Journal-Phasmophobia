@@ -681,7 +681,7 @@ let GHOST_DATABASE = {
         },
         ability: {
             'fr': `
-            <p>Si le fusible est branché, il peut utiliser son abilité qui réduit de 25% la santé mentale de tous les joueurs présent aux environs de 3 mètres de lui et génère au fusible un <strong class="italic">EMF 2</strong> ou <strong class="italic">EMF 5.</strong></p>
+            <p>Si le fusible est branché, il peut utiliser son abilité qui réduit de 25% la santé mentale de tous les joueurs présent dans la même pièce ou aux environs de 3 mètres de lui et génère au fusible un <strong class="italic">EMF 2</strong> ou <strong class="italic">EMF 5</strong> si la santé mentale d'un joueur a été drainée.</p>
             `,
             'en': ''
         },
@@ -958,7 +958,7 @@ let GHOST_DATABASE = {
         },
         ability: {
             'fr': `
-            <p>Rien à signaler.</p>
+            <p>Il draine le double de la santé mentale par rapport aux autres fantômes lors d'un événement fantômatique.</p>
             `,
             'en': ''
         },
@@ -966,7 +966,6 @@ let GHOST_DATABASE = {
             'fr': `
             <p>Il est très actif et interagit plus souvent avec les objets, surtout si il y a des joueurs dans sa pièce.</p>
             <p>Il peut se manifester entièrement durant un événement.</p>
-            <p>Il peut lancer les objets plus haut ou plus loin (un à la fois, ça ne réduit pas la santé mentale des joueurs).</p>
             <p>Il est incapable de produire l'événement de type "ballon d'air". Ainsi, on peut retirer l'Oni si l'on entends le son :</p>
             <audio controls id="sound-air-breath" class="sound-display">
                 <source src="assets/audio/air-breath.mp3" type="audio/mpeg" />
@@ -975,7 +974,7 @@ let GHOST_DATABASE = {
         },
         hunt: {
             'fr': `
-            <p>Rien à signaler.</p>
+            <p>Il peut être vu plus longtemps lorsqu'il chasse.</p>
             `,
             'en': ''
         },
@@ -1146,7 +1145,7 @@ let GHOST_DATABASE = {
         },
         hunt: {
             'fr': `
-            <p>Rien à signaler.</p>
+            <p>Pendant une chasse, lance un objet toutes les 0,5 secondes si il y en a un à sa proximité contrairement aux autres entités qui n'ont que 50% de chance d'en lancer toutes les 0,5 secondes.</p>
             `,
             'en': ''
         },
