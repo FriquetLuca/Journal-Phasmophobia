@@ -1,597 +1,4 @@
-'use strict';
-class Tristate {
-    static TRUE = '\u2705';
-    static FALSE = '\u274C';
-    static NEUTRAL = '\u2753';
-}
-let AUTOR_DATABASE = {
-    'en': '- The diary.',
-    'fr': '- Le journal.'
-};
-let TITLE_DATABASE = {
-    'speed': {
-        name: {
-            'fr': 'Vitesse',
-            'en': 'Speed'
-        }
-    },
-    'hunt': {
-        name: {
-            'fr': 'Chasse',
-            'en': 'Hunt'
-        }
-    },
-    'behaviour': {
-        name: {
-            'fr': 'Comportement',
-            'en': 'Behaviour'
-        }
-    },
-    'ability': {
-        name: {
-            'fr': 'Abilité',
-            'en': 'ability',
-        }
-    },
-    'strenght': {
-        name: {
-            'fr': 'Force',
-            'en': 'Strenght',
-        }
-    },
-    'weakness': {
-        name: {
-            'fr': 'Faiblesse',
-            'en': 'Weakness',
-        }
-    }
-}
-let DATABASE = {
-    'Evidences': {
-        name: 'Evidences',
-        id: 'evidences',
-        subId: 'evidence',
-        text: {
-            'fr': 'Évidences',
-            'en': 'Evidences'
-        },
-        list: {
-            'dots': {
-                name: 'dots',
-                icon: 'dots-projector.webp',
-                text: {
-                    'en': 'D.O.T.S. Projector',
-                    'fr': 'Projecteur D.O.T.S.'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate'
-            },
-            'emf-5': {
-                name: 'emf-5',
-                icon: 'emf-reader.webp',
-                text: {
-                    'en': 'EMF Level 5',
-                    'fr': 'EMF Niveau 5'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate'
-            },
-            'fingerprints': {
-                name: 'fingerprints',
-                icon: 'fingerprints.webp',
-                text: {
-                    'en': 'Fingerprints',
-                    'fr': 'Empruntes'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate'
-            },
-            'freezing-temperatures': {
-                name: 'freezing-temperatures',
-                icon: 'thermometer.webp',
-                text: {
-                    'en': 'Freezing Temperatures',
-                    'fr': 'Température glaciale'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate'
-            },
-            'ghost-orb': {
-                name: 'ghost-orb',
-                icon: 'ghost-orb.webp',
-                text: {
-                    'en': 'Ghost Orb',
-                    'fr': 'Orbe fantômatique'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate'
-            },
-            'ghost-writing': {
-                name: 'ghost-writing',
-                icon: 'writing-book.webp',
-                text: {
-                    'en': 'Ghost Writing',
-                    'fr': 'Écriture fantômatique'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate'
-            },
-            'spirit-box': {
-                name: 'spirit-box',
-                icon: 'spirit-box.webp',
-                text: {
-                    'en': 'Spirit Box',
-                    'fr': 'Spirit Box'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate'
-            }
-        }
-    },
-    'Behaviour': {
-        name: 'Behaviour',
-        id: 'behaviours',
-        subId: 'behaviour',
-        text: {
-            'fr': 'Comportement',
-            'en': 'Behaviour'
-        },
-        list: {
-            'turn-on-light': {
-                name: 'turn-on-light',
-                text: {
-                    'en': 'Turn on the light',
-                    'fr': 'Allume la lumière'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate',
-                defaultValue: Tristate.NEUTRAL
-            },
-            'turn-on-breaker': {
-                name: 'turn-on-breaker',
-                text: {
-                    'en': 'Turn on the breaker',
-                    'fr': 'Allume le fusible'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate',
-                defaultValue: Tristate.NEUTRAL
-            },
-            'turn-off-breaker': {
-                name: 'turn-off-breaker',
-                text: {
-                    'en': 'Turn off the breaker',
-                    'fr': 'Coupe le fusible'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate',
-                defaultValue: Tristate.NEUTRAL
-            },
-            'footprints': {
-                name: 'footprints',
-                text: {
-                    'en': 'Footprints',
-                    'fr': 'Trace de pas'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate',
-                defaultValue: Tristate.NEUTRAL
-            },
-            'air-ball-event': {
-                name: 'air-ball-event',
-                text: {
-                    'en': 'Air ball event',
-                    'fr': 'Événement boule d\'air'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate',
-                defaultValue: Tristate.NEUTRAL
-            },
-            'banshee-scream': {
-                name: 'banshee-scream',
-                text: {
-                    'en': 'Scream (Parabolic)',
-                    'fr': 'Cris (Microphone Parabolique)'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate',
-                defaultValue: Tristate.NEUTRAL
-            },
-            'deogen-breath': {
-                name: 'deogen-breath',
-                text: {
-                    'en': 'Heavy breath (Spirit Box)',
-                    'fr': 'Respiration lourde (Spirit Box)'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate',
-                defaultValue: Tristate.NEUTRAL
-            },
-            'yurei-door': {
-                name: 'yurei-door',
-                text: {
-                    'en': 'Sound delay (Closed door noise)',
-                    'fr': 'Délais sonore (Bruit de porte fermée)'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate',
-                defaultValue: Tristate.NEUTRAL
-            },
-            'obake-fringer': {
-                name: 'obake-fringer',
-                text: {
-                    'en': 'Unique fingerprint',
-                    'fr': 'Emprunte unique'
-                },
-                value: Tristate.NEUTRAL,
-                type: 'tristate',
-                defaultValue: Tristate.NEUTRAL
-            }
-        }
-    },
-    'Hunt': {
-        name: 'Hunt',
-        id: 'hunts',
-        subId: 'hunt',
-        text: {
-            'fr': 'Chasse',
-            'en': 'Hunt'
-        },
-        list: {
-            'sanity': {
-                name: 'sanity',
-                text: {
-                    'fr': 'Santé mentale (1è chasse)',
-                    'en': 'Sanity (1st hunt)'                    
-                },
-                value: 0,
-                type: 'select',
-                selectValue: {
-                    'fr': generateNumber(20, 'fr'),
-                    'en': generateNumber(20, 'en')
-                },
-                defaultId: 'unknown'
-            },
-            'blind-speed': {
-                name: 'blind-speed',
-                text: {
-                    'fr': 'Vitesse (ne voit pas le joueur)',
-                    'en': 'Speed (don\'t see the player)'                    
-                },
-                value: 0,
-                type: 'select',
-                selectValue: {
-                    'fr': [
-                        {value: 'Inconnue', id: 'unknown'},
-                        {value: 'Rapide', id: 'fast'},
-                        {value: 'Normal', id: 'normal'},
-                        {value: 'Lent', id: 'slow'}
-                    ],
-                    'en': [
-                        {value: 'Unknown', id: 'unknown'},
-                        {value: 'Fast', id: 'fast'},
-                        {value: 'Normal', id: 'normal'},
-                        {value: 'Slow', id: 'slow'}
-                    ]
-                },
-                defaultIndex: 'unknown'
-            },
-            'targeting-speed': {
-                name: 'targeting-speed',
-                text: {
-                    'fr': 'Vitesse (voit le joueur)',
-                    'en': 'Speed (see the player)'                    
-                },
-                value: 0,
-                type: 'select',
-                selectValue: {
-                    'fr': [
-                        {value: 'Inconnue', id: 'unknown'},
-                        {value: 'Rapide', id: 'fast'},
-                        {value: 'Normal', id: 'normal'},
-                        {value: 'Lent', id: 'slow'}
-                    ],
-                    'en': [
-                        {value: 'Unknown', id: 'unknown'},
-                        {value: 'Fast', id: 'fast'},
-                        {value: 'Normal', id: 'normal'},
-                        {value: 'Slow', id: 'slow'}
-                    ]
-                },
-                defaultId: 'unknown'
-            }
-        }
-    },
-    'Modes': {
-        name: 'Modes',
-        id: 'modes',
-        subId: 'mode',
-        text: {
-            'fr': 'Mode',
-            'en': 'Mode'
-        },
-        list: {
-            'nightmare': {
-                name: 'nightmare',
-                text: {
-                    'fr': 'Cauchemar',
-                    'en': 'Nightmare'                    
-                },
-                value: Tristate.FALSE,
-                type: 'dualstate',
-                defaultValue: Tristate.FALSE
-            }
-        }
-    },
-    'Options': {
-        name: 'Options',
-        id: 'options',
-        subId: 'option',
-        text: {
-            'fr': 'Options',
-            'en': 'Options'
-        },
-        list: {
-            'reset': {
-                name: 'reset',
-                text: {
-                    'fr': 'Réinitialiser',
-                    'en': 'Reset'                    
-                },
-                type: 'button'
-            },
-            'language': {
-                name: 'language',
-                text: {
-                    'fr': 'Langue',
-                    'en': 'Language'                    
-                },
-                value: 'fr',
-                type: 'select',
-                selectValue: {
-                    'fr': [
-                        {value: 'Français', id: 'fr'},
-                        {value: 'Anglais', id: 'en'}
-                    ],
-                    'en': [
-                        {value: 'French', id: 'fr'},
-                        {value: 'English', id: 'en'}
-                    ]
-                },
-                defaultId: 'fr'
-            }
-        }
-    }
-};
 let GHOST_DATABASE = {
-    'Banshee': {
-        id: 'banshee',
-        name: 'Banshee',
-        name_text: {
-            'fr': 'Banshee',
-            'en': 'Banshee'
-        },
-        evidences: [
-            'dots',
-            'fingerprints',
-            'ghost-orb'
-        ],
-        strenght: {
-            'fr': "Ne s'attaque qu'à une victime à la fois.",
-            'en': "Hunt only one victim at a time."
-        },
-        weakness: {
-            'fr': "Ses cris s'entendent au microphone parabolique.",
-            'en': ''
-        },
-        description: {
-            'fr': "La sirène qui chante, connue pour attirer ses victimes à travers ses chants. Elle est connue pour isoler sa proie avant de mettre le coup fatal.",
-            'en': ''
-        },
-        ability: {
-            'fr': '<p>Elle choisie une cible au début du jeu et ne changera de cible que si cette dernière meurt (ou quitte la partie).</p>',
-            'en': ''
-        },
-        behaviour: {
-            'fr': `
-                <p>Elle a une chance de faire un son paranormal unique lorsque le <strong class="italic">microphone parabolique</strong> est utilisé.</p>
-                <audio controls id="banshee-scream" class="sound-display">
-                    <source src="assets/audio/banshee-scream.mp3" type="audio/mpeg" />
-                </audio>
-                <p>Elle peut choisir un joueur au hasard et marcher vers ce dernier créant un <strong class="italic">EMF 2</strong>.</p>
-                <p>Elle préfère causer des événements où elle chante. Si sa cible la fait disparaître durant un événement musical en la touchant, sa santé mentale se réduit de 15% au lieu de 10%.</p>
-            `,
-            'en': ''
-        },
-        hunt: {
-            'fr': `
-                <p>La chasse est basée sur la santé mentale de la cible de la Banshee, ainsi une chasse sera démarrée si sa cible est en dessous de 50% de santé mentale. Tous les joueurs, autres que sa cible, seront ignorés durant une chasse. Si une chasse démarre sans sa cible présente dans le bâtiment, elle choisira alors une cible temporaire.</p>
-                <p>L'objectif <strong class="italic">\"repousser le fantôme lorsqu'il chasse quelqu'un\"</strong> n'est pas possible avec de <strong class="italic">l'encent</strong> (à moins qu'elle ne chasse sa cible lorsque ça se produit).</p>
-            `,
-            'en': ''
-        },
-        speed: {
-            'fr': `
-                <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
-                <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-            `,
-            'en': ''
-        },
-        speedMesure: [ 'normal' ],
-        speedChase: [ 'normal' ],
-        sanity: 50
-    },
-    'Demon': {
-        id: 'demon',
-        name: 'Demon',
-        name_text: {
-            'fr': 'Démon',
-            'en': 'Demon'
-        },
-        evidences: [
-            'fingerprints',
-            'freezing-temperatures',
-            'ghost-writing'
-        ],
-        strenght: {
-            'fr': "Ils chassent plus souvent que les autres entités.",
-            'en': ''
-        },
-        weakness: {
-            'fr': "L'effet du crucifix est accrus contre eux jusqu'à 5 mètres.",
-            'en': ''
-        },
-        description: {
-            'fr': "Un démon est l'une des pires entités que l'on puisse rencontrer. Il est connu pour attaquer sans raison.",
-            'en': ''
-        },
-        ability: {
-            'fr': `
-            <p>Il peut décider de démarrer une chasse quand il le désire. Lorsqu'il utilise cette abilité, il choisit un joueur au hasard et va vers ce joueur.</p>
-            <p>Si il a ce joueur en vue dans les 20 secondes, la chasse sera initiée.</p>
-            `,
-            'en': ''
-        },
-        behaviour: {
-            'fr': `
-            <p>La portée du <strong class="italic">crucifix</strong> est de 5 mètres pour lui (au lieu de 3 mètres pour les autres).</p>`,
-            'en': ''
-        },
-        hunt: {
-            'fr': `
-            <p>Il peut démarrer des chasses dès que la santé moyenne de l'équipe est en dessous de 70%.</p>
-            <p>Si il le désire, le Démon peut démarrer une chasse toutes les 20 secondes (contrairement aux autres entités peuvent démarrer une chasse toutes les 25 secondes).</p>
-            <p>Si un <strong class="italic">encent</strong> est utilisé près de lui, il ne pourra pas démarrer une chasse pendant 60 secondes (au lieu de 90 secondes pour les autres entités).</p>
-            `,
-            'en': ''
-        },
-        speed: {
-            'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
-            <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-            `,
-            'en': ''
-        },
-        speedMesure: [ 'normal' ],
-        speedChase: [ 'normal' ],
-        sanity: 100
-    },
-    'Deogen': {
-        id: 'deogen',
-        name: 'Deogen',
-        name_text: {
-            'fr': 'Deogen',
-            'en': 'Deogen'
-        },
-        evidences: [
-            'dots',
-            'ghost-writing',
-            'spirit-box'
-        ],
-        strongEvidence: 'spirit-box',
-        strenght: {
-            'fr': "Ils sentent constamment les vivants durant une chasse et avancent rapidement vers leurs positions.",
-            'en': ''
-        },
-        weakness: {
-            'fr': "Ils avancent lentement quand ils voient leurs victimes.",
-            'en': ''
-        },
-        description: {
-            'fr': "Parfois entourés d'un brouillard sans fin, les Deogen ont échappé aux chasseurs de fantômes pendant des années. Les rapports indiquent que ces entités trouvent même leurs proies les mieux cachés, avant de les harcelées jusqu'à l'épuisement.",
-            'en': ''
-        },
-        ability: {
-            'fr': `
-            <p>Il connaît la position de tous les joueurs.</p>
-            `,
-            'en': ''
-        },
-        behaviour: {
-            'fr': `
-            <p>Il a 33% de chance par question de produire une réponse unique à la <strong class="italic">Spirit Box </strong> lorsque le joueur est situé à 1 mètre de ce dernier: une respiration lourde et constante durant 3 à 4 secondes.</p>
-            <audio controls id="deogen-breath" class="sound-display">
-                <source src="assets/audio/deogen-breath.mp3" type="audio/mpeg" />
-            </audio>
-            `,
-            'en': ''
-        },
-        hunt: {
-            'fr': `
-            <p>Il ne peut démarrer une chasse que lorsque la santé mentale est en dessous de 40%.</p>
-            <p>Lors du début d'une chasse, il ira vers le joueur le plus proche de lui. Il peut occasionnellement choisir un joueur au hasard.</p>
-            <p>Durant une chasse, sa vitesse est déterminée par la distance qui le sépare du joueur (2.5 à 6 mètres de distance). Au plus le joueur est loin, au plus il sera rapide. Sa vitesse varie ainsi entre 0.4 et 3 m/s.</p>
-            <p>Il clignotte plus rapidement ; il est visible durant de plus long intervales et/ou il est invisible durant de plus court intervales.</p>
-            `,
-            'en': ''
-        },
-        speed: {
-            'fr': `
-            <p><strong>Vitesse proche d'une victime :</strong> 0,4 m/s</p>
-            <p><strong>Vitesse loin d'une victime :</strong> 3 m/s</p>
-            `,
-            'en': ''
-        },
-        speedMesure: [ 'fast', 'normal', 'slow' ],
-        speedChase: [ 'fast', 'normal', 'slow' ],
-        sanity: 40
-    },
-    'Goryo': {
-        id: 'goryo',
-        name: 'Goryo',
-        name_text: {
-            'fr': 'Goryo',
-            'en': 'Goryo'
-        },
-        evidences: [
-            'dots',
-            'emf-5',
-            'fingerprints'
-        ],
-        strongEvidence: 'dots',
-        strenght: {
-            'fr': "Ses interactions avec le projecteur D.O.T.S. ne sont visible qu'au travers une caméra.",
-            'en': ''
-        },
-        weakness: {
-            'fr': "Tends à rester dans sa pièce.",
-            'en': ''
-        },
-        description: {
-            'fr': "Lorsqu'un Goryo passe à travers un projecteur D.O.T.S., employer une caméra est le seul moyen pour le voir.",
-            'en': ''
-        },
-        ability: {
-            'fr': `
-            <p>Rien à signaler.</p>
-            `,
-            'en': ''
-        },
-        behaviour: {
-            'fr': `
-            <p>Sa distance pour erré est généralement petite.</p>
-            <p>Il ne réagit aux <strong class="italic">D.O.T.S.</strong> que si aucun joueur n'est dans sa pièce et il est uniquement visible à la caméra.</p>
-            <p>Il est possible que le joueur puisse voir les <strong class="italic">D.O.T.S.</strong> si le Goryo interagit avec et si il est assez loin du joueur.</p>
-            `,
-            'en': ''
-        },
-        hunt: {
-            'fr': `
-            <p>Rien à signaler.</p>
-            `,
-            'en': ''
-        },
-        speed: {
-            'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
-            <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
-            `,
-            'en': ''
-        },
-        speedMesure: [ 'normal' ],
-        speedChase: [ 'normal' ],
-        sanity: 50
-    },
     'Hantu': {
         id: 'hantu',
         name: 'Hantu',
@@ -699,7 +106,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s (instantané)</p>
             `,
             'en': ''
@@ -754,7 +161,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -865,7 +272,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -923,7 +330,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -980,7 +387,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -1041,7 +448,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -1097,7 +504,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -1151,7 +558,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -1209,7 +616,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Près d'équipement électronique :</strong> 2,5 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
@@ -1320,7 +727,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -1373,7 +780,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -1544,8 +951,8 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 (± 0,16) m/s</p>
-            <p><strong>Victime en ligne de vue :</strong> 2,5 (± 0,25) m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 (± 0,2) m/s</p>
+            <p><strong>Victime en ligne de vue :</strong> 2,5 (± 0,2) m/s</p>
             `,
             'en': ''
         },
@@ -1597,7 +1004,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -1651,7 +1058,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -1709,7 +1116,7 @@ let GHOST_DATABASE = {
         },
         speed: {
             'fr': `
-            <p><strong>Vitesse de base :</strong> 1,6 m/s</p>
+            <p><strong>Vitesse de base :</strong> 1,7 m/s</p>
             <p><strong>Victime en ligne de vue :</strong> 2,5 m/s</p>
             `,
             'en': ''
@@ -1719,568 +1126,5 @@ let GHOST_DATABASE = {
         sanity: 50
     }
 };
-let LANGUAGE = 'fr';
-class MainDiary {
-    static Create()
-    {
-        const MENU = document.querySelector('.menu');
-        for(let dataLabel in DATABASE)
-        {
-            const MENU_DROPDOWN = new DropdownMenu(DATABASE[dataLabel].text[LANGUAGE], MenuManager.generateInputs(DATABASE[dataLabel], LANGUAGE));
-            MENU.appendChild(MENU_DROPDOWN.constructDropdown());
-        }
-        GhostRender.writeArticles(GHOST_DATABASE, LANGUAGE);
-    }
-    static Reset()
-    {
-        for(let element in DATABASE)
-        {
-            let dbElement = DATABASE[element];
-            for(let dbElem in dbElement.list)
-            {
-                let btn = dbElement.list[dbElem];
-                if(btn.type === 'tristate'){
-                    btn.value = Tristate.NEUTRAL;
-                }
-                else if(btn.type === 'dualstate'){
-                    btn.value = Tristate.FALSE;
-                }
-            }
-        }
-        this.SubReset();
-    }
-    static SubReset()
-    {
-        const GHOSTS = document.querySelector('.ghosts');
-        GHOSTS.innerHTML = '';
-        const lang = document.querySelector('#language');
-        if(lang && lang !== null)
-        {
-            if(LANGUAGE !== lang.value)
-            {
-                LANGUAGE = lang.value;
-                lang.value = LANGUAGE;
-                DATABASE['Options'].list['language'].value = LANGUAGE;
-                DATABASE['Options'].list['language'].defaultId = LANGUAGE;
-            }
-        }
-        const MENU = document.querySelector('.menu');
-        MENU.innerHTML = '';
-        this.Create();
-        this.Update();
-    }
-    static Update()
-    {
-        const lang = document.querySelector('#language');
-        if(lang && lang !== null && LANGUAGE !== lang.value)
-        {
-            this.SubReset();
-            return;
-        }
-
-        let evidences = document.querySelectorAll(`.evidence_triState`);
-        evidences = [...evidences].filter((value) => {
-            return value.value !== Tristate.NEUTRAL;
-        });
-        
-        let obtainedEvidences = evidences.filter((value) => {
-            return value.value !== Tristate.FALSE;
-        });
-        let hiddenEvidences = evidences.filter((value) => {
-            return value.value !== Tristate.TRUE;
-        });
-
-        let behaviours = document.querySelectorAll('.behaviour_triState');
-        behaviours = [...behaviours].filter((value) => {
-            return value.value !== Tristate.NEUTRAL;
-        });
-        let hunts = document.querySelectorAll('.hunt > .hunt_triState');
-        let mode = document.querySelector('#nightmare');
-
-
-        let visibility;
-        if(mode.value === Tristate.TRUE)
-        {
-            for(let g in GHOST_DATABASE)
-            {
-                let actualGhost = GHOST_DATABASE[g];
-                let visibility = true;
-                if(actualGhost.strongEvidence) // Check for strong evidence
-                {
-                    let hasStrong = false;
-                    for(let evidence of obtainedEvidences)
-                    {
-                        visibility &= actualGhost.evidences.includes(evidence.id);
-                        if(evidence.id === actualGhost.strongEvidence)
-                        {
-                            hasStrong = true;
-                        }
-                    }
-                    if(obtainedEvidences.length >= 2)
-                    {
-                        if(obtainedEvidences.length == 2 && actualGhost.id !== 'themimic')
-                        {
-                            visibility &= hasStrong;
-                        }
-                        else if(obtainedEvidences.length > 2)
-                        {
-                            visibility &= hasStrong;
-                        }
-                    }
-                }
-                else // No strong evidence for this ghost, classic testing
-                {
-                    for(let evidence of obtainedEvidences)
-                    {
-                        visibility &= actualGhost.evidences.includes(evidence.id);
-                    }
-                }
-                // Compute hidden evidences
-                if(visibility && hiddenEvidences.length > 1 && actualGhost.id !== 'themimic')
-                {
-                    let combineHidden = combinationArrayNRNO(hiddenEvidences, 2);
-                    for(let childCombine of combineHidden)
-                    {
-                        let nbr = 0;
-                        for(let child of childCombine)
-                        {
-                            if(actualGhost.evidences.includes(child.id))
-                            {
-                                nbr++;
-                            }
-                        }
-                        if(nbr == 2)
-                        {
-                            visibility = false;
-                            break;
-                        }
-                    }
-                }
-                // Compute behaviour
-                for(let behaviour of behaviours)
-                {
-                    switch(behaviour.id)
-                    {
-                        case 'footprints':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'wraith' : (actualGhost.id === 'wraith' || actualGhost.id === 'themimic');
-                            break;
-                        case 'turn-on-breaker':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'hantu' : true;
-                            break;
-                        case 'turn-off-breaker':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'jinn' : true;
-                            break;
-                        case 'turn-on-light':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'mare' : true;
-                            break;
-                        case 'air-ball-event':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'oni' : true;
-                            break;
-                        case 'banshee-scream':
-                            visibility &= behaviour.value === Tristate.TRUE ? (actualGhost.id === 'banshee' || actualGhost.id === 'themimic') : true;
-                            break;
-                        case 'deogen-breath':
-                            visibility &= behaviour.value === Tristate.TRUE ? (actualGhost.id === 'deogen' || actualGhost.id === 'themimic') : true;
-                            break;
-                        case 'yurei-door':
-                            visibility &= behaviour.value === Tristate.TRUE ? (actualGhost.id === 'yurei' || actualGhost.id === 'themimic') : true;
-                            break;
-                        case 'obake-fringer':
-                            visibility &= behaviour.value === Tristate.TRUE ? (actualGhost.id === 'obake' || actualGhost.id === 'themimic') : true;
-                            break;
-                    }
-                }
-                let ghost = document.querySelector(`.${actualGhost.id}`);
-                ghost.style.display = visibility ? 'block' : 'none';
-            }
-        }
-        else
-        {
-            for(let g in GHOST_DATABASE)
-            {
-                let actualGhost = GHOST_DATABASE[g];
-                visibility = true;
-                for(let evidence of obtainedEvidences)
-                {
-                    visibility &= actualGhost.evidences.includes(evidence.id);
-                }
-                for(let evidence of hiddenEvidences)
-                {
-                    visibility &= !actualGhost.evidences.includes(evidence.id);
-                }
-                // Compute behaviour
-                for(let behaviour of behaviours)
-                {
-                    switch(behaviour.id)
-                    {
-                        case 'footprints':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'wraith' : (actualGhost.id === 'wraith' || actualGhost.id === 'themimic');
-                            break;
-                        case 'turn-on-breaker':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'hantu' : true;
-                            break;
-                        case 'turn-off-breaker':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'jinn' : true;
-                            break;
-                        case 'turn-on-light':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'mare' : true;
-                            break;
-                        case 'air-ball-event':
-                            visibility &= behaviour.value === Tristate.TRUE ? actualGhost.id !== 'oni' : true;
-                            break;
-                        case 'banshee-scream':
-                            visibility &= behaviour.value === Tristate.TRUE ? (actualGhost.id === 'banshee' || actualGhost.id === 'themimic') : true;
-                            break;
-                        case 'deogen-breath':
-                            visibility &= behaviour.value === Tristate.TRUE ? (actualGhost.id === 'deogen' || actualGhost.id === 'themimic') : true;
-                            break;
-                        case 'yurei-door':
-                            visibility &= behaviour.value === Tristate.TRUE ? (actualGhost.id === 'yurei' || actualGhost.id === 'themimic') : true;
-                            break;
-                        case 'obake-fringer':
-                            visibility &= behaviour.value === Tristate.TRUE ? (actualGhost.id === 'obake' || actualGhost.id === 'themimic') : true;
-                            break;
-                    }
-                }
-                // Check hunt sanity
-                if(visibility)
-                {
-                    let firstHunySanity = document.querySelector('#sanity').value;
-                    if(firstHunySanity !== 'unknown')
-                    {
-                        visibility = actualGhost.sanity >= firstHunySanity;
-                    }
-                }
-                // Check hunt walking speed
-                if(visibility)
-                {
-                    let walkingSpeed = document.querySelector('#blind-speed').value;
-                    if(walkingSpeed !== 'unknown')
-                    {
-                        visibility = actualGhost.speedMesure.includes(walkingSpeed);
-                    }
-                }
-                // Check hunt chasing speed
-                if(visibility)
-                {
-                    let chasingPlayerSpeed = document.querySelector('#targeting-speed').value;
-                    if(chasingPlayerSpeed !== 'unknown')
-                    {
-                        visibility = actualGhost.speedChase.includes(chasingPlayerSpeed);
-                    }
-                }
-                let ghost = document.querySelector(`.${actualGhost.id}`);
-                ghost.style.display = visibility ? 'block' : 'none';
-            }
-        }
-    }
-}
-class DropdownMenu {
-    constructor(name, content)
-    {
-        this.name = name;
-        this.content = content;
-    }
-    constructDropdown()
-    {
-        let container = document.createElement('div');
-        container.classList.add('menu_btn', 'dropdown', 'noSelect');
-        let containerTitle = document.createElement('p');
-        containerTitle.classList.add('dropbtn');
-        containerTitle.innerText = this.name;
-        container.appendChild(containerTitle);
-        container.appendChild(this.content);
-        return container;
-    }
-}
-class MenuManager {
-    static generateInput(elementName, element, language)
-    {
-        let div = document.createElement('div');
-        div.classList.add(elementName.subId);
-        div.addEventListener('click', (e) => {
-            let evidenceClicked = e.target.closest(`.${elementName.subId}`);
-            let triCheckBox = evidenceClicked.querySelector(`.${elementName.subId}_triState`);
-            switch(element.type)
-            {
-                case 'dualstate':
-                    triCheckBox.value = triCheckBox.value === Tristate.TRUE ? Tristate.FALSE : Tristate.TRUE;
-                    triCheckBox.innerText = triCheckBox.value;
-                    DATABASE[elementName.name].list[triCheckBox.getAttribute('id')].value = triCheckBox.value;
-                    break;
-                case 'tristate':
-                    triCheckBox.value = triCheckBox.value === Tristate.NEUTRAL ? Tristate.TRUE : (triCheckBox.value === Tristate.TRUE ? Tristate.FALSE : Tristate.NEUTRAL);
-                    triCheckBox.innerText = triCheckBox.value;
-                    DATABASE[elementName.name].list[triCheckBox.getAttribute('id')].value = triCheckBox.value;
-                    break;
-                case 'button':
-                    let btnValue = e.target.closest(`.${elementName.subId} > p`).value;
-                    if(btnValue === 'reset')
-                    {
-                        MainDiary.Reset();
-                    }
-                    break;
-            }
-            MainDiary.Update();
-        });
-
-        let label;
-        let input;
-        if(element.type === 'select')
-        {
-            label = document.createElement('p');
-            label.setAttribute('for', element.name);
-            label.classList.add(`${elementName.subId}_name`);
-            label.innerText = element.text[language];
-            label.value = element.name;
-
-            input = document.createElement('select');
-            input.setAttribute('id', element.name);
-            input.classList.add(`${elementName.id}`);
-
-            for(let o of element.selectValue[language])
-            {
-                let newOpt = document.createElement('option');
-                newOpt.classList.add(`${element.name}_${o.id}`, `${elementName.subId}_triState`);
-                newOpt.value = o.id;
-                if(o.id === element.defaultId)
-                {
-                    newOpt.selected = true;
-                }
-                newOpt.innerText = o.value;
-                input.appendChild(newOpt);
-            }
-            
-            div.appendChild(label);
-            if(element.icon)
-            {
-                let icon = document.createElement('img');
-                icon.classList.add(`${elementName.subId}_icon`);
-                icon.setAttribute('src', `assets/icons/${element.icon}`);
-                icon.setAttribute('alt', element.text[language]);
-                div.appendChild(icon);
-            }
-            div.appendChild(input);
-        }
-        else
-        {
-            label = document.createElement('p');
-            label.classList.add(`${elementName.subId}_name`);
-            label.setAttribute('name', element.name);
-            label.setAttribute('for', element.name);
-            label.innerText = element.text[language];
-            label.value = element.name;
-            if(element.icon)
-            {
-                let icon = document.createElement('img');
-                icon.classList.add(`${elementName.subId}_icon`);
-                icon.setAttribute('src', `assets/icons/${element.icon}`);
-                icon.setAttribute('alt', element.text[language]);
-                let iconContainer = document.createElement('div');
-                iconContainer.classList.add('container_align_icon');
-                iconContainer.appendChild(icon);
-                iconContainer.appendChild(label);
-                div.appendChild(iconContainer);
-            } else {
-                div.appendChild(label);
-            }
-            if(element.type !== 'button')
-            {
-                input = document.createElement('p');
-                input.classList.add(`${elementName.subId}_triState`);
-                input.setAttribute('id', element.name);
-                input.setAttribute('type', 'text');
-                input.setAttribute('name', element.text[language]);
-                input.style.border = 'none';
-                input.readOnly = true;
-                input.size = 1;
-                input.value = element.value;
-                input.innerText = element.value;
-                div.appendChild(input);
-            }
-        }
-        return div;
-    }
-    static generateInputs(input, language)
-    {
-        let section = document.createElement('section');
-        section.classList.add(input.id, 'dropdown_content');
-        for(const label in input.list)
-        {
-            section.appendChild(this.generateInput(input, input.list[label], language));
-        }
-        return section;
-    }
-}
-class GhostRender {
-    static writeDescription(ghost, language)
-    {
-        let desc = document.createElement('div');
-        desc.classList.add('ghost_description');
-
-        let name = document.createElement('h2');
-        name.classList.add('ghost_name');
-        name.innerHTML = ghost.name_text[language];
-        desc.appendChild(name);
-
-        let evidences = document.createElement('div');
-        evidences.classList.add('ghost_presentation_evidences');
-        for(let evidence of ghost.evidences)
-        {
-            let evidenceIcon = document.createElement('img');
-            evidenceIcon.classList.add('ghost_presentation_evidences_icon');
-            evidenceIcon.setAttribute('src', `assets/icons/${DATABASE['Evidences'].list[evidence].icon}`);
-            evidenceIcon.setAttribute('alt', DATABASE['Evidences'].list[evidence].text[language]);
-            evidences.appendChild(evidenceIcon);
-        }
-        desc.appendChild(evidences);
-
-        let quote = document.createElement('div');
-        quote.classList.add('ghost_quote');
-        quote.innerHTML = `
-        <cite class="ghost_quote_text">“ ${ghost.description[language]} „</cite>
-        <p class="ghost_quote_autor">${AUTOR_DATABASE[language]}</p>
-        `;
-        desc.appendChild(quote);
-
-        return desc;
-    }
-    static writeContent(ghost, language)
-    {
-        let content = document.createElement('div');
-        content.classList.add('ghost_content');
-        content.innerHTML = `
-        <section class="ghost_presentation">
-            <div class="ghost_presentation_strenght">
-                <h3 class="ghost_presentation_strenght_title">${TITLE_DATABASE['strenght'].name[language]}:</h3>
-                <p class="ghost_presentation_strenght_description">${ghost.strenght[language]}</p>
-            </div>
-            <div class="ghost_presentation_weakness">
-                <h3 class="ghost_presentation_weakness_title">${TITLE_DATABASE['weakness'].name[language]}:</h3>
-                <p class="ghost_presentation_weakness_description">${ghost.weakness[language]}</p>
-            </div>
-        </section>
-        <section class="ghost_ability">
-            <h3 class="ghost_ability_title">${TITLE_DATABASE['ability'].name[language]}</h3>
-            <div class="ghost_ability_content">
-                ${ghost.ability[language]}
-            </div>
-        </section>
-        <section class="ghost_behaviour">
-            <h3 class="ghost_behaviour_title">${TITLE_DATABASE['behaviour'].name[language]}</h3>
-            <div class="ghost_behaviour_content">
-                ${ghost.behaviour[language]}
-            </div>
-        </section>
-        <section class="ghost_hunt">
-            <h3 class="ghost_hunt_title">${TITLE_DATABASE['hunt'].name[language]}</h3>
-            <div class="ghost_hunt_content">
-                ${ghost.hunt[language]}
-            </div>
-        </section>
-        <section class="ghost_speed">
-            <h3 class="ghost_speed_title">${TITLE_DATABASE['speed'].name[language]}</h3>
-            <div class="ghost_speed_content">
-                ${ghost.speed[language]}
-            </div>
-        </section>
-        `;
-        return content;
-    }
-    static writeArticle(ghost, language)
-    {
-        let article = document.createElement('section');
-        article.classList.add('ghost', ghost.id);
-        article.appendChild(this.writeDescription(ghost, language));
-        article.appendChild(this.writeContent(ghost, language));
-        return article;
-    }
-    static writeArticles(ghosts, language)
-    {
-        const container = document.querySelector('.ghosts');
-        let ghosts_list = [];
-        for(const g in ghosts)
-        {
-            ghosts_list.push({
-                id: g,
-                name: ghosts[g].name_text[language]
-            });
-        }
-        ghosts_list.sort(function (a, b) {
-            return a.name.localeCompare(b.name);
-        });
-        for(const g of ghosts_list)
-        {
-            container.appendChild(this.writeArticle(ghosts[g.id], language));
-        }
-    }
-}
-/***
-* Return an array of ordered combination without repetition of n objets (a string array) classified in k groups.
-*/
-function combinationArrayNRNO(objects, k)
-{
-    let n = typeof objects === 'number' ? objects : objects.length; // Assign n as the length of all objets or the number passed through the function
-    if(n < k) // n must be greater or equal to k...
-    {
-        throw new Error('The number of object must be greater or equal to k.');
-    }
-    let offset = n - k + 1; // The offset generated by the number of group
-    let result = []; // Declare the result
-    for(let i = 0; i < offset; i++) // Loop through all possible values on the first element
-    {
-       let content = [];
-       content.push(objects[i]);
-        let generated = combinationArrayDepthNRNO(objects, // Pass our objects
-           i + 1, // Go to the next index to get the start of the next element
-           offset + 1, // Subgroup gain a start offset of 1
-           k - 1, // Align k for depth check since array start at 0
-           0, // No depth, it's the 1st subgroup
-           content // Pass the container of objets itself for referencing
-        );
-        Array.prototype.push.apply(result, generated); // Combine result
-    }
-    return result; // Return the result
-}
-/***
- * Generate an array of the entire set of element made out of binomial coefficient by taking the depth stack into account.
- */
-function combinationArrayDepthNRNO(objects, index, offset, k, depth = 0, content = [])
-{
-    if(depth >= k) // If our depth is grater or equal to k, then we have all we need
-    {
-       return [content]; // We return the new array of objects made on the way.
-    }
-    let result = []; // Declare a result
-    for(let i = index; i < offset; i++) // Loop through the possible values between index and offset - 1
-    {
-        let copyContent = [...content, objects[i]];
-        let generated = combinationArrayDepthNRNO(objects,
-           i + 1, // Go to the next index to get the start of the next element
-           offset + 1, // Subgroup gain a start offset of 1
-           k, // Just passing k along, it's already align if nothing goes wrong
-           depth + 1, // Next depth of the stack
-           copyContent  // Pass the container of newly packed objets itself for referencing
-        ); // Go into nested combinations
-        Array.prototype.push.apply(result, generated); // Combine result
-    }
-    return result; // Return the result
-}
-function generateNumber(n, l) {
-    let obj = [];
-    switch(l)
-    {
-        case 'fr':
-            obj.push({id: 'unknown', value: 'Inconnu'});
-            break;
-        case 'en':
-            obj.push({id: 'unknown', value: 'Unknown'});
-            break;
-    }
-    for(let i = 0; i <= n; i++)
-    {
-        obj.push({id: `${i * 5}`, value: i * 5});
-    }
-    return obj;
-}
-MainDiary.Create();
+const pr = document.querySelector('pre');
+pr.innerHTML = JSON.stringify(GHOST_DATABASE);

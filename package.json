@@ -1,0 +1,37 @@
+{
+  "name": "journal-phasmophobia",
+  "version": "1.0.0",
+  "description": "- [Introduction](#introduction)\r - [Support du mode Cauchemar](#support-du-mode-Cauchemar)\r - [Évidences](#évidences)\r     - [Évidence caractéristique](#évidence-caractéristique)\r     - [Évidences du Mimic](#évidences-du-Mimic)\r - [Détails des entités](#détails-des-entités)\r - [Santé mentale](#santé-mentale)\r - [Vitesse des entités](#vitesse-des-entités)\r - [Test du Journal](#test-du-Journal)",
+  "main": "main.js",
+  "scripts": {
+    "_sass_step_create": "sass ./src/stylesheets:./stylesheets --no-source-map --style compressed",
+    "_sass_step_fixed": "postcss stylesheets/ --dir ./assets/stylesheets/ --use autoprefixer",
+    "_sass_step_compile": "npm run _sass_step_create && npm run _sass_step_fixed && rm -rf stylesheets",
+    "sass": "(rm -rf assets/stylesheets || npm run _sass_step_compile) && npm run _sass_step_compile",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FriquetLuca/Journal-Phasmophobia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FriquetLuca/Journal-Phasmophobia/issues"
+  },
+  "homepage": "https://github.com/FriquetLuca/Journal-Phasmophobia#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.20",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.57.1",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "@lazy-toolbox/client": "^0.0.11"
+  }
+}
