@@ -1,9 +1,9 @@
-import { GhostRenderer } from "./ghostRenderer";
-import { LazySlideContent } from "@lazy-toolbox/client";
-
-const DivElement = GhostRenderer.normalSpeed();
-document.body.appendChild(DivElement);
-
-document.querySelectorAll('details[animated]').forEach((el) => {
-    new LazySlideContent(<HTMLDetailsElement>el);
-});
+import { LazyInteractivity } from "@lazy-toolbox/client";
+import { initializeGhosts } from "./initializeGhosts";
+import { EvidenceRenderer } from "./renderer/evidenceRenderer";
+const initializeMenu = () => {
+    LazyInteractivity.loadDefault();
+    EvidenceRenderer.optionBehaviour();
+};
+initializeMenu();
+initializeGhosts();

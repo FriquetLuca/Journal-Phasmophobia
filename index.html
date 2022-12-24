@@ -10,5 +10,219 @@
         <script type="module" src="./assets/scripts/main.js"></script>
     </head>
     <body>
+        <div class="optionsContainer">
+            <section class="evidencesContainer">
+                <table class="evidenceTable">
+                    <tr>
+                        <td class="evidenceLabel">Évidences données:</td>
+                        <td class="alignRight">
+                            <input type="number" id="evidencesCount" min="0" max="3" value="3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="evidenceLabel">Vitesse de l'entité:</td>
+                        <td class="alignRight">
+                            <select id="ghostSpeed">
+                                <option value="100" selected>100%</option>
+                                <option value="150">150%</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <table class="evidenceTable">
+                    <tr>
+                        <th class="resultNumber">24 résultats</th>
+                        <th>Évidences</th>
+                    </tr>
+                    <tr class="evidence emf-5">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="emf-5" class="evidenceInput">
+                                <img src="./assets/icons/emf-reader.webp" alt="EMF Reader">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="evidenceLabel">EMF-5</p>
+                        </td>
+                    </tr>
+                    <tr class="evidence ghost-writing">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="ghost-writing" class="evidenceInput">
+                                <img src="./assets/icons/writing-book.webp" alt="Writing Book">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="evidenceLabel">Écriture fantômatique</p>
+                        </td>
+                    </tr>
+                    <tr class="evidence fingerprints">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="fingerprints" class="evidenceInput">
+                                <img src="./assets/icons/fingerprints.webp" alt="Fingerprints">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="evidenceLabel">Empruntes</p>
+                        </td>
+                    </tr>
+                    <tr class="evidence ghost-orb">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="ghost-orb" class="evidenceInput">
+                                <img src="./assets/icons/ghost-orb.webp" alt="Ghost Orb">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="evidenceLabel">Orbe fantômatique</p>
+                        </td>
+                    </tr>
+                    <tr class="evidence dots">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="dots" class="evidenceInput">
+                                <img src="./assets/icons/dots-projector.webp" alt="D.O.T.S. Projector">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="evidenceLabel">Projecteur D.O.T.S.</p>
+                        </td>
+                    </tr>
+                    <tr class="evidence spirit-box">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="spirit-box" class="evidenceInput">
+                                <img src="./assets/icons/spirit-box.webp" alt="Spirit Box">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="evidenceLabel">Spirit Box</p>
+                        </td>
+                    </tr>
+                    <tr class="evidence freezing-temperatures">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="freezing-temperatures" class="evidenceInput">
+                                <img src="./assets/icons/thermometer.webp" alt="Thermometer">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="evidenceLabel">Température glaciale</p>
+                        </td>
+                    </tr>
+                </table>
+                <table class="evidenceTable">
+                    <tr class="subevidence">
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="saltFootsteps" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Marche dans le sel</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="turnOnLight" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Allume la lumière</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="turnOnBreaker" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Allume le fusible</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="turnOffBreaker" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Coupe le fusible</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="notOni" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Événement boule d'air</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="bansheeScream" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Cris (Microphone Parabolique)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="deogenBreath" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Respiration lourde (Spirit Box)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="yureiDoor" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Porte de sortie (ferme sans événement)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="obakeFringer" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Emprunte unique</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="obakeShapeshift" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Change de forme (Chasse)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="notMare" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Allume la télé / l'ordinateur</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="demonTest" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Moins de 25 secondes entre deux chasses</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="evidenceSelector">
+                                    <input tristate type="text" id="spiritTest" class="subevidenceInput">
+                                </div>
+                            </td>
+                            <td class="evidenceLabel">Chasse avant 180 secondes d'attente (encent)</td>
+                        </tr>
+                    </tr>
+                </table>
+                <button class="resetMenuBtn">Reset</button>
+            </section>
+        </div>
+        <div class="ghostsContainer"></div>
     </body>
 </html>

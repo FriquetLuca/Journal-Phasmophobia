@@ -64,6 +64,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             hunt: `
                 <p>Il peut démarrer des chasses dès que la santé moyenne de l'équipe est en dessous de 70%.</p>
                 <p>Le Démon peut démarrer une chasse toutes les 20 secondes (contrairement aux autres entités peuvent démarrer une chasse toutes les 25 secondes).</p>
+                <p>Si l'encent est employé sur le démon, son temps avant de pouvoir relancer une chasse est de 60 secondes au lieu de 90 secondes.</p>
             `,
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
@@ -92,14 +93,16 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             behaviour: `
                 <p>Il a 33% de chance par question de produire une réponse unique à la <strong class="italic">Spirit Box </strong> lorsque le joueur est situé à 1 mètre de ce dernier: une respiration lourde et constante durant 3 à 4 secondes.</p>
                 <audio controls id="deogen-breath" class="sound-display">
-                    <source src="assets/audio/deogen-breath.mp3" type="audio/mpeg" />
+                    <source src="assets/audio/sound-evidences/deogen-breath.mp3" type="audio/mpeg" />
                 </audio>
             `,
             hunt: `
                 <p>Il ne peut démarrer une chasse que lorsque la santé mentale est en dessous de 40%.</p>
                 <p>Lors du début d'une chasse, il ira vers le joueur le plus proche de lui. Il peut occasionnellement choisir un joueur au hasard.</p>
-                <p>Durant une chasse, sa vitesse est déterminée par la distance qui le sépare du joueur (2.5 à 6 mètres de distance). Au plus le joueur est loin, au plus il sera rapide. Sa vitesse varie ainsi entre 0.4 et 3 m/s.</p>
+                <p>Durant une chasse, sa vitesse est déterminée par la distance qui le sépare du joueur (2.5 à 6 mètres de distance). Au plus le joueur est loin, au plus il sera rapide.</p>
+                <p>Si il est à plus de 6 mètres, il avancera à 3 m/s et si il est à moins de 2.5 mètres, alors il avancera à 0.4 m/s. Sa vitesse entre les deux distances ralentie au plus il s'approche du joueur.</p>
                 <p>Il clignotte plus rapidement ; il est visible durant de plus long intervales et/ou il est invisible durant de plus court intervales.</p>
+                <p>Si on utilise l'encent contre lui ou qu'il ne chasse pas d'autres joueurs, sa vitesse restera constante, où sera de 1.6 m/s si sa vitesse actuelle est supérieur à 3 m/s.</p>
             `,
             speed: `
                 <p><strong>Vitesse proche d'une victime :</strong> ${difficultyMultiplier * 0.4} m/s</p>
@@ -113,7 +116,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             `,
             sanity: 40
         },
-        'Goryo': {
+        'goryo': {
             name: 'Goryo',
             evidences: [
                 'dots',
@@ -126,9 +129,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             description: "Lorsqu'un Goryo passe à travers un projecteur D.O.T.S., employer une caméra est le seul moyen pour le voir.",
             ability: `<p>Rien à signaler.</p>`,
             behaviour: `
-                <p>Sa distance pour erré est généralement petite.</p>
-                <p>Il ne réagit aux <strong class="italic">D.O.T.S.</strong> que si aucun joueur n'est dans sa pièce et il est uniquement visible à la caméra.</p>
-                <p>Il est possible que le joueur puisse voir les <strong class="italic">D.O.T.S.</strong> si le Goryo interagit avec et si il est assez loin du joueur.</p>
+                <p>Il ne peut erré que jusqu'à 5 mètres de distance, au lieu des 10 mètres maximum pour les autres fantômes.</p>
+                <p>Il ne peut pas changer sa pièce favorite.</p>
+                <p>Il ne réagit aux <strong class="italic">D.O.T.S.</strong> que si aucun joueur n'est dans sa pièce.</p>
+                <p>Aussi, sa silhouette au <strong class="italic">Projecteur D.O.T.S.</strong> n'est visible qu'au travers la caméra et n'est donc pas visible à l'oeil nu.</p>
+                <p>Dans quelques rares cas, il est possible de le voir avec les yeux en étant dans la même pièce: si il ère dans une pièce adjacente, il peut interagir avec le <strong class="italic">Projecteur D.O.T.S.</strong>.</p>
             `,
             hunt: `<p>Rien à signaler.</p>`,
             speed: `
@@ -143,7 +148,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             `,
             sanity: 50
         },
-        'Hantu': {
+        'hantu': {
             name: 'Hantu',
             evidences: [
                 'fingerprints',
@@ -164,7 +169,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             hunt: `
                 <p>Sa vitesse dépends de la température autour de lui. Lorsque le fusible est branché, il sera en conséquent plus lent parce que la maison sera chauffée.</p>
                 <p>Il n'accélère pas si on le garde en ligne de vue.</p>
-                <p>Lorsqu'il est visible, émet un souffle glacé lorsqu'il est dans une pièce avec une <strong class="italic">température</strong> inférieur ou égale à 3°C (Les joueurs décédés ne peuvent pas voir ce souffle).</p>
+                <p>Lorsque le Hantu est visible lors d'une chasse, il émet une respiration glacée au niveau de sa tête et ce dans toutes les pièces tant que le disjoncteur est éteint (Les joueurs décédés ne peuvent pas voir ce souffle).</p>
                 <p>Il est conseillé de ne pas le faire tourner trop longtemps autour de fourniture lorsque la pièce est chaude puisque la simple présence du Hantu suffit à faire baisser la température et donc lui augmente sa vitesse au fur et à mesure.</p>
             `,
             speed: `
@@ -196,7 +201,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             `,
             sanity: 50
         },
-        'Jinn': {
+        'jinn': {
             name: 'Djinn',
             evidences: [
                 'emf-5',
@@ -208,6 +213,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             description: "Un Djinn est une entitée territorial qui attaque quand il est menacé. Il est également connu pour se déplacer à une vitesse signifiante.",
             ability: `
                 <p>Si le fusible est branché, il peut utiliser son abilité qui réduit de 25% la santé mentale de tous les joueurs présent dans la même pièce ou aux environs de 3 mètres de lui et génère au fusible un <strong class="italic">EMF 2</strong> ou <strong class="italic">EMF 5</strong> si la santé mentale d'un joueur a été drainée.</p>
+                <p>En laissant un <strong class="italic">EMF</strong> au niveau du fusible, si il capte quelque chose mais que le fusible ne s'est jamais allumé ou éteint, alors il est fort probable que ce soit le Jinn.</p>
             `,
             behaviour: `
                 <p>Il ne peut pas éteindre le fusible, seulement le faire sauter en allumant une lampe de trop.</p>
@@ -227,7 +233,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             `,
             sanity: 50
         },
-        'Mare': {
+        'mare': {
             name: 'Cauchemar',
             evidences: [
                 'ghost-orb',
@@ -239,7 +245,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             description: "Le Cauchemar est la source de tous les cauchemars, le rendant plus puissant dans la pénombre.",
             ability: "<p>Rien à signaler.</p>",
             behaviour: `
-                <p>Si on allume une lampe près de lui, il a une chance de l'éteindre immédiatement.</p>
+                <p>Si on allume une lampe près de lui, il a une chance de l'éteindre presque immédiatement. Ça s'applique également aux télévisions et ordinateurs.</p>
                 <p>Il n'allume jamais de lampe. Si il décide d'erré, il choisira plus souvent des pièces qui ne sont pas éclairées.</p>
                 <p>Il fait plus souvent des événements où il explose des ampoules.</p>
             `,
@@ -258,7 +264,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             `,
             sanity: 60
         },
-        'Moroi': {
+        'moroi': {
             name: 'Moroï',
             evidences: [
                 'freezing-temperatures',
@@ -316,8 +322,8 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>Il émet beaucoup plus de son paranormal que les autres entités au <strong class="italic">microphone parabolique</strong>.</p>
             `,
             hunt: `
-                <p>Le son de ses pas ne s'entends que s'il se situe à une distance d'environs 9 mètres.</p>
-                <p>La distance audible des pas d'un Myling lors d'une chasse est par conséquent uniquement audible lorsqu'il interfère avec l'électronique.</p>
+                <p>Le son de ses pas ne s'entends que s'il se situe à une distance d'environs 12 mètres.</p>
+                <p>La distance audible des pas d'un Myling lors d'une chasse est perceptible plus ou moins lorsqu'il commence à interférer avec l'électronique.</p>
             `,
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
@@ -353,7 +359,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>• Cinq traces de doigts sur le clavier ou les portes de prison au lieu de quatre.</p>
             `,
             hunt: `
-                <p>Rien à signaler.</p>
+                <p>Il a 6.66% de chance à chaque fois qu'il clignotte de changer sa forme en une autre entité puis de reprendre sa forme originel. C'est garanti d'avoir lieu au moins une fois par chasse (les joueurs décédés ne peuvent pas le voir).</p>
             `,
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
@@ -378,14 +384,14 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             weakness: "L'augmentation des activités des Onis les rends plus aisés à trouver.",
             description: "Les Onis aiment effrayer leurs victimes autant que possible avant d'attaquer. Ils sont souvent vu dans une forme physique, gardant le lieu de leur décès.",
             ability: `
-                <p>Il draine le double de la santé mentale par rapport aux autres fantômes lors d'un événement fantômatique.</p>
+                <p>Il draine le double de la santé mentale (20%) par rapport aux autres fantômes (10%) lorsqu'on le touche lors d'un événement fantômatique.</p>
             `,
             behaviour: `
                 <p>Il est très actif et interagit plus souvent avec les objets, surtout si il y a des joueurs dans sa pièce.</p>
                 <p>Il peut se manifester entièrement durant un événement.</p>
                 <p>Il est incapable de produire l'événement de type "ballon d'air". Ainsi, on peut retirer l'Oni si l'on entends le son :</p>
                 <audio controls id="sound-air-breath" class="sound-display">
-                    <source src="assets/audio/air-breath.mp3" type="audio/mpeg" />
+                    <source src="assets/audio/sound-evidences/air-breath.mp3" type="audio/mpeg" />
                 </audio>
             `,
             hunt: `
@@ -426,6 +432,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>• Une <strong class="italic">bougie</strong> et un <strong class="italic">crucifix</strong> sont à portée de l'Oryo, et il éteint la <strong class="italic">bougie</strong>. Les 50% de chances réussissent mais suite à la présence du <strong class="italic">crucifix</strong>, la chasse n'a pas lieu.</p>
                 <p>• Deux <strong class="italic">bougies</strong> sont à portée de l'Onryo et il en éteint l'une d'entre elles. Les 50% de chances réussissent mais comme il y a une autre <strong class="italic">bougie</strong>, la chasse n'a pas lieu.</p>
                 <p>• Une <strong class="italic">bougie</strong> est à portée de l'Onryo et il tente de chasser naturellement. La <strong class="italic">bougie</strong> s'éteindra et la chasse n'aura pas lieu.</p>
+                <p> <strong class="italic">Remarque:</strong> Il peut y avoir jusqu'à 6 secondes de délais avant le début de l'initialisation de la chasse.</p>
             `,
             hunt: `
                 <p>Il peut démarrer une chasse dès que la santé mentale est en dessous de 60%.</p>
@@ -440,7 +447,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                     <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
-            sanity: 100
+            sanity: 60
         },
         'phantom': {
             name: 'Fantôme',
@@ -456,7 +463,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>Rien à signaler.</p>
             `,
             behaviour: `
-                <p>Si il est prit en photo durant un événement, il disparaît temporairement pour le reste de l'événement. Il sera visible sur la photo et les battements de coeur cessent, cependant la musique d'événement reste.</p>
+                <p>Si il est prit en photo durant un événement, il disparaît temporairement pour le reste de l'événement mais le son de son événement continue. Les interférences cessent et il ne sera pas visible sur la photo.</p>
                 <p>Être aux environs de 10 mètres d'un fantôme en étant en ligne de vue de ce dernier réduit la santé mentale de ~0.5% par seconde.</p>
                 <p>Il peut choisir un joueur au hasard et marcher vers ce dernier créant un <strong class="italic">EMF 2</strong>.</p>
             `,
@@ -490,7 +497,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>Rien à signaler.</p>
             `,
             behaviour: `
-                <p>Il peut occasionnellement lancer de multiples objets d'un coup, créant un <strong class="italic">EMF 3</strong>. Les objets sont lancés avec plus de force que tous les autres fantômes.</p>
+                <p>Il peut occasionnellement lancer de multiples objets d'un coup, créant un <strong class="italic">EMF 3</strong>. Les objets sont lancés avec plus de force que tous les autres fantômes (une force de 2 ~ 6 par opposition aux autres fantômes ayant une force de 1 ~ 3).</p>
                 <p>La santé mentale est réduite de 2% pour chaque objet lancé.</p>
             `,
             hunt: `
@@ -531,6 +538,12 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>• 8 mètres sur une map moyenne.</p>
                 <p>• 10 mètres sur une grande map.</p>
                 <p>Ces effets s'appliquent sur l'équipement au sol et tenu dans les mains.</p>
+                <p>Ne sont pas comptés à l'accélération de la vitesse :</p>
+                <p>• La caméra frontale</p>
+                <p>• Les caméras et appareils photos jetés au sol</p>
+                <p>• Les <strong class="italic">capteurs de mouvements</strong>, les <strong class="italic">capteurs sonores</strong> et les projecteurs <strong class="italic">D.O.T.S.</strong> jetés au sol ou tenu en main.</p>
+                <p>• Les objets dans l'inventaire (sauf la <strong class="italic">lampe de poche</strong> et <strong class="italic">lampe de poche puissante</strong> lorsqu'elles sont allumées)</p>
+                <p>• Les équipements électroniques qui ne proviennent pas du camion</p>
             `,
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
@@ -543,7 +556,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                     <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
-            sanity: 50
+            sanity: 65
         },
         'revenant': {
             name: 'Revenant',
@@ -562,12 +575,13 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>Rien à signaler.</p>
             `,
             hunt: `
-                <p>Sa vitesse lors d'une chasse varie fortement des autres entités. Il est très lent si il n'a pas de cible en vue (1,1 m/s), sinon il est extrêmement rapide (3 m/s).</p>
+                <p>Sa vitesse lors d'une chasse varie fortement des autres entités. Il est très lent si il n'a pas de cible en vue (1 m/s), sinon il est extrêmement rapide (3 m/s).</p>
+                <p>Il accélère lorsqu'il voit un joueur et continuera d'accélérer jusqu'à atteindre la dernière position connue du joueur. Ce sera seulement après qu'il ralentira durant 2.7 secondes.</p>
             `,
             speed: `
-                <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.1} m/s</p>
+                <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.10.mp3" type="audio/mpeg" />
+                    <source src="assets/audio/footsteps/${ghostSpeed}/1.00.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 3} m/s</p>
                 <audio controls class="sound-display">
@@ -591,8 +605,10 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             `,
             behaviour: `
                 <p>Au plus la santé mentale est haute, au moins elle est active.</p>
-                <p>Elle préfère se hisser dans les oreilles du joueur, mais peut se manifester en tant qu'ombre (rare).</p>
-                <p>Il est incapable de donner une interaction <strong class="italic">EMF 3</strong> lorsqu'il y a un ou plusieurs joueurs dans la même pièce que lui.</p>
+                <p>Elle possède 0% de chance de réussir un événement lorsque la santé mentale est à 100%. La chance de succès d'un événement croît de 2% par pourcentage de santé mentale perdue.</p>
+                <p>Ainsi, une ombre aura 100% de chance de pouvoir effectuer un événement lorsque la santé mentale sera de 50% et moins.</p>
+                <p>L'ombre préfère se hisser dans les oreilles du joueur, mais peut se manifester en tant qu'ombre (rare).</p>
+                <p>Il est incapable de donner une interaction <strong class="italic">EMF 3</strong> lorsqu'il y a un ou plusieurs joueurs dans la même pièce que lui, mais peut le faire dans une pièce adjacente.</p>
                 <p>Si elle est invoqué, elle a une chance d'apparaître en tant qu'ombre noir transparente plutôt que dans sa forme complète tant qu'elle est piégée dans le cercle d'invocation.</p>
             `,
             hunt: `
@@ -723,7 +739,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             `,
             behaviour: `
                 <p>Les Jumeaux ne sont qu'une seule entité composée d'un corps principal et d'un leurre.</p>
-                <p>Le leurre ne fait pas marcher les <strong class="italic">détecteurs de mouvements</strong>, ne réduit pas la <strong class="italic">température</strong> et ne réponds pas à la <strong class="italic">Spirit Box</strong> mais laisse un <strong class="italic">EMF 5</strong>.</p>
+                <p>Le leurre ne fait pas marcher les <strong class="italic">détecteurs de mouvements</strong>, ne réduit pas la <strong class="italic">température</strong> et ne réponds pas à la <strong class="italic">Spirit Box</strong>. Le leure et l'entité principale ont 25% de chance de produire un <strong class="italic">EMF 5</strong> au lieu de 2 ou 3.</p>
             `,
             hunt: `
                 <p>Si il démarre une chasse, il y a une chance sur deux que ce soit le leurre qui chasse.</p>
@@ -766,10 +782,10 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>Il a une chance de se téléporter à environs 3 mètres d'un joueur avec 75% chance de générer un <strong class="italic">EMF 2</strong> et 25% chance de générer un <strong class="italic">EMF 5</strong>.</p>
             `,
             behaviour: `
-                <p>Si il marche dans le sel, aucune trace de pas ne sera visible aux <strong class="italic">lumières UV</strong>.</p>
+                <p>Il est incapable de marcher dans le sel et donc il ne laisse aucune trace de pas visible aux <strong class="italic">lumières UV</strong>.</p>
             `,
             hunt: `
-                <p>Il ne peut pas se téléporter pendant une chasse (il peut néanmoins initier une chasse après téléportation).</p>
+                <p>Rien à signaler.</p>
             `,
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
@@ -794,10 +810,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             weakness: "Il ne peut entendre que des voix proches de lui pendant qu'il chasse.",
             description: "Les Yokai sont des entitées communes qui sont attirées par les voix humaines. On les trouve généralement dans les maisons familiales.",
             ability: "<p>Rien à signaler.</p>",
-            behaviour: "<p>Si au moins un joueur parle ou émet du bruit, l'activité du Yokai activité augmente.</p>",
+            behaviour: "<p>Si au moins un joueur parle ou émet du bruit, l'activité du Yokai augmente.</p>",
             hunt:  `
-                <p>Si au moins un joueur parle ou émet du bruit, une chasse peut être démarrée en dessous de 80% de santé mentale.</p>
-                <p>Il ne peut qu'entendre les joueurs ou sentir les appareils électroniques dans une portée de 2 mètres.</p>
+                <p>Si au moins un joueur parle ou émet du bruit, une chasse peut être démarrée en dessous de 80% de santé mentale, sinon il démarre une chasse à 50% comme les autres entités.</p>
+                <p>Il ne peut qu'entendre les joueurs ou sentir les appareils électroniques dans une portée de 2 mètres (sa ligne de vue n'est pas affectée).</p>
+                <p>Lorsque la boîte à musique est utilisée, le Yokai doit être plus proche du joueur tenant la boîte que tous les autres fantômes pour initier une chasse maudite.</p>
             `,
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
@@ -823,7 +840,10 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             description: "Un Yurei est une entitée qui est revenue dans le monde physique, généralement dans un but de vengeance ou de haine.",
             ability: `
                 <p>Il peut utiliser son abilité qui réduit de 15% la santé mentale de tous les joueurs situés dans une portée de 7.5 mètres.</p>
-                <p>Lorsqu'il emploie son abilité, une porte choisie aléatoirement dans la pièce du Yurei se fermera rapidement avec un son distinct nettement retardé.</p>
+                <p>Il ne peut utiliser son abilité que lorsque la pièce dans laquelle il se situe possède au moins une porte.</p>
+                <p>Lorsqu'il emploie son abilitée, une porte choisie aléatoirement dans la pièce du Yurei se fermera, produisant un <strong class="italic">EMF 2</strong>.</p>
+                <p>Les casiers et plaquards ne sont pas affectés par l'abilité du Yurei.</p>
+                <p>Lorsque la porte avant (la porte de sortie) se ferme entièrement sans qu'il n'y aie eu un événement fantômatique ou une chasse, alors c'est un Yurei.</p>
             `,
             behaviour: `
                 <p>Si on emploie de <strong class="italic">l'encent</strong> sur lui, en plus des effets de base, il ne quittera pas sa pièce durant 90s.</p>

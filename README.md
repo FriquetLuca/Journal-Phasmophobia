@@ -3,12 +3,10 @@
 ## Sommaire
 
 - [Introduction](#introduction)
-- [Support du mode Cauchemar](#support-du-mode-Cauchemar)
 - [Évidences](#évidences)
     - [Évidence caractéristique](#évidence-caractéristique)
     - [Évidences du Mimic](#évidences-du-Mimic)
 - [Détails des entités](#détails-des-entités)
-- [Santé mentale](#santé-mentale)
 - [Vitesse des entités](#vitesse-des-entités)
 - [Test du Journal](#test-du-Journal)
 
@@ -19,12 +17,6 @@
 
 Ce journal est un outil amélioré sur base du journal présent dans le jeu Phasmophobia.
 Il offre une meilleur approche plus précise des évidences pour les différentes entités propre aux différents modes de jeu, permettant des enquêtes plus précises dans l'identification de ces dernières.
-
-
-## [Support du mode Cauchemar](#support-du-mode-Cauchemar)
-
-Le journal s'adapte au mode classique ou au mode cauchemar, ce qui permet d'obtenir des résultats plus appropriés suivant la difficulté de sa partie.
-Un algorithme particulié élimine les entités impossible possédant certaines preuves cachées sans pour autant supprimer l'entité potentielle.
 
 
 ## [Évidences](#évidences)
@@ -38,10 +30,6 @@ Certaines des évidences caractéristiques de diverses entités sont prise en co
 ### [Évidences du Mimic](#évidences-du-Mimic)
 
 Ce journal prends en considération l'orbe fantômatique du Mimic dans ses évidences ainsi que le fait que le Mimic peut posséder jusqu'à 4 évidences en mode classique et 3 évidences en mode cauchemar.
-
-## [Santé mentale](#santé-mentale)
-
-On peut faire une élimination de toutes les entités qui n'ont aucune chance de provoquer une chasse en dessous d'un certain seuil de la santé mentale, ce tris est bien plus rapide que la recherche manuel.
 
 ## [Vitesse des entités](#vitesse-des-entités)
 

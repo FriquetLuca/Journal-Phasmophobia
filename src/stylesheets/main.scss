@@ -1,1 +1,14 @@
+@import 'tristate';
+@import 'scrollbar';
+@import 'evidences';
 @import 'ghost';
+@font-face
+{
+    font-family: "CMU Serif";
+    src: url(../fonts/cmunrm.ttf);
+}
+html {
+    font-family: "CMU Serif";
+    color: azure;
+    background-color: rgb(20, 20, 20);
+}
