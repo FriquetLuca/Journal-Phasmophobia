@@ -10,7 +10,7 @@ export class GhostRenderer {
             const currentGhost = ghosts[ghostID];
             let evidencesIcons = '';
             for(const evidence of currentGhost.evidences) {
-                evidencesIcons += `<img src="/assets/icons/${Database.evidenceIcons[evidence]}" alt="${evidence}" />`;
+                evidencesIcons += `<img src="./assets/icons/${Database.evidenceIcons[evidence]}" alt="${evidence}" />`;
             }
             ghostsContainer.push(LazyDoc.newTag('details', {
                 attributes: {
