@@ -27,7 +27,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             behaviour: `
                 <p>Elle a 33% de chance de faire un son paranormal unique lorsque le <strong class="italic">microphone parabolique</strong> est utilisé.</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/sound-evidences/banshee-scream.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/sound-evidences/banshee-scream.mp3" type="audio/mpeg" />
                 </audio>
                 <p>Lorsqu'elle décide d'èrer, si la cible est dans la zone d'investigation, il y a 66% de chance qu'elle ère dans la direction de sa cible, s'arrêtant sur sa cible si possible.</p>
                 <p>Elle préfère causer des événements où elle chante. Si elle fait un événement fantômatique où elle chante, que l'événement soit dirigé vers sa cible et que sa cible la fait disparaître prématurément en la touchant, alors il perdra 15% de santé mentale au lieu de 10%.</p>
@@ -40,11 +40,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -69,11 +69,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 100
@@ -93,7 +93,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             behaviour: `
                 <p>Il a 33% de chance par question de produire une réponse unique à la <strong class="italic">Spirit Box </strong> lorsque le joueur est situé à 1 mètre de ce dernier: une respiration lourde et constante durant 3 à 4 secondes.</p>
                 <audio controls id="deogen-breath" class="sound-display">
-                    <source src="assets/audio/sound-evidences/deogen-breath.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/sound-evidences/deogen-breath.mp3" type="audio/mpeg" />
                 </audio>
             `,
             hunt: `
@@ -107,11 +107,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse proche d'une victime :</strong> ${difficultyMultiplier * 0.4} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/0.40.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/0.40.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Vitesse loin d'une victime :</strong> ${difficultyMultiplier * 3} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/3.00.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/3.00.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 40
@@ -139,11 +139,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -176,27 +176,27 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p><strong>Vitesse dépendante de la <strong class="italic">température</strong> :</strong></p>
                 <p>• <strong>inférieur à 3°C :</strong> ${difficultyMultiplier * 2.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p>• <strong>entre 3 - 6°C :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
                 <p>• <strong>entre 6 - 9°C :</strong> ${difficultyMultiplier * 2.3} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.30.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.30.mp3" type="audio/mpeg" />
                 </audio>
                 <p>• <strong>entre 9 - 12°C :</strong> ${difficultyMultiplier * 2.1} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.10.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.10.mp3" type="audio/mpeg" />
                 </audio>
                 <p>• <strong>entre 12 - 15°C :</strong> ${difficultyMultiplier * 1.75} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.75.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.75.mp3" type="audio/mpeg" />
                 </audio>
                 <p>• <strong>supérieur à 15°C :</strong> ${difficultyMultiplier * 1.4} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.40.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.40.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -224,11 +224,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s (instantané)</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -255,11 +255,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 60
@@ -291,16 +291,16 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p><strong>Vitesse de base :</strong> entre ${difficultyMultiplier * 1.5} et ${difficultyMultiplier * 2.25} m/s</p>
                 <p><strong>${difficultyMultiplier * 1.5} :</strong></p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.50.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>${difficultyMultiplier * 2.25} :</strong></p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.25.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.25.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.25} et ${difficultyMultiplier * 3.71} m/s</p>
                 <p><strong>${difficultyMultiplier * 3.71} :</strong></p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/3.71.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/3.71.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -328,11 +328,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -364,11 +364,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -391,7 +391,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>Il peut se manifester entièrement durant un événement.</p>
                 <p>Il est incapable de produire l'événement de type "ballon d'air". Ainsi, on peut retirer l'Oni si l'on entends le son :</p>
                 <audio controls id="sound-air-breath" class="sound-display">
-                    <source src="assets/audio/sound-evidences/air-breath.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/sound-evidences/air-breath.mp3" type="audio/mpeg" />
                 </audio>
             `,
             hunt: `
@@ -400,11 +400,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -440,11 +440,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 60
@@ -474,11 +474,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -506,11 +506,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -548,12 +548,12 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Près d'équipement électronique :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 65
@@ -581,11 +581,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.00.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.00.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 3} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/3.00.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/3.00.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -618,11 +618,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 35
@@ -649,11 +649,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -686,11 +686,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse quand il est jeune :</strong> ${difficultyMultiplier * 2.75} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.75.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.75.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Vitesse quand il est vieux :</strong> ${difficultyMultiplier} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.00.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.00.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 75
@@ -750,20 +750,20 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} (± ${difficultyMultiplier * 0.2}) m/s</p>
                 <p><strong>Jumeau lent :</strong></p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.50.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Jumeau rapide :</strong></p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.90.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.90.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} (± ${difficultyMultiplier * 0.2}) m/s</p>
                 <p><strong>Jumeau lent :</strong></p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.30.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.30.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Jumeau rapide :</strong></p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.70.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -790,11 +790,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
@@ -819,11 +819,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 80
@@ -849,7 +849,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>Si on emploie de <strong class="italic">l'encent</strong> sur lui, en plus des effets de base, il ne quittera pas sa pièce durant 90s.</p>
                 <p>Il offre plus souvent des événements de type "ballon d'air".</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/sound-evidences/air-breath.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/sound-evidences/air-breath.mp3" type="audio/mpeg" />
                 </audio>
             `,
             hunt: `
@@ -858,11 +858,11 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/1.70.mp3" type="audio/mpeg" />
                 </audio>
                 <p><strong>Victime en ligne de vue :</strong> ${difficultyMultiplier * 2.5} m/s</p>
                 <audio controls class="sound-display">
-                    <source src="assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
+                    <source src="./assets/audio/footsteps/${ghostSpeed}/2.50.mp3" type="audio/mpeg" />
                 </audio>
             `,
             sanity: 50
