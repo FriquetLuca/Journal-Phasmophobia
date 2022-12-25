@@ -62,5 +62,13 @@ export class EvidenceRenderer {
             }
             interactionDropdown.innerText = interactionDropdown.innerText === "+" ? "-" : "+";
         });
+        if ("createEvent" in document) {
+            var evt = document.createEvent("Event");
+            evt.initEvent("click", false, true);
+            interactionDropdown.dispatchEvent(evt);
+        }
+        else {
+            interactionDropdown.dispatchEvent(new Event('click'));
+        }
     }
 }

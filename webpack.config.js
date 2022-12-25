@@ -1,8 +1,8 @@
 const path = require('path');
 module.exports = [
     {
-        mode: 'development',
-        entry: './src/main.ts',
+        mode: 'production',
+        entry: './src/app.ts',
         module: {
             rules: [
                 {
@@ -17,7 +17,7 @@ module.exports = [
         },
         output: {
             publicPath: 'assets/scripts',
-            filename: 'main.js',
+            filename: 'app.js',
             path: path.resolve(__dirname, 'assets/scripts')
         },
         optimization: {

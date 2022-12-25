@@ -1,8 +1,8 @@
 {
-  "name": "journal-phasmophobia",
+  "name": "phasmophobia-extreme-diary",
   "version": "1.0.0",
-  "description": "- [Introduction](#introduction)\r - [Support du mode Cauchemar](#support-du-mode-Cauchemar)\r - [Évidences](#évidences)\r     - [Évidence caractéristique](#évidence-caractéristique)\r     - [Évidences du Mimic](#évidences-du-Mimic)\r - [Détails des entités](#détails-des-entités)\r - [Santé mentale](#santé-mentale)\r - [Vitesse des entités](#vitesse-des-entités)\r - [Test du Journal](#test-du-Journal)",
-  "main": "main.js",
+  "description": "The Phasmophobia extreme diary",
+  "main": "assets/scripts/app.js",
   "scripts": {
     "fastSass": "(rm -rf assets/stylesheets || ((sass ./src/stylesheets:./stylesheets --no-source-map --style compressed) && (postcss stylesheets/ --dir ./assets/stylesheets/ --use autoprefixer) && rm -rf stylesheets)) && ((sass ./src/stylesheets:./stylesheets --no-source-map --style compressed) && (postcss stylesheets/ --dir ./assets/stylesheets/ --use autoprefixer) && rm -rf stylesheets)",
     "_sass_step_create": "sass ./src/stylesheets:./stylesheets --no-source-map --style compressed",
