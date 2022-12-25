@@ -15,9 +15,6 @@
     background-color: rgb(46, 46, 46);
     width: calc(22.375rem + 4 * 24px);
 }
-.evidenceTable {
-    width: fit-content;
-}
 .evidenceSelector {
     display: flex;
     flex-direction: row;
@@ -153,4 +150,10 @@
     &:hover {
         background-color: rgb(24, 129, 56);
     }
+}
+.resultNumber {
+    width: 4.333rem;
+}
+.resultNumber:first-of-type + th {
+    width: 23.417rem;
 }
