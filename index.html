@@ -111,113 +111,473 @@
                             <p class="evidenceLabel">Température glaciale</p>
                         </td>
                     </tr>
-                </table>
-                <table class="evidenceTable">
-                    <tr class="subevidence">
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="saltFootsteps" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Marche dans le sel</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="turnOnLight" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Allume la lumière</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="turnOnBreaker" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Allume le fusible</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="turnOffBreaker" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Coupe le fusible</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="notOni" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Événement boule d'air</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="bansheeScream" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Cris (Microphone Parabolique)</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="deogenBreath" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Respiration lourde (Spirit Box)</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="yureiDoor" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Porte de sortie (ferme sans événement)</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="obakeFringer" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Emprunte unique</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="obakeShapeshift" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Change de forme (Chasse)</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="notMare" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Allume la télé / l'ordinateur</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="demonTest" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Moins de 25 secondes entre deux chasses</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="evidenceSelector">
-                                    <input tristate type="text" id="spiritTest" class="subevidenceInput">
-                                </div>
-                            </td>
-                            <td class="evidenceLabel">Chasse avant 180 secondes d'attente (encent)</td>
-                        </tr>
+                    <tr class="alignCenterSubevidence">
+                        <th><div class="dropdownSubevidences dropdownSubevidences-interactions">-</div></th>
+                        <th>Interactions</th>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="saltFootsteps" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Marche dans le sel</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="turnOnLight" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Allume la lumière</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="turnOnBreaker" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Allume le fusible</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="turnOffBreaker" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Coupe le fusible</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="yureiDoor" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Porte de sortie (ferme sans événement)</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="notMare" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Allume la télé / l'ordinateur</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="polterTestA" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Jette plusieurs objets au même instant</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="yokaiActivityTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'activité de l'entité augmente lorsqu'un ou plusieurs joueurs émettent du bruit ou parlent</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="polterTestB" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Jette un objet à grande distance</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="thayeTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Réduction des interactions de l'entité au fil du temps</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="mareLight" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Éteint quasi immédiatement la lumière après qu'elle aie été allumée régulièrement</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="goryoRoaming" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité ne fait jamais plus de 5 mètres de déplacement d'une traite</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="bansheeScream" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Cris (Microphone Parabolique)</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="farEventGhost" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">EMF sur un joueur à une grande distance de la salle de l'entité</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="jinnBreaker" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Un EMF a été généré au fusible sans qu'il ne s'allume ou ne s'éteigne (et une réduction de 25% de la santé mentale de certains joueurs sur le lieu d'investigation)</td>
+                    </tr>
+                    <tr class="interactions">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="yureiActivityTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Ferme les portes entièrement ou les tentes à plusieurs reprises (avec une perte de 15% de santé mentale et un EMF-2)</td>
+                    </tr>
+                    <tr class="alignCenterSubevidence">
+                        <th><div class="dropdownSubevidences dropdownSubevidences-interactionsEvidences">-</div></th>
+                        <th>Interactions (évidences)</th>
+                    </tr>
+                    <tr class="interactionsEvidences">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="obakeFringer" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Emprunte unique</td>
+                    </tr>
+                    <tr class="interactionsEvidences">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="goryoTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Entité visible au projecteur D.O.T.S. que au travers d'une caméra</td>
+                    </tr>
+                    <tr class="interactionsEvidences">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="deogenBreath" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Respiration lourde (Spirit Box)</td>
+                    </tr>
+                    <tr class="alignCenterSubevidence">
+                        <th><div class="dropdownSubevidences dropdownSubevidences-ghostEvents">-</div></th>
+                        <th>Événements</th>
+                    </tr>
+                    <tr class="ghostEvents">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="shadeTestA" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité effectue plus d'événement paranormal au plus la santé mentale descend</td>
+                    </tr>
+                    <tr class="ghostEvents">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="notOni" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Événement boule d'air</td>
+                    </tr>
+                    <tr class="ghostEvents">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="phantomPic" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité disparaît une fois prise en photo durant un événement mais continue d'effectuer le son de l'événement</td>
+                    </tr>
+                    <tr class="ghostEvents">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="shadeTestB" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité ne fait aucun événement paranormal lorsque la santé mentale est au maximum et que le joueur tient une bougie allumée dans le lieu d'investigation</td>
+                    </tr>
+                    <tr class="ghostEvents">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="shadeEMFTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Absence d'EMF-3 dans la salle du fantôme lorsqu'il y a la présence de joueurs</td>
+                    </tr>
+                    <tr class="ghostEvents">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="bansheeSanityTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Draine 15% de santé mentale en le touchant lors d'un événement paranormal où l'entité chante au lieu de 10%</td>
+                    </tr>
+                    <tr class="ghostEvents">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="oniSanityTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Draine 20% de santé mentale en le touchant lors d'un événement paranormal au lieu de 10%</td>
+                    </tr>
+                    <tr class="ghostEvents">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="raijuGhostEvent" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité a une plus grande interaction avec l'électronique lors d'un événement paranormal</td>
+                    </tr>
+                    <tr class="alignCenterSubevidence">
+                        <th><div class="dropdownSubevidences dropdownSubevidences-curses">-</div></th>
+                        <th>Malédictions</th>
+                    </tr>
+                    <tr class="curses">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="moroiTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Perte continue de la santé mentale dans un lieu éloigné de l'entité, dans le lieu d'investigation, avec une bougie allumée à la main (après avoir reçu une réponse à la Spirit Box / au Microphone Parabolique)</td>
+                    </tr>
+                    <tr class="alignCenterSubevidence">
+                        <th><div class="dropdownSubevidences dropdownSubevidences-curseObject">-</div></th>
+                        <th>Objet maudit</th>
+                    </tr>
+                    <tr class="curseObject">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="goryoFavourite" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité ne change jamais de pièce favorite</td>
+                    </tr>
+                    <tr class="curseObject">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="thayeAge" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité vieilli avec le temps (question à la planche de Ouija)</td>
+                    </tr>
+                    <tr class="alignCenterSubevidence">
+                        <th><div class="dropdownSubevidences dropdownSubevidences-huntWait">-</div></th>
+                        <th>Chasse (temps d'attente)</th>
+                    </tr>
+                    <tr class="huntWait">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="onryoTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité éteint trois fois une flamme et (après avoir éteint la troisème) en éteint soit une quatrième ou alors consomme un crucifix</td>
+                    </tr>
+                    <tr class="huntWait">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="demonTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Moins de 25 secondes d'attente entre deux chasses (aucun encent utilisé)</td>
+                    </tr>
+                    <tr class="huntWait">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="spiritTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Deux chasses de suite avec moins de 180 secondes d'intervales d'attente (après utilisation de l'encent)</td>
+                    </tr>
+                    <tr class="alignCenterSubevidence">
+                        <th><div class="dropdownSubevidences dropdownSubevidences-huntVisual">-</div></th>
+                        <th>Chasse (visuel)</th>
+                    </tr>
+                    <tr class="huntVisual">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="phantomTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Vu moins longtemps durant la chasse</td>
+                    </tr>
+                    <tr class="huntVisual">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="longSeeTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Vu plus longtemps durant la chasse</td>
+                    </tr>
+                    <tr class="huntVisual">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="obakeShapeshift" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Change de forme physique l'espace d'un instant (Durant une chasse)</td>
+                    </tr>
+                    <tr class="huntVisual">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="hantuTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Buée glacée émise au niveau de la tête de l'entité durant la chasse</td>
+                    </tr>
+                    <tr class="huntVisual">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="phantomPicHunt" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité n'est pas visible sur une photo prise durant une chasse</td>
+                    </tr>
+                    <tr class="alignCenterSubevidence">
+                        <th><div class="dropdownSubevidences dropdownSubevidences-huntInteract">-</div></th>
+                        <th>Chasse (interaction)</th>
+                    </tr>
+                    <tr class="huntInteract">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="moroiSmudged" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité est aveuglée le double du temps usuel par l'encent</td>
+                    </tr>
+                    <tr class="huntInteract">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="shadeTestC" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité ne démarre pas de chasse lorsqu'on se situe dans la même pièce qu'elle sans santé mentale</td>
+                    </tr>
+                    <tr class="huntInteract">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="deogenHiding" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité ignore les cachettes</td>
+                    </tr>
+                    <tr class="huntInteract">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="bansheeHuntTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Entité ignore certains joueurs lors de la chasse et ne les tues pas</td>
+                    </tr>
+                    <tr class="huntInteract">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="polterTestC" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Jette deux objets à moins de 0.5 seconde d'intervale au cours d'une chasse</td>
+                    </tr>
+                    <tr class="alignCenterSubevidence">
+                        <th><div class="dropdownSubevidences dropdownSubevidences-huntBehaviour">-</div></th>
+                        <th>Chasse (comportement)</th>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="huntSpeedHidingTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Entité rapide en chasse avec équipement électronique à proximité (aucun joueur vu par l'entité)</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="huntSpeedSkipRaijuTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Entité rapide en chasse sans aucun équipement électronique à proximité (aucun joueur vu par l'entité)</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="revTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Entité très lente en chasse (aucun joueur vu par l'entité)</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="variableHuntSpeedTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Vitesse variable de l'entité entre deux chasses (aucun joueur vu par l'entité)</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="moroiHuntTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Entité devient plus rapide avec le déclin de la santé mentale (aucun joueur vu par l'entité)</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="sprintTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Entité accélère très rapidement en chasse (dès qu'un joueur est vu par l'entité)</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="twinsSpeedTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Vitesse fixe de l'entité lors d'une chasse (aucun joueur vu par l'entité) néanmoins sa vitesse diffère entre deux chasses (plus rapide lors d'une chasse puis plus lent lors d'une autre et inversément) avec aucun équipement électronique dans le lieu d'investigation</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="hantuSpeedTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité est plus rapide lorsqu'elle se situe dans sa salle et plus lente dans les autres pièces avec aucun équipement électronique avec aucun équipement électronique dans le lieu d'investigation</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="thayeAgeTesting" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">L'entité devient de plus en plus lente entre chaque chasse au plus on passe de temps dans sa pièce ou proche d'elle</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="mylingTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Le son des pas de l'entité lors de la chasse ne sont perceptique que lorsque l'entité interfère sur l'électronique</td>
+                    </tr>
+                    <tr class="huntBehaviour">
+                        <td>
+                            <div class="evidenceSelector">
+                                <input tristate type="text" id="yokaiTest" class="subevidenceInput">
+                            </div>
+                        </td>
+                        <td class="evidenceLabel">Lors d'une chasse, l'entité ne réagit pas à la lampe torche, à de l'électronique ou à des sons à une distance au delà de 2.5 mètres</td>
                     </tr>
                 </table>
                 <button class="resetMenuBtn">Reset</button>

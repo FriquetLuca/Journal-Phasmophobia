@@ -141,3 +141,16 @@
 .evidence > td {
     line-height: 0;
 }
+.dropdownSubevidences {
+    cursor: pointer;
+    user-select: none;
+    margin: 0 auto;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgb(18, 82, 37);
+    &:hover {
+        background-color: rgb(24, 129, 56);
+    }
+}

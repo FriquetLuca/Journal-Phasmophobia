@@ -465,7 +465,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             behaviour: `
                 <p>Si il est prit en photo durant un événement, il disparaît temporairement pour le reste de l'événement mais le son de son événement continue. Les interférences cessent et il ne sera pas visible sur la photo.</p>
                 <p>Être aux environs de 10 mètres d'un fantôme en étant en ligne de vue de ce dernier réduit la santé mentale de ~0.5% par seconde.</p>
-                <p>Il peut choisir un joueur au hasard et marcher vers ce dernier créant un <strong class="italic">EMF 2</strong>.</p>
+                <p>Il peut choisir un joueur au hasard et marcher vers ce dernier créant un <strong class="italic">EMF 2</strong> à la position où il a débuter son érrance.</p>
             `,
             hunt: `
                 <p>Si il est prit en photo durant une chasse, il ne sera pas visible sur la photo.</p>
@@ -532,7 +532,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>Lors d'un événement, il interagit avec l'électronique dans un rayon de 15 mètres (au lieu de 10 mètres pour les autres entités).</p>
             `,
             hunt: `
-                <p>Lorsqu'un objet électronique est à porté, il peut démarré une chasse dès 65% de santé mentale.</p>
+                <p>Lorsqu'un objet électronique est à porté, il peut démarré une chasse dès 65% de santé mentale, sinon il ne pourra que dès 50%.</p>
                 <p>Suivant la taille de la map, si il est dans la portée d'une pièce d'équipement électronique, sa vitesse sera de 2,5 m/s:</p>
                 <p>• 6 mètres sur une petite map.</p>
                 <p>• 8 mètres sur une map moyenne.</p>
@@ -813,7 +813,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             behaviour: "<p>Si au moins un joueur parle ou émet du bruit, l'activité du Yokai augmente.</p>",
             hunt:  `
                 <p>Si au moins un joueur parle ou émet du bruit, une chasse peut être démarrée en dessous de 80% de santé mentale, sinon il démarre une chasse à 50% comme les autres entités.</p>
-                <p>Il ne peut qu'entendre les joueurs ou sentir les appareils électroniques dans une portée de 2 mètres (sa ligne de vue n'est pas affectée).</p>
+                <p>Il ne peut qu'entendre les joueurs ou sentir les appareils électroniques dans une portée de 2.5 mètres (sa ligne de vue n'est pas affectée).</p>
                 <p>Lorsque la boîte à musique est utilisée, le Yokai doit être plus proche du joueur tenant la boîte que tous les autres fantômes pour initier une chasse maudite.</p>
             `,
             speed: `

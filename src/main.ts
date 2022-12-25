@@ -4,6 +4,7 @@ import { EvidenceRenderer } from "./renderer/evidenceRenderer";
 const initializeMenu = () => {
     LazyInteractivity.loadDefault();
     EvidenceRenderer.optionBehaviour();
+    EvidenceRenderer.optionDropdown();
 };
 initializeMenu();
 initializeGhosts();

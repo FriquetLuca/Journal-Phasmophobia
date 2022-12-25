@@ -35,4 +35,32 @@ export class EvidenceRenderer {
         const btnReset = <HTMLButtonElement>document.querySelector('.resetMenuBtn');
         btnReset.addEventListener('click', interactiveDatabase.resetEvidences);
     }
+    public static optionDropdown() {
+        EvidenceRenderer.dropdown('.dropdownSubevidences-interactions', '.interactions');
+        EvidenceRenderer.dropdown('.dropdownSubevidences-interactionsEvidences', '.interactionsEvidences');
+        EvidenceRenderer.dropdown('.dropdownSubevidences-ghostEvents', '.ghostEvents');
+        EvidenceRenderer.dropdown('.dropdownSubevidences-curses', '.curses');
+        EvidenceRenderer.dropdown('.dropdownSubevidences-curseObject', '.curseObject');
+        EvidenceRenderer.dropdown('.dropdownSubevidences-huntWait', '.huntWait');
+        EvidenceRenderer.dropdown('.dropdownSubevidences-huntVisual', '.huntVisual');
+        EvidenceRenderer.dropdown('.dropdownSubevidences-huntInteract', '.huntInteract');
+        EvidenceRenderer.dropdown('.dropdownSubevidences-huntBehaviour', '.huntBehaviour');
+    }
+    private static dropdown(query: string, targetQuery: string) {
+        const interactionDropdown = <HTMLDivElement>document.querySelector(query);
+        interactionDropdown.addEventListener("click", (e: Event) => {
+            if(interactionDropdown.innerText === "+") {
+                const allInteractions = [...<NodeListOf<HTMLDivElement>>document.querySelectorAll(targetQuery)];
+                for(const interaction of allInteractions) {
+                    interaction.style.display = "table-row";
+                }
+            } else {
+                const allInteractions = [...<NodeListOf<HTMLDivElement>>document.querySelectorAll(targetQuery)];
+                for(const interaction of allInteractions) {
+                    interaction.style.display = "none";
+                }
+            }
+            interactionDropdown.innerText = interactionDropdown.innerText === "+" ? "-" : "+";
+        });
+    }
 }
