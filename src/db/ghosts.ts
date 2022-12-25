@@ -101,7 +101,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 <p>Lors du début d'une chasse, il ira vers le joueur le plus proche de lui. Il peut occasionnellement choisir un joueur au hasard.</p>
                 <p>Durant une chasse, sa vitesse est déterminée par la distance qui le sépare du joueur (2.5 à 6 mètres de distance). Au plus le joueur est loin, au plus il sera rapide.</p>
                 <p>Si il est à plus de 6 mètres, il avancera à 3 m/s et si il est à moins de 2.5 mètres, alors il avancera à 0.4 m/s. Sa vitesse entre les deux distances ralentie au plus il s'approche du joueur.</p>
-                <p>Il clignotte plus rapidement ; il est visible durant de plus long intervales et/ou il est invisible durant de plus court intervales.</p>
+                <p>Il clignotte plus rapidement durant une chasse ; il est visible durant de plus long intervales et/ou il est invisible durant de plus court intervales.</p>
                 <p>Si on utilise l'encent contre lui ou qu'il ne chasse pas d'autres joueurs, sa vitesse restera constante, où sera de 1.6 m/s si sa vitesse actuelle est supérieur à 3 m/s.</p>
             `,
             speed: `
@@ -395,7 +395,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
                 </audio>
             `,
             hunt: `
-                <p>Il peut être vu plus longtemps lorsqu'il chasse.</p>
+                <p>Il peut être vu plus longtemps lorsqu'il chasse (il est visible entre 0.08 et 0.3 secondes avant de devenir invisible).</p>
             `,
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>
@@ -469,7 +469,7 @@ export const GHOST_DATABASE = (ghostSpeed = '100', difficultyMultiplier = 1.0): 
             `,
             hunt: `
                 <p>Si il est prit en photo durant une chasse, il ne sera pas visible sur la photo.</p>
-                <p>Le fantôme clignotte environs toutes les 1  ~ 2s comparé aux autres qui ont 0.3 ~ 1s de délais.</p>
+                <p>Le fantôme est invisible durant une période de 1 à 2 secondes comparé aux autres entités qui ont une période d'invisiblité de 0.3 à 1 seconde lors d'une chasse.</p>
             `,
             speed: `
                 <p><strong>Vitesse de base :</strong> ${difficultyMultiplier * 1.7} m/s</p>

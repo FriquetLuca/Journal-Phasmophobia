@@ -681,7 +681,7 @@ export const interactiveDatabase: {[label: string]: any} = {
                         ghostHTMLElement.style.display = "none";
                         ghostResults--;
                     }
-                } else {
+                } else if(hiddenEvidences.includes('ghost-orb')) {
                     if(ghostName === 'mimic') {
                         ghostHTMLElement.style.display = "none";
                         ghostResults--;
